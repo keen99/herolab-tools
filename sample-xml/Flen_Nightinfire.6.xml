@@ -1,0 +1,1193 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<document>
+    <public>
+        <program name="Hero Lab" url="https://www.wolflair.com">
+            <programinfo>Hero Lab and the Hero Lab logo are Registered Trademarks of LWD Technology, Inc. Free download at https://www.wolflair.com
+Contents copyright Wizards of the Coast, Inc. 'd20 System' is a trademark of Wizards of the Coast, Inc. and is used with permission.</programinfo>
+            <version version="8.9h" primary="8" secondary="9" tertiary="h" build="957"></version>
+        </program>
+        <localization language="eng" units="imperial"></localization>
+        <character active="yes" characterindex="1" nature="normal" role="pc" relationship="ally" type="Hero" name="Flen Nightinfire" playername="MK">
+            <race name="Human"></race>
+            <alignment name="Chaotic Good"></alignment>
+            <templates summary=""></templates>
+            <size name="Medium">
+                <space text="5'" value="5"></space>
+                <reach text="5'" value="5"></reach>
+            </size>
+            <deity name="Hippocrates"></deity>
+            <classes level="6" summary="Cleric 6" summaryabbr="Clr 6">
+                <class name="Cleric" level="6" spells="Memorized" casterlevel="6" castersource="Divine"></class>
+            </classes>
+            <senses></senses>
+            <auras></auras>
+            <health hitdice="6d8+12" hitpoints="51" damage="0" nonlethal="0" currenthp="51"></health>
+            <xp total="15000" text="15,000 XP"></xp>
+            <challengerating text="CR 6" value="6"></challengerating>
+            <money total="0" pp="0" gp="102" sp="6" cp="0"></money>
+            <personal gender="Female" age="21" hair="Black" eyes="Gray" skin="Reddish Black">
+                <description></description>
+                <charheight text="5' 9&quot;" value="69"></charheight>
+                <charweight text="150lb." value="150"></charweight>
+            </personal>
+            <languages>
+                <language name="Abyssal"></language>
+                <language name="Chultan" useradded="no"></language>
+                <language name="Common" useradded="no"></language>
+                <language name="Draconic"></language>
+                <language name="Dwarven"></language>
+                <language name="Infernal"></language>
+            </languages>
+            <attributes>
+                <attribute name="Strength">
+                    <attrvalue text="11" base="11" modified="11"></attrvalue>
+                    <attrbonus text="0" base="+0" modified="+0"></attrbonus>
+                </attribute>
+                <attribute name="Dexterity">
+                    <attrvalue text="17" base="17" modified="17"></attrvalue>
+                    <attrbonus text="+3" base="+3" modified="+3"></attrbonus>
+                </attribute>
+                <attribute name="Constitution">
+                    <attrvalue text="15" base="15" modified="15"></attrvalue>
+                    <attrbonus text="+2" base="+2" modified="+2"></attrbonus>
+                </attribute>
+                <attribute name="Intelligence">
+                    <attrvalue text="14" base="14" modified="14"></attrvalue>
+                    <attrbonus text="+2" base="+2" modified="+2"></attrbonus>
+                </attribute>
+                <attribute name="Wisdom">
+                    <attrvalue text="18" base="18" modified="18"></attrvalue>
+                    <attrbonus text="+4" base="+4" modified="+4"></attrbonus>
+                </attribute>
+                <attribute name="Charisma">
+                    <attrvalue text="14" base="14" modified="14"></attrvalue>
+                    <attrbonus text="+2" base="+2" modified="+2"></attrbonus>
+                </attribute>
+            </attributes>
+            <saves>
+                <save name="Fortitude Save" abbr="Fort" save="+8" base="+5" fromattr="+2" fromresist="+1" frommisc=""></save>
+                <save name="Reflex Save" abbr="Ref" save="+8" base="+2" fromattr="+3" fromresist="+1" frommisc="+2"></save>
+                <save name="Will Save" abbr="Will" save="+10" base="+5" fromattr="+4" fromresist="+1" frommisc=""></save>
+            </saves>
+            <defensive></defensive>
+            <damagereduction></damagereduction>
+            <immunities></immunities>
+            <resistances></resistances>
+            <weaknesses></weaknesses>
+            <armorclass ac="19" touch="13" flatfooted="16" fromarmor="+5" fromshield="" fromdexterity="+3" fromsize="" fromnatural="+1" fromdeflect="" fromdodge="" frommisc=""></armorclass>
+            <penalties>
+                <penalty name="Armor Check Penalty" text="0" value="0"></penalty>
+                <penalty name="Max Dex Bonus" text="8" value="8"></penalty>
+            </penalties>
+            <initiative total="+3" attrtext="+3" misctext="+0" attrname="Dexterity"></initiative>
+            <movement>
+                <speed text="30'" value="30"></speed>
+                <basespeed text="30'" value="30"></basespeed>
+                <special name="Aquatic Breath (Su)" type="Supernatural Ability" sourcetext="Feat">
+                    <description>Your reservoir of magic allows you to breathe normally even underwater.
+
+Prerequisite: Ability to cast 3rd-level spells.
+
+Benefit: As long as you have a water spell of 3rd level or higher available to cast, you can breathe normally in both air and water. This supernatural quality requires no activation.
+
+As a secondary benefit, you gain a +1 competence bonus to your caster level when casting water spells.</description>
+                    <specsource>Feat</specsource>
+                </special>
+            </movement>
+            <encumbrance carried="35.26" light="38" medium="76" heavy="115" level="Light Load"></encumbrance>
+            <skills>
+                <skill name="Appraise" attrbonus="2" attrname="Intelligence" value="2" ranks="0">
+                    <description>You can appraise common or well-known objects with a DC 12 Appraise check. Failure means that you estimate the value at 50% to 150% of its actual value.
+Appraising a rare or exotic item requires a successful check against DC 15, 20, or higher. If the check is successful, you estimate the value correctly; failure means you cannot estimate the item's value.
+
+Synergy: If you have 5 ranks in any Craft skill, you gain a +2 bonus to Appraise checks related to items made with that craft skill.</description>
+                </skill>
+                <skill name="Autohypnosis" attrbonus="4" attrname="Wisdom" value="4" ranks="0" trainedonly="yes" usable="no">
+                    <description>You have trained your mind to gain mastery over your body and the mind’s own deepest capabilities. This includes ignoring wounds from caltrops, memorizing large amounts of data, resisting death and fear, tolerating poison, and operating while disabled (at 0 hit points).
+
+Synergy: If you have 5 or more ranks in this skill, you get +2 to Knowledge (Psionics) checks. If you have 5 or more ranks in Concentration, you get a +2 bonus on Autohypnosis checks.</description>
+                </skill>
+                <skill name="Balance" attrbonus="3" attrname="Dexterity" value="3" ranks="0" armorcheck="yes">
+                    <description>Allows you to walk on precarious surfaces. A successful check lets you move at half your speed for 1 round. Failing means you can't move for 1 round, or falling if you fail by 5 or more. The difficulty varies with surface.
+
+Synergy: If you have 5 ranks in Tumble, you get a +2 bonus on Balance checks.</description>
+                </skill>
+                <skill name="Battle" attrbonus="4" attrname="Wisdom" value="4" ranks="0">
+                    <description>You are a skilled officer and manager of troops.  You can command others effectively on the field of battle.
+
+Check While the Knowledge (history) skill can represent a knowledge of warfare and tactics, this skill represents battlfield cunning and the ability to put tactics into action.  This skill also represents a general familiarity with tactics and can be used to perform any of the following actions.
+
+Find Advantage: Once per round as a free action you may use this skill to find the quickest route to higher ground, cover, concealment, or an effective place to hide (gaining a +2 circumstance bonus to any Bluff checks used to create a diversion to hide this round).
+
+Hunch: A successful check can reveal whether the enemy is fighting defensively to delay you, intends to concentrate on a specific objective, or simply wishes to retreat.  (If you have 5 or more ranks in Sense Motive, you gain a +2 synergy bonus to this check.)
+
+Recognize Ambush: This use of the skill allows you to recognize areas that would make effective ambush points, allowing you to either avoid an ambush or organzie one of your own.  This only bestows a general wariness; detecting hidden attackers still requires a successful Spot check.
+
+Find Weakness: An opposed Battle check against the leader of an enemy army to find a weakness in the opponent's strategy.
+
+Battle Task            DC
+Find Advantage           15
+Hunch                            20
+Recognize Ambush   20
+Find Weakness          Variable
+
+If you have 5 or more ranks in Knowledge (history) you get a +2 synergy bonus on Battle checks.
+
+Retry: A failed Battle check cannot be re-rolled unless something significant alters the makeup of the battle.
+
+Special: A ranger may apply his favored enemy bonus to Battle checks against an army composed mostly of or led by his favored enemy.</description>
+                </skill>
+                <skill name="Bluff" attrbonus="2" attrname="Charisma" value="2" ranks="0">
+                    <description>Opposed by the target's Sense Motive check. A successful Bluff check indicates that the target reacts as you wish, at least for a short time, to believe something that you want it to believe. Bluff can also be used for feinting in combat, among other things.
+
+Synergy: If you have 5 ranks in Bluff, you get a +2 bonus to Diplomacy, Intimidate and Sleight of Hand checks, as well as on Disguise checks made when you know you're being observed and try to act in character.</description>
+                </skill>
+                <skill name="Climb" attrbonus="0" attrname="Strength" value="0" ranks="0" armorcheck="yes">
+                    <description>With a successful Climb check, you can advance up, down or across a slope, a wall, or some other steep incline (or even a ceiling with handholds. A slope is any angle measuring less than 60 degrees; a wall is 60 degrees or more.
+
+Synergy: If you have 5 or more ranks in Use Rope, you get a +2 bonus on Climb checks made to climb involving a rope.</description>
+                </skill>
+                <skill name="Concentration" attrbonus="2" attrname="Constitution" value="3" ranks="0">
+                    <description>Make a Concentration check whenever you might be distracted (e.g., by taking damage) while engaged in some action that requires your full attention, such as spellcasting.</description>
+                </skill>
+                <skill name="Cooking" attrbonus="4" attrname="Wisdom" value="4" ranks="0">
+                    <description>New Open Content by Lone Wolf Development!
+
+You can cook tasty meals for your friends and aquaintances with a DC 20 Cooking check.</description>
+                </skill>
+                <skill name="Decipher Script" attrbonus="2" attrname="Intelligence" value="3" ranks="1" trainedonly="yes">
+                    <description>You can decipher writing in an unfamiliar language or a message written in an incomplete or archaic form. If the check succeeds, you understand the general content of about a page of writing.
+
+Synergy: If you have 5 or more ranks in Decipher Script, you get a +2 bonus on Use Magic Device checks involving scrolls.</description>
+                </skill>
+                <skill name="Diplomacy" attrbonus="2" attrname="Charisma" value="2" ranks="0">
+                    <description>You can change the attitudes of other NPCs with a successful check. The DC increases depending on the attitude of the NPC.
+
+Synergy: If you have 5 or more ranks in Bluff, Knowledge (Nobility &amp; Royalty) or Sense Motive, you get a +2 bonus on Diplomacy checks.</description>
+                </skill>
+                <skill name="Disable Device" attrbonus="2" attrname="Intelligence" value="3" ranks="1" trainedonly="yes">
+                    <description>Used for everything from jamming locks and sabotaging wheels to disarming and resetting complex traps.</description>
+                </skill>
+                <skill name="Disguise" attrbonus="2" attrname="Charisma" value="2" ranks="0">
+                    <description>Your disguise check determines how good a disguise you create is, and it is opposed by others Spot check results. If you don't draw any attention to yourself, others do not get to make Spot checks; suspicious people (such as guards at a city gate) can be assumed to be Taking 10 on their Spot checks.
+
+Synergy: If you have 5 or more ranks in Bluff, you get a +2 bonus on Disguise checks when you know that you're being observed and you act in character.</description>
+                </skill>
+                <skill name="Escape Artist" attrbonus="3" attrname="Dexterity" value="3" ranks="0" armorcheck="yes">
+                    <description>You can use this skill to escape various forms of restraints.
+
+Synergy: If you have 5 or more ranks in Escape Artist, you get a +2 bonus on Use Rope checks to bind someone. If you have 5 or more ranks in Use Rope, you get a +2 bonus on Escape Artist checks when escaping from rope bonds.</description>
+                </skill>
+                <skill name="Forgery" attrbonus="2" attrname="Intelligence" value="2" ranks="0">
+                    <description>You can forge official-looking document. The better or more unusual the document, the higher the DC.</description>
+                </skill>
+                <skill name="Gather Information" attrbonus="2" attrname="Charisma" value="2" ranks="0">
+                    <description>An evening's time, a few gold pieces for buying drinks and making friends, and a DC 10 Gather Information check get you a general idea of a city's major news items, assuming there are no obvious reasons why the information would be withheld. The higher your check result, the better the information.
+If you want to find out about a specific rumor, or a specific item, or obtain a map, or do something else along those lines, the DC for the check is 15 to 25, or even higher.
+
+Synergy: If you have 5 or more ranks in Knowledge (Local), you get a +2 bonus on Gather Information checks.</description>
+                </skill>
+                <skill name="Handle Animal" attrbonus="2" attrname="Charisma" value="4.5" ranks="2.5" trainedonly="yes">
+                    <description>This skill is used for everything from training an animal to perform specific tricks, to combat riding and performance.
+
+Synergy: If you have 5 or more ranks in Handle Animal, you get a +2 bonus on Ride checks and wild empathy checks.</description>
+                </skill>
+                <skill name="Heal" attrbonus="4" attrname="Wisdom" value="9" ranks="5">
+                    <description>First Aid can save a dying character, and Long-Term Care can help him or her recover. Treating a poison or disease requires a check against the poison or diseases DC.</description>
+                </skill>
+                <skill name="Hide" attrbonus="3" attrname="Dexterity" value="5" ranks="0" armorcheck="yes">
+                    <description>Your Hide check is opposed by the Spot check of anyone who might see you. You can move up to one half your normal speed while Hiding at no penalty; moving faster while hiding imposes a penalty on your Hide check. You need cover or concealment to attempt a Hide check.</description>
+                </skill>
+                <skill name="Hypnosis" attrbonus="2" attrname="Charisma" value="2" ranks="0" trainedonly="yes" usable="no">
+                    <description>You have studied the hidden workings of the human mind and can unlock its secrets.
+
+Check: You can use hypnosis to induce a deep, calming trance in your subject. The effects of a hypnotic trance are identical to those created by the hypnotism spell.
+
+Unlike the spell, however, the skill allows you to hypnotize only one target at a time, who does not receive the -2 penalty to her Will save. Each attempt to use hypnosis requires 1 hour. If the target is unwilling, you must first succeed at a Bluff check to disguise your intent.
+
+A Hypnosis check is opposed by the target's Will save. Loud or distracting surroundings grant a +2 circumstance modifier to the target's Will save. Willing targets can voluntarily choose not to make their saving throw.
+
+Once the target is hypnotized, you can either plant a suggestion (as per the hypnotism spell) or aid the recovery of a target who suffers from the effects of a failed Madness save. The latter option is detailed under "Recovering from Madness" in chapter 3.
+
+Retry: Generally, you cannot retry a Hypnosis check against an unwilling target; the target becomes too suspicious to cooperate. If attempting to hypnotize a willing target, you may retry freely. Retries are a vital component in the process of helping targets recover from Madness effects, in fact.</description>
+                </skill>
+                <skill name="Intimidate" attrbonus="2" attrname="Charisma" value="4" ranks="0">
+                    <description>You can change another's behavior with a successful check. Your Intimidate check is opposed by the target's modified level check (1d20 + character level or Hit Dice + target's Wisdom bonus [if any] + target's modifiers on saves against fear). If you beat your target's check result, you may treat the target as friendly, but only for the purpose of actions taken while it remains intimidated.
+
+Synergy: If you have 5 or more ranks in Bluff, you get a +2 bonus on Intimidate checks.</description>
+                </skill>
+                <skill name="Jump" attrbonus="0" attrname="Strength" value="0" ranks="0" armorcheck="yes">
+                    <description>You can make long or high jumps to traverse horizontal or vertical distances. For long jumps, the DC is equal to the horizontal distance cleared. For high jumps, the DC is equal to 4 times the vertical distance cleared.
+
+Synergy: If you have 5 or more ranks in Tumble, you get a +2 bonus on Jump checks. If you have 5 or more ranks in Jump, you get a +2 bonus on Tumble checks.
+
+Note that you receive -6 to your Jump skill for every 10 feet of your speed below 30, and a +4 for every 10 feet above 30.</description>
+                </skill>
+                <skill name="Knowledge: Arcana" attrbonus="2" attrname="Intelligence" value="7" ranks="5" trainedonly="yes">
+                    <description>You have studied the lore and discipline of Arcana (ancient mysteries, magical traditions, arcane symbols, cryptic phrases, constructs, dragons, magical beasts).
+
+Synergy: +2 to Spellcraft checks.</description>
+                </skill>
+                <skill name="Knowledge: Nature" attrbonus="2" attrname="Intelligence" value="5" ranks="1" trainedonly="yes">
+                    <description>You have studied the lore and discipline of Nature (animals, fey, giants, monstrous humanoids, plants, seasons and cycles, weather, vermin).
+
+Synergy: +2 to Survival checks made in aboveground natural environments (aquatic, desert, forest, hill, marsh, mountains or plains). If you have 5 or more ranks in Survival, you get a +2 bonus on Knowledge (nature) checks.</description>
+                </skill>
+                <skill name="Listen" attrbonus="4" attrname="Wisdom" value="4" ranks="0">
+                    <description>Test to hear noises. The DC varies by how quiet the noise is that you're trying to hear.</description>
+                </skill>
+                <skill name="Literacy" value="2" ranks="2" trainedonly="yes">
+                    <description>For every point you spend in this skill, you can read and write one additional language (Ability to speak the language is not required).</description>
+                </skill>
+                <skill name="Martial Lore" attrbonus="2" attrname="Intelligence" value="2.5" ranks="0.5" trainedonly="yes">
+                    <description>You can use this skill to identify martial maneuvers as soon as they are initiated.
+
+Check: You can identify maneuvers and disciplines used by a combatant. The DCs for Martial Lore checks relating to various tasks are summarized below.
+
+DC Task
+10 + maneuver level: Identify a maneuver being initiated by someone you can see. No action required. No retry.
+10 + maneuver level: Identify a maneuver recorded on a martial script. One try per day. Requires a full-round action.
+20 + target’s initiator level: Determine all disciplines known by a particular creature by watching it initiate at least one maneuver. No action required. Retry only if the subject initiates another maneuver.
+
+Action: Varies, as noted above.
+
+Try Again: See above.
+
+Special: A swordsage gains a +2 bonus on a Martial Lore check involving a maneuver in a discipline in which he has discipline focus.</description>
+                </skill>
+                <skill name="Mimic" attrbonus="2" attrname="Charisma" value="2" ranks="0" trainedonly="yes" usable="no">
+                    <description>You can reproduce the voices of others, or the sounds made by creatures you have heard.
+
+Check: You can attempt to disguise your voice as that of another person, or trick others into believing they have heard whatever creature sound you wish to mimic.  You must spend at least a day practicing your mimicry, or suffer a -5 circumstance penalty to your check.  You may not attempt to mimic people or creatures you have never heard before.  Anyone that hears you must make an opposed Listen check to realize that what they are hearing is not authentic.
+
+Retry: Generally, once you have failed to fool a target you cannot fool him again.  Any further Mimic checks (emulating other voices or noises) against the same person during that encounter suffer a -2 penalty.
+
+Special: If you have 6 or more ranks in Listen, you receive a +2 synergy bonus on Mimic checks.</description>
+                </skill>
+                <skill name="Monster Lore: Dragons" attrbonus="2" attrname="Intelligence" value="2" ranks="0">
+                    <description>Lore skills mix academic study with a broad overview of legend and superstition. Characters can attempt to use lore skills untrained (an Intelligence check, which the DM should roll) by relying on their knowledge of common folklore. However, folklore is often misleading. If a character trained in lore fails the skill check, she realizes that she simply does not know the needed information. If an untrained character fails the check, the DM should provide a skewed (or even dangerously unreliable) version of the desired information.</description>
+                </skill>
+                <skill name="Move Silently" attrbonus="3" attrname="Dexterity" value="5" ranks="0" armorcheck="yes">
+                    <description>Your Move Silently check is opposed by the Listen check of anyone who might hear you. You can move up to one-half your normal speed at no penalty; increasing your speed imposes a penalty depending on how fast you go. Noisy surfaces, such as bogs and undergrowth, are tough to move silently across, and impose a further modifier.</description>
+                </skill>
+                <skill name="Open Lock" attrbonus="3" attrname="Dexterity" value="3.5" ranks="0.5" trainedonly="yes">
+                    <description>The DC for Open Locks varies from 20 to 40, depending on the quality of the lock. Opening a lock is a full round action.</description>
+                </skill>
+                <skill name="Psicraft" attrbonus="2" attrname="Intelligence" value="2" ranks="0" trainedonly="yes" usable="no">
+                    <description>Use this skill to identify powers as they are manifest or powers already in place. The DC ranges from 15 + power level to identify a power, to 30+ for understanding a strange or unique psionic effect.
+
+Synergy: If you have 5 or more ranks in this skill, you get +2 to Use Psionic Device checks related to power stones. If you have 5 or more ranks in Knowledge: Psionics, you get a +2 bonus on Psicraft checks. If you have 5 or more ranks in Use Psionic Device, you get a +2 bonus on Psicraft checks to address power stones.</description>
+                </skill>
+                <skill name="Ride" attrbonus="3" attrname="Dexterity" value="3" ranks="0">
+                    <description>Make a Ride check when trying to do something special on a mount (for example, leap a chasm or use as cover).
+
+Synergy: If you have 5 or more ranks in Handle Animal, you get a +2 bonus on Ride checks.</description>
+                </skill>
+                <skill name="Search" attrbonus="2" attrname="Intelligence" value="2" ranks="0">
+                    <description>You must generally be within 10 feet of the object or surface to be searched. The DC ranges from 10 (for finding something in a pile of junk) to 30+ to find a well-hidden secret door.
+
+Synergy: If you have 5 or more ranks in Search, you get a +2 bonus on Search checks to find secret doors or hidden compartments.</description>
+                </skill>
+                <skill name="Sense Motive" attrbonus="4" attrname="Wisdom" value="6" ranks="0">
+                    <description>This skill allows you to avoid being Bluffed, and to determine when "something is up" or to assess someone's trustworthiness.
+
+Synergy: A ranger gains a bonus on Sense Motive checks when using this skill against a favored enemy. If you have the Negotiator feat, you get a +2 bonus on Sense Motive checks.</description>
+                </skill>
+                <skill name="Sleight of Hand" attrbonus="3" attrname="Dexterity" value="3.5" ranks="0.5" armorcheck="yes" trainedonly="yes">
+                    <description>A DC10 Sleight of Hand check lets you palm a coin-sized, unattended object. Performing a minor feat of legerdemain, such as making a coin disappear, also has a DC of 10 unless an observer is determined to note where the item went. When you use this skill under close observation, your skill check is opposed by the observer's Spot check.
+
+Synergy: If you have 5 or more ranks in Bluff, you get +2 on Sleight of Hand checks.</description>
+                </skill>
+                <skill name="Speak Language" value="2" ranks="2" trainedonly="yes">
+                    <description>For every point you spend in this skill, you can speak one additional language (chosen on the Personal tab).</description>
+                </skill>
+                <skill name="Spellcraft" attrbonus="2" attrname="Intelligence" value="6" ranks="2" trainedonly="yes">
+                    <description>Use this skill to identify spells as they are cast or spells already in place.
+
+Synergy: If you have 5 or more ranks in Knowledge (Arcana) you get a +2 bonus on Spellcraft checks. If you have 5 or more ranks in Use Magic Device, you get a +2 bonus on Spellcraft checks to decipher spells on scrolls. If you have 5 or more ranks in Spellcraft, you get a +2 bonus on Use Magic Device checks related to scrolls.</description>
+                </skill>
+                <skill name="Spot" attrbonus="4" attrname="Wisdom" value="5" ranks="1">
+                    <description>The Spot skill is used primarily to detect characters or creatures who are hiding. Typically, your Spot check is opposed by the Hide check of the creature trying not to be seen. Sometimes a creature isn't intentionally hiding but is still difficult to see, so a succesful Spot check is necessary to notice it.</description>
+                </skill>
+                <skill name="Survival" attrbonus="4" attrname="Wisdom" value="9" ranks="5">
+                    <description>You can keep yourself and others safe and fed in the wild. A single survival check may represent activity over the course of hours or a full day.
+
+Synergy: If you have 5 or more ranks in Survival, you get a +2 bonus on Knowledge (nature) checks. If you have 5 or more ranks in Knowledge (dungeoneering), you get a +2 bonus on Survival checks made while underground. If you have 5 or more ranks in Knowledge (nature), you get a +2 bonus on Survival checks in aboveground natural environments (aquatic, desert, forest, hill, marsh, mountains, and plains). If you have 5 or more ranks in Knowledge (geography), you get a +2 bonus on Survival checks made to keep from getting lost or to avoid natural hazards. If you have 5 or more ranks in Knowledge (the planes), you get a +2 bonus on Survival checks made while on other planes. If you have 5 or more ranks in Search, you get a +2 bonus on Survival checks to find or follow tracks.</description>
+                </skill>
+                <skill name="Swim" attrbonus="0" attrname="Strength" value="4" ranks="0" armorcheck="yes">
+                    <description>Allows you to swim for long periods without going underwater, risking death by drowning.
+
+Note that for Swim, your Armor Check Penalty is doubled.</description>
+                </skill>
+                <skill name="Tumble" attrbonus="3" attrname="Dexterity" value="4" ranks="1" armorcheck="yes" trainedonly="yes">
+                    <description>You can land softly when you fall, or tumble past opponents. You can also tumble to entertain an audience, as if using the Perform skill.
+
+Synergy: If you have 5 or more ranks in Tumble, you get a +2 bonus on Balance and Jump checks. If you have 5 or more ranks in Jump, you get a +2 bonus on Tumble checks.</description>
+                </skill>
+                <skill name="Use Magic Device" attrbonus="2" attrname="Charisma" value="3" ranks="1" trainedonly="yes">
+                    <description>You can use this skill to read a spell or activate a magic item. Use Magic Device lets you use a magic item as if you had the spell ability or class features of another class, as if you were a different race, or as if you were of a different alignment.
+
+Synergy: If you have 5 or more ranks in Spellcraft, you get a +2 bonus on Use Magic Device checks related to scrolls. If you have 5 or more ranks in Decipher Script, you get a +2 bonus on Use Magic Device checks related to scrolls. If you have 5 or more ranks in Use Magic Device, you get a +2 bonus to Spellcraft checks made to decipher spells on scrolls.</description>
+                </skill>
+                <skill name="Use Psionic Device" attrbonus="2" attrname="Charisma" value="2" ranks="0" trainedonly="yes" usable="no">
+                    <description>Use this skill to activate Psionic devices, including power stones and dorjes, that you could not otherwise activate. You can activate an item blindly, emulate an ability score or other feature, and other effects.
+
+Synergy: If you have 5 or more ranks in Psicraft, you get a +2 bonus on Use Psionic Device checks related to power stones. If you have 5 or more ranks in this skill, you get a +2 bonus on Psicraft checks to address power stones.</description>
+                </skill>
+                <skill name="Use Rope" attrbonus="3" attrname="Dexterity" value="3" ranks="0">
+                    <description>You can perform complex tasks with a rope, such as tying knots, splicing ropes together and using ropes to bind prisoners or climb surfaces.
+
+Synergy: If you have 5 or more ranks in Use Rope, you get a +2 bonus on Climb checks made to climb a rope, a knotted rope, or a rope-and-wall combination. If you have 5 or more ranks in Use Rope, you get a +2 bonus on Escape Artist checks when escaping from rope bonds. If you have 5 or more ranks in Escape Artist, you get a +2 bonus on checks made to bind someone.</description>
+                </skill>
+            </skills>
+            <skillabilities></skillabilities>
+            <feats>
+                <feat name="Additional Traits" categorytext="General">
+                    <description>You have more traits than normal.
+
+Benefit: You gain two Character Traits of your choice.  These traits must be chosen from different lists, and cannot be chosen from lists from which you have already selected a Character Trait. You must meet any additional qualifications for the Character Traits you choose—this feat cannot enable you to select a Dwarf Character Trait if you are an elf, for example.</description>
+                    <featcategory>General</featcategory>
+                </feat>
+                <feat name="Aquatic Breath (Su)" categorytext="Reserve">
+                    <description>Your reservoir of magic allows you to breathe normally even underwater.
+
+Prerequisite: Ability to cast 3rd-level spells.
+
+Benefit: As long as you have a water spell of 3rd level or higher available to cast, you can breathe normally in both air and water. This supernatural quality requires no activation.
+
+As a secondary benefit, you gain a +1 competence bonus to your caster level when casting water spells.</description>
+                    <featcategory>Reserve</featcategory>
+                </feat>
+                <feat name="Armor Proficiency (Heavy)" categorytext="General" profgroup="yes" useradded="no">
+                    <description>Prerequisites: Armor Proficiency (light), Armor Proficiency (medium).
+
+Benefit: When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Sleight of Hand, and Tumble checks.
+
+Normal: A character who is wearing armor with which she is not proficient applies its armor check penalty to attack rolls and to all skill checks that involve moving, including Ride.
+
+Special: Fighters, paladins, and clerics automatically have Armor Proficiency (heavy) as a bonus feat. They need not select it.</description>
+                    <featcategory>General</featcategory>
+                </feat>
+                <feat name="Armor Proficiency (Light)" categorytext="General" profgroup="yes" useradded="no">
+                    <description>Benefit: When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Sleight of Hand, and Tumble checks.
+
+Normal: A character who is wearing armor with which she is not proficient applies its armor check penalty to attack rolls and to all skill checks that involve moving, including Ride.
+
+Special: All characters except wizards, sorcerers, and monks automatically have Armor Proficiency (light) as a bonus feat. They need not select it.</description>
+                    <featcategory>General</featcategory>
+                </feat>
+                <feat name="Armor Proficiency (Medium)" categorytext="General" profgroup="yes" useradded="no">
+                    <description>Prerequisites: Armor Proficiency (light).
+
+Benefit: When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Sleight of Hand, and Tumble checks.
+
+Normal: A character who is wearing armor with which she is not proficient applies its armor check penalty to attack rolls and to all skill checks that involve moving, including Ride.
+
+Special: Fighters, barbarians, paladins, clerics, druids, and bards automatically have Armor Proficiency (medium) as a bonus feat. They need not select it.</description>
+                    <featcategory>General</featcategory>
+                </feat>
+                <feat name="Augment Healing" categorytext="General">
+                    <description>Prerequisite: Heal 4 ranks
+
+Benefit: Add +2 points per spell level to the amount of damage healed by any Conjuration [Healing] spell that you cast.
+
+For example, a 1st-level cleric with this feat casting cure light wounds would restore 1d8+3 hp. An 8th-level cleric with the Healing domain and this feat casting cure moderate wounds would restore 2d8+13 hp (9 for his caster level including the +1 caster level bonus for the Healing domain, + 4 for the feat). A 13th-level druid casting heal would restore 144 hp (130 for her caster level + 14 for the feat, since heal is a 7th-level druid spell).</description>
+                    <featcategory>General</featcategory>
+                </feat>
+                <feat name="Brew Potion" categorytext="Item Creation">
+                    <description>Prerequisites: Caster level 3rd.
+
+Benefit: You can create a potion of any 3rd-level or lower spell that you know and that targets one or more creatures. Brewing a potion takes one day. When you create a potion, you set the caster level, which must be sufficient to cast the spell in question and no higher than your own level. The base price of a potion is its spell level x its caster level x 50 gp. To brew a potion, you must spend 1/25 of this base price in XP and use up raw materials costing one half this base price.
+When you create a potion, you make any choices that you would normally make when casting the spell. Whoever drinks the potion is the target of the spell.
+Any potion that stores a spell with a costly material component or an XP cost also carries a commensurate cost. In addition to the costs derived from the base price, you must expend the material component or pay the XP when creating the potion.</description>
+                    <featcategory>Item Creation</featcategory>
+                </feat>
+                <feat name="Devil's Favor" categorytext="Devil-Touched">
+                    <description>You have entered into an infernal pact with a dark power. In return for an indelible stain on your soul, and possibly an eternity of torment in Hell, you gain the ability to call upon the powers of Hell to aid your efforts.
+
+Prerequisite: Pact with devil.
+
+Benefit: When you attempt an attack, save, or check of any sort, you can beseech the dark powers to aid you. You gain a +2 bonus on the attack, save, or check.
+
+You can use this ability a number of times per day equal to the total number of devil-touched feats you have selected, including this one.
+
+Source: Fiendish Codex 2</description>
+                    <featcategory>Devil-Touched</featcategory>
+                </feat>
+                <feat name="Devil's Sight" categorytext="Devil-Touched">
+                    <description>Your eyes glow red with infernal energy, allowing you to pierce magical darkness.
+
+Prerequisites: Wis 15, Devil’s Favor.
+
+Benefit: You gain darkvision out to 60 feet. If you already have darkvision, its range improves by 60 feet. In addition, as a swift action, you can gain blindsight out to 30 feet for 5 rounds.
+
+You can use your blindsight ability a number of times per day equal to the total number of devil-touched feats you have selected, including this one.
+
+Source: Fiendish Codex 2</description>
+                    <featcategory>Devil-Touched</featcategory>
+                </feat>
+                <feat name="Devil's Stamina" categorytext="Devil-Touched">
+                    <description>Your body is infused with the toughness and fortitude of a devil. You can shrug off attacks that would slay a lesser creature.
+
+Prerequisites: Devil’s Favor, base Fortitude save +3.
+
+Benefit: You gain 2 extra hit points per devil-touched feat you have selected, including this one. These hit points add to your maximum hit points, just like hit points from any other source.
+
+In addition, once per day you gain fast healing equal to the number of devil-touched feats you possess for 5 rounds.
+
+Source: Fiendish Codex 2</description>
+                    <featcategory>Devil-Touched</featcategory>
+                </feat>
+                <feat name="Eschew Materials" categorytext="General">
+                    <description>Benefit: You can cast any spell that has a material component costing 1 gp or less without needing that component. (The casting of the spell still provokes attacks of opportunity as normal.) If the spell requires a material component that costs more than 1 gp, you must have the material component at hand to cast the spell, just as normal.</description>
+                    <featcategory>General</featcategory>
+                </feat>
+                <feat name="Shield Proficiency" categorytext="General" profgroup="yes" useradded="no">
+                    <description>Benefit: You can use a shield and take only the standard penalties.
+
+Normal: When you are using a shield with which you are not proficient, you take the shield's armor check penalty on attack rolls and on all skill checks that involve moving, including Ride checks.
+
+Special: Barbarians, bards, clerics, druids, fighters, paladins, and rangers automatically have Shield Proficiency as a bonus feat. They need not select it.</description>
+                    <featcategory>General</featcategory>
+                </feat>
+                <feat name="Simple Weapon Proficiency - All" categorytext="General" profgroup="yes" useradded="no">
+                    <description>Benefit: You are proficient with all Simple weapons.
+
+Normal: When using a weapon with which you are not proficient, you are at -4 to attack rolls.</description>
+                    <featcategory>General</featcategory>
+                </feat>
+                <feat name="Snake Blood" categorytext="Regional" useradded="no">
+                    <description>Prerequisite: Human (Chult, the Lake of Steam, Lapaliiya, Samarach, Tashalar, Tharsult, Thindol, the Vilhon Reach, or the Western Heartlands)
+
+Benefit: You gain a +2 bonus on Reflex saving throws and a +2 bonus on Fortitude saves against poison.
+
+Special: You may select this feat only as a 1st-level character. You may have only one regional feat.
+
+Source: Player's Guide to Faerûn, 3.5 Edition</description>
+                    <featcategory>Regional</featcategory>
+                </feat>
+            </feats>
+            <traits>
+                <trait name="Birthmark" categorytext="Faith">
+                    <description>You were born with a strange birthmark that looks very similar to the holy symbol of the god you chose to worship later in life. This birthmark can serve you as a divine focus for casting spells, and, as a physical manifestation of your faith, increases your devotion to your god.
+
+Benefit: You gain a +2 trait bonus on all saving throws against charm and compulsion effects as a result.</description>
+                    <traitcategory>Faith</traitcategory>
+                </trait>
+                <trait name="Chult - Snake Blood" categorytext="Regional">
+                    <description>Required Race: Dwarf, Human
+Recommended Subraces (Dwarf): Wild Dwarf
+Recommended Subraces (Human): Chultan, Tashalan
+Automatic Languages (Dwarf): Chultan, Dwarven
+Automatic Languages (Human): Chultan
+Bonus Languages: (Dwarf) Draconic, Goblin, Ingan, Shaaran, Tashalan
+Bonus Languages: (Human) Alzhedo, Draconic, Dwarven, Goblin, Shaaran, Sylvan
+Favored Deities (Dwarf): Thard Harr
+Favored Deities (Human): Shar, Thard Harr, Ubtao
+Regional Feats (Dwarf): Disentangler, Jungle Stamina, Survivor
+Regional Feats (Human): Foe Hunter (goblinoid), Snake Blood, Survivor
+Bonus Equipment (Dwarf): (A) Hand axe/shortspear (B) 3 doses black adder venom (C) +100 gp
+Bonus Equipment (Human): (A) Kukri/Shortspear (B) 2 doses Larger monstrous scorpion poison (C) +100 gp
+Knowledge Local: Chult</description>
+                    <traitcategory>Regional</traitcategory>
+                </trait>
+                <trait name="Focused Mind" categorytext="Magic">
+                    <description>Your childhood was either dominated by lessons of some sort (be they musical or academic) or by a horrible home life that encouraged your ability to block out distractions to focus on the immediate task at hand.
+
+Benefit: You gain a +1 bonus on Concentration checks, and Concentration is always a class skill for you.</description>
+                    <traitcategory>Magic</traitcategory>
+                </trait>
+                <trait name="Wisdom in the Flesh (Irori) - Swim" categorytext="Religion">
+                    <description>Your meditation on the nature of strength and speed allows you to focus your thoughts to achieve things your body might not be able
+to do on its own. Select any Strength, Constitution, or Dexterity-based skill.
+
+Benefit: You make checks with that skill using your Wisdom modifier instead of its normal ability score. That skill is always a class skill for you.</description>
+                    <traitcategory>Religion</traitcategory>
+                </trait>
+            </traits>
+            <flaws>
+                <flaw name="Metal Intolerance">
+                    <description>You are allergi to metals.
+
+Effect: You suffer an additional point of damage when struck by metal weapons.  The natural attacks of inevitables, iron golems, and other creatures composed of metal also deal this additional damage.
+
+Source: Dragon #324</description>
+                </flaw>
+            </flaws>
+            <skilltricks></skilltricks>
+            <attack attackbonus="+4" meleeattack="+4" rangedattack="+7" baseattack="+4"></attack>
+            <melee>
+                <weapon name="Firestar" categorytext="Melee Weapon" typetext="B/P" attack="+6" damage="1d8+2" crit="20/x2" equipped="mainhand" quantity="1">
+                    <weight text="6lbs" value="6"></weight>
+                    <cost text="9508 GP" value="9508"></cost>
+                    <description>Fever Iron</description>
+                    <wepcategory>Melee Weapon</wepcategory>
+                    <weptype>Bludgeoning</weptype>
+                    <weptype>Piercing</weptype>
+                </weapon>
+                <weapon name="Silver Blade, Retractable" categorytext="Melee Weapon" typetext="P" attack="+5" damage="1d4" crit="19-20/x2" quantity="1">
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="304 GP" value="304"></cost>
+                    <description>A retractable blade is a simple weapon. You can release the blade as a free action. Pressing the blade back into its hilt is a move action that provokes attacks of opportunity. To notice the blade while it is retracted, an observer must make a successful Search check (DC 20). The DC drops to 15 if the observer physically examines the object.
+
+Silvered</description>
+                    <wepcategory>Melee Weapon</wepcategory>
+                    <weptype>Piercing</weptype>
+                </weapon>
+                <weapon name="Spell, Touch" categorytext="Melee Weapon" typetext="" attack="+4" damage="By Spell" crit="20/x2" quantity="1">
+                    <weight text="" value="0"></weight>
+                    <cost text="" value="0"></cost>
+                    <description></description>
+                    <wepcategory>Melee Weapon</wepcategory>
+                </weapon>
+                <weapon name="Unarmed Strike" categorytext="Melee Weapon, Unarmed Attack" typetext="B" attack="+4" damage="1d3" crit="20/x2" useradded="no" quantity="1">
+                    <weight text="" value="0"></weight>
+                    <cost text="" value="0"></cost>
+                    <description>A Medium character deals 1d3 points of nonlethal damage with an unarmed strike. A Small character deals 1d2 points of nonlethal damage. A monk or any character with the Improved Unarmed Strike feat can deal lethal or nonlethal damage with unarmed strikes, at her option. The damage from an unarmed strike is considered weapon damage for the purposes of effects that give you a bonus on weapon damage rolls.
+
+An unarmed strike is always considered a light weapon. Therefore, you can use the Weapon Finesse feat to apply your Dexterity modifier instead of your Strength modifier to attack rolls with an unarmed strike. </description>
+                    <wepcategory>Melee Weapon</wepcategory>
+                    <wepcategory>Unarmed Attack</wepcategory>
+                    <weptype>Bludgeoning</weptype>
+                </weapon>
+            </melee>
+            <ranged>
+                <weapon name="DarkBow" categorytext="Projectile Weapon" typetext="P" attack="+6" damage="1d8+1" crit="19-20/x2" quantity="1">
+                    <rangedattack attack="+6" rangeinctext="80'" rangeincvalue="80'"></rangedattack>
+                    <weight text="2lbs" value="2"></weight>
+                    <cost text="2375 GP" value="2375"></cost>
+                    <description>You can shoot a Light Crossbow with one hand with a -2 penalty to attack rolls. Loading requires both hands.
+
+Darkwood: Weighs half as much as normal. Shields have their Armor Check Penalty reduced by 2.</description>
+                    <wepcategory>Projectile Weapon</wepcategory>
+                    <weptype>Piercing</weptype>
+                </weapon>
+                <weapon name="Spell, Ranged" categorytext="Projectile Weapon" typetext="" attack="+7" damage="By Spell" crit="20/x2" quantity="1">
+                    <rangedattack attack="+7" rangeinctext="" rangeincvalue=""></rangedattack>
+                    <weight text="" value="0"></weight>
+                    <cost text="" value="0"></cost>
+                    <description></description>
+                    <wepcategory>Projectile Weapon</wepcategory>
+                </weapon>
+            </ranged>
+            <defenses>
+                <armor name="Natural Armor" ac="+1" equipped="yes" natural="yes" useradded="no" quantity="1">
+                    <weight text="" value="0"></weight>
+                    <cost text="" value="0"></cost>
+                    <description></description>
+                    <itemslot>Body</itemslot>
+                </armor>
+                <armor name="ShadowShark" ac="+5" equipped="yes" quantity="1">
+                    <weight text="3.75lbs" value="3.75"></weight>
+                    <cost text="5735 GP" value="5735"></cost>
+                    <description>Similar to leather armor in appearance, sharkskin is treated so that the sharp tooth like scales covering the skin remain attached to the outside of the armor. Additionally, shark teeth are embedded along the forearms, shoulders, and legs, which count as armor spikes. Sharkskin armor provides a +6 circumstance bonus on Escape Artist checks made when the wearer is bound with rope or similar easily cut bindings.
+
+Shadow Silk</description>
+                    <itemslot>Body</itemslot>
+                </armor>
+            </defenses>
+            <magicitems>
+                <item name="Amulet of Natural Armor +1" quantity="1">
+                    <weight text="" value="0"></weight>
+                    <cost text="2000 GP" value="2000"></cost>
+                    <description>This amulet, usually crafted from bone or beast scales, toughens the wearer's body and flesh, giving him an enhancement bonus to his natural armor bonus of from +1 to +5, depending on the kind of amulet.
+
+Faint transmutation; CL 5th; Craft Wondrous Item, barkskin, creator's caster level must be at least three times the amulet's bonus; Price 2,000 gp.</description>
+                    <itemslot>Throat</itemslot>
+                </item>
+                <item name="Bag of Holding I (22 @ 32.16 lbs)" quantity="1">
+                    <weight text="15lbs" value="15"></weight>
+                    <cost text="2500 GP" value="2500"></cost>
+                    <description>This appears to be a common cloth sack about 2 feet by 4 feet in size. The bag of holding opens into a nondimensional space
+
+Bag - Bag Weight - Contents Weight Limit - Contents Volume Limit - Market Price
+
+Type I - 15 lb. - 250 lb. - 30 cu. ft. - 2,500 gp
+
+Type II - 25 lb. - 500 lb. - 70 cu. ft. - 5,000 gp
+
+Type III - 35 lb. - 1,000 lb. - 150 cu. ft. - 7,400 gp
+
+Type IV - 60 lb. - 1,500 lb. - 250 cu. ft. - 10,000 gp
+
+If the bag is overloaded, or if sharp objects pierce it (from inside or outside), the bag ruptures and is ruined. All contents are lost forever. If a bag of holding is turned inside out, its contents spill out, unharmed, but the bag must be put right before it can be used again. If living creatures are placed within the bag, they can survive for up to 10 minutes, after which time they suffocate. Retrieving a specific item from a bag of holding is a move action - unless the bag contains more than an ordinary backpack would hold, in which case retrieving a specific item is a full-round action.
+
+If a bag of holding is placed within a portable hole a rift to the Astral Plane is torn in the space: Bag and hole alike are sucked into the void and forever lost. If a portable hole is placed within a bag of holding, it opens a gate to the Astral Plane: The hole, the bag, and any creatures within a 10-foot radius are drawn there, destroying the portable hole and bag of holding in the process.
+
+Moderate conjuration; CL 9th; Craft Wondrous Item, secret chest.</description>
+                </item>
+                <item name="DarkBow" quantity="1">
+                    <weight text="2lbs" value="2"></weight>
+                    <cost text="2375 GP" value="2375"></cost>
+                    <description>You can shoot a Light Crossbow with one hand with a -2 penalty to attack rolls. Loading requires both hands.
+
+Darkwood: Weighs half as much as normal. Shields have their Armor Check Penalty reduced by 2.</description>
+                </item>
+                <item name="Firestar" quantity="1">
+                    <weight text="6lbs" value="6"></weight>
+                    <cost text="9508 GP" value="9508"></cost>
+                    <description>Fever Iron</description>
+                </item>
+                <item name="Jo" quantity="1">
+                    <weight text="2lbs" value="2"></weight>
+                    <cost text="" value="0"></cost>
+                    <description>A jo is a shorter version of a bo (quarterstaff), usually 3 feet or so in length.</description>
+                </item>
+                <item name="Potion of Remove Disease" quantity="1">
+                    <weight text="" value="0"></weight>
+                    <cost text="750 GP" value="750"></cost>
+                    <description>Cures all diseases affecting subject.</description>
+                </item>
+                <item name="Ring of Resistance, +1" quantity="1">
+                    <weight text="0.01lbs" value="0.01"></weight>
+                    <cost text="1000 GP" value="1000"></cost>
+                    <description>This ring offers magic protection in the form of a +1 to +5 resistance bonus on all saving throws (Fortitude, Reflex, and Will).
+
+Faint abjuration; CL 5th; Craft Wondrous Item or Craft Ring, resistance, creator's caster level must be at least three times the ring's bonus; Price 1,000 gp; Weight -- lb.</description>
+                    <itemslot>Ring</itemslot>
+                </item>
+                <item name="ShadowShark" quantity="1">
+                    <weight text="3.75lbs" value="3.75"></weight>
+                    <cost text="5735 GP" value="5735"></cost>
+                    <description>Similar to leather armor in appearance, sharkskin is treated so that the sharp tooth like scales covering the skin remain attached to the outside of the armor. Additionally, shark teeth are embedded along the forearms, shoulders, and legs, which count as armor spikes. Sharkskin armor provides a +6 circumstance bonus on Escape Artist checks made when the wearer is bound with rope or similar easily cut bindings.
+
+Shadow Silk</description>
+                    <itemslot>Body</itemslot>
+                </item>
+                <item name="Silver Blade, Retractable" quantity="1">
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="304 GP" value="304"></cost>
+                    <description>A retractable blade is a simple weapon. You can release the blade as a free action. Pressing the blade back into its hilt is a move action that provokes attacks of opportunity. To notice the blade while it is retracted, an observer must make a successful Search check (DC 20). The DC drops to 15 if the observer physically examines the object.
+
+Silvered</description>
+                </item>
+                <item name="Wand of Cure Light Wounds" quantity="1">
+                    <weight text="" value="0"></weight>
+                    <cost text="750 GP" value="750"></cost>
+                    <description>(Caster Level 1st)</description>
+                </item>
+            </magicitems>
+            <gear>
+                <item name="Acid Neutralizer" quantity="1">
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="50 GP" value="50"></cost>
+                    <description>Acid Neutralizer reduces the strength of non magical acid, such as the typ found in a variety of common dungeon traps.
+
+DESCRIPTION:  Acid neutralizer is a slippery white substance similar in appearance to soap.  It is made and sold in fist-sized lumps wrapped in brown wax paper.  When dropped in acide, the neutralizer foams and fizzles, turbulently churning the acid for 5 seconds.  Neutralized acid takes on the appearance of weakly colored water, retaining only a slight tint and no odor whatsoever.
+
+ACTIVATION:  To use a lump of acid neutralizer, just drop it into a vessel containing acid (a free action). Unwraping the lump is not necessary, because any acid strong enough to warrant neutralization will eat through the paper wrapping easily.  Neutralization requires a full round and the acid will remain at full strength until the start of your next turn.
+
+If you are immersed in acid while carrying lumps of acid neutralizer, they immediately activate unless stored in a stronger container, such as a metal tin.  Being splashed by acid might activate the neutralizer if you keep it exposed, rather than stored in a jar.  
+
+EFFECT:  If you drop one lump of acid neutralizer into a container holding up to 10 cubic feet of non magical acid, the acid is permanently weakened such that contact with the acid deals no damage.  Complete immersion in neutralized acid deals only 5d6 points of damage (instead of 10d6 points).  Acid that has been neutralized in this manner no longer gives off toxic fumes (DMG 302).  Larger volumes of acid require additional doses; two lumps are needed to neutralize 20 cubic foot vat of acid.
+
+Neutralizer is far less effective against magic acids, which regain their full acidity after 3d6 rounds.
+
+If you wear a lump of acid neutralizer in a necklace or carry it otherwise exposed on your body, the lump prevents continuing damage from acid attacks for 1 minute after initial exposure.  It has no effect against the initial damage dealt by an acid attack.
+
+Construction:  DC 20 Craft (alchemy) check, 17 gp.</description>
+                </item>
+                <item name="Acid Neutralizer" quantity="1">
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="50 GP" value="50"></cost>
+                    <description>Acid Neutralizer reduces the strength of non magical acid, such as the typ found in a variety of common dungeon traps.
+
+DESCRIPTION:  Acid neutralizer is a slippery white substance similar in appearance to soap.  It is made and sold in fist-sized lumps wrapped in brown wax paper.  When dropped in acide, the neutralizer foams and fizzles, turbulently churning the acid for 5 seconds.  Neutralized acid takes on the appearance of weakly colored water, retaining only a slight tint and no odor whatsoever.
+
+ACTIVATION:  To use a lump of acid neutralizer, just drop it into a vessel containing acid (a free action). Unwraping the lump is not necessary, because any acid strong enough to warrant neutralization will eat through the paper wrapping easily.  Neutralization requires a full round and the acid will remain at full strength until the start of your next turn.
+
+If you are immersed in acid while carrying lumps of acid neutralizer, they immediately activate unless stored in a stronger container, such as a metal tin.  Being splashed by acid might activate the neutralizer if you keep it exposed, rather than stored in a jar.  
+
+EFFECT:  If you drop one lump of acid neutralizer into a container holding up to 10 cubic feet of non magical acid, the acid is permanently weakened such that contact with the acid deals no damage.  Complete immersion in neutralized acid deals only 5d6 points of damage (instead of 10d6 points).  Acid that has been neutralized in this manner no longer gives off toxic fumes (DMG 302).  Larger volumes of acid require additional doses; two lumps are needed to neutralize 20 cubic foot vat of acid.
+
+Neutralizer is far less effective against magic acids, which regain their full acidity after 3d6 rounds.
+
+If you wear a lump of acid neutralizer in a necklace or carry it otherwise exposed on your body, the lump prevents continuing damage from acid attacks for 1 minute after initial exposure.  It has no effect against the initial damage dealt by an acid attack.
+
+Construction:  DC 20 Craft (alchemy) check, 17 gp.</description>
+                </item>
+                <item name="Bolts, Crossbow" quantity="10">
+                    <weight text="0.1lbs" value="0.1"></weight>
+                    <cost text="1 GP" value="1"></cost>
+                    <description>A crossbow bolt used as a melee weapon is treated as a light improvised weapon (-4 penalty on attack rolls) and deals damage as a dagger of its size (crit x2). Bolts come in a wooden case that holds 10 bolts (or 5, for a repeating crossbow). A bolt that hits its target is destroyed; one that misses has a 50% chance of being destroyed or lost.</description>
+                </item>
+                <item name="Bolts, Tumbling" quantity="10">
+                    <weight text="0.2lbs" value="0.2"></weight>
+                    <cost text="50 GP" value="50"></cost>
+                    <description>A tumbling bolt resembles a standard crossbow bolt except for a few miniscule holes and vents along the shaft. A channel allows air to pass through the bolt, which causes the bolt to tumble when fired. The bolt deals +2 damage, but only has one half its normal range increment due to the way the projectile moves through the air.</description>
+                </item>
+                <item name="Holy symbol, silver" quantity="1">
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="25 GP" value="25"></cost>
+                    <description>A holy symbol focuses positive energy. A cleric or paladin uses it as the focus for his spells and as a tool for turning undead. Each religion has its own holy symbol.
+Unholy Symbols: An unholy symbol is like a holy symbol except that it focuses negative energy and is used by evil clerics (or by neutral clerics who want to cast evil spells or command undead).</description>
+                </item>
+                <item name="Holy water (flask)" quantity="5">
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="125 GP" value="125"></cost>
+                    <description>Holy water damages undead creatures and evil outsiders almost as if it were acid. A flask of holy water can be thrown as a splash weapon.
+Treat this attack as a ranged touch attack with a range increment of 10 feet. A flask breaks if thrown against the body of a corporeal creature, but to use it against an incorporeal creature, you must open the flask and pour the holy water out onto the target. Thus, you can douse an incorporeal creature with holy water only if you are adjacent to it. Doing so is a ranged touch attack that does not provoke attacks of opportunity.
+A direct hit by a flask of holy water deals 2d4 points of damage to an undead creature or an evil outsider. Each such creature within 5 feet of the point where the flask hits takes 1 point of damage from the splash.
+Temples to good deities sell holy water at cost (making no profit).</description>
+                </item>
+                <item name="Insignia of Healing" quantity="10">
+                    <weight text="" value="0"></weight>
+                    <cost text="" value="0"></cost>
+                    <description>This item can be customized to represent whatever you want.</description>
+                </item>
+                <item name="Pouch, belt (2 @ 1 lbs)" quantity="1">
+                    <weight text="0.5lbs" value="0.5"></weight>
+                    <cost text="1 GP" value="1"></cost>
+                    <description></description>
+                </item>
+                <item name="Rations, trail (per day)" quantity="10">
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="5 GP" value="5"></cost>
+                    <description></description>
+                </item>
+                <item name="Rope, silk (50 ft.)" quantity="2">
+                    <weight text="5lbs" value="5"></weight>
+                    <cost text="20 GP" value="20"></cost>
+                    <description>This rope has 4 hit points and can be burst with a DC 24 Strength check. It is so supple that it provides a +2 circumstance bonus on Use Rope checks.</description>
+                </item>
+                <item name="Spell component pouch" quantity="1">
+                    <weight text="2lbs" value="2"></weight>
+                    <cost text="5 GP" value="5"></cost>
+                    <description>A spellcaster with a spell component pouch is assumed to have all the material components and focuses needed for spellcasting, except for those components that have a specific cost, divine focuses, and focuses that wouldn't fit in a pouch.</description>
+                </item>
+                <item name="Sunrod" quantity="2">
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="4 GP" value="4"></cost>
+                    <description>This 1-foot-long, gold-tipped, iron rod glows brightly when struck. It clearly illuminates a 30-foot radius and provides shadowy illumination in a 60-foot radius. It glows for 6 hours, after which the gold tip is burned out and worthless.</description>
+                </item>
+                <item name="Tindertwig" quantity="5">
+                    <weight text="" value="-1"></weight>
+                    <cost text="5 GP" value="5"></cost>
+                    <description>The alchemical substance on the end of this small, wooden stick ignites when struck against a rough surface. Creating a flame with a tindertwig is much faster than creating a flame with flint and steel (or a magnifying glass) and tinder. Lighting a torch with a tindertwig is a standard action (rather than a full-round action), and lighting any other fire with one is at least a standard action.</description>
+                </item>
+                <item name="Wand Wrist Holster" quantity="1">
+                    <weight text="" value="0"></weight>
+                    <cost text="1 GP" value="1"></cost>
+                    <description>Use this item to represent a bag or other container in which gear can be carried around.</description>
+                </item>
+                <item name="Waterskin" quantity="1">
+                    <weight text="4lbs" value="4"></weight>
+                    <cost text="1 GP" value="1"></cost>
+                    <description></description>
+                </item>
+            </gear>
+            <otherspecials>
+                <special name="Aura (Ex)" type="Extraordinary Ability" sourcetext="Cleric">
+                    <description>A cleric who follows a chaotic, evil, good or lawful deity has a powerful aura corresponding to his deity's alignment. If the cleric doesn't worship a specific deity but chooses the Chaos, Evil, Good or Law domains he has a similar aura.</description>
+                    <specsource>Cleric</specsource>
+                </special>
+                <special name="Cast Healing spells at +1 caster level" sourcetext="Cleric Domain">
+                    <description>You cast Healing spells at +1 caster level.</description>
+                    <specsource>Cleric Domain</specsource>
+                </special>
+                <special name="Freedom of Movement (1 round/level/day) (Su)" sourcetext="Cleric Domain">
+                    <description>For a total time per day of 1 round per cleric level you possess, you can act normally regardless of magical effects that impede movement as if you were affected by the spell freedom of movement. This effect occurs automatically as soon as it applies, lasts until it runs out or is no longer needed, and can operate multiple times per day (up to the total daily limit of rounds). This granted power is a supernatural ability.</description>
+                    <specsource>Cleric Domain</specsource>
+                </special>
+                <special name="Healing" sourcetext="Cleric">
+                    <description>You cast healing spells at +1 caster level.
+
+Healing Domain Spells
+1 - Cure Light Wounds: Cures 1d8 damage +1/level (max +5).
+2 - Cure Moderate Wounds: Cures 2d8 damage +1/level (max +10).
+3 - Cure Serious Wounds: Cures 3d8 damage +1/level (max +15).
+4 - Cure Critical Wounds: Cures 4d8 damage +1/level (max +20).
+5 - Cure Light Wounds, Mass: Cures 1d8 damage +1/level (max +25) for many creatures.
+6 - Heal: Cures 10 points/level of damage, all diseases and mental conditions.
+7 - Regenerate: Subject’s severed limbs grow back, cures 4d8 damage +1/level (max +35).
+8 - Cure Critical Wounds, Mass: Cures 4d8 damage +1/level (max +40) for many creatures.
+9 - Heal, Mass: As heal, but with several subjects.</description>
+                    <specsource>Cleric</specsource>
+                </special>
+                <special name="Reserve Bonus (water)" sourcetext="Feat">
+                    <description>+1 competence bonus on caster level for water spells.</description>
+                    <specsource>Feat</specsource>
+                </special>
+                <special name="Spontaneous Casting" sourcetext="Cleric">
+                    <description>A good cleric (or neutral cleric of a good deity) can use up a prepared spell that isn't a domain spell to cast a Cure spell of the same or lower level. Evil clerics (or neutral clerics of evil deities) can do the same with Inflict spells.
+
+A cleric who meets neither of those criteria can do one, but not the other (player's choice).</description>
+                    <specsource>Cleric</specsource>
+                </special>
+                <special name="Subtype - Human">
+                    <description>Humans are supremely adaptive, short lived humanoids with a dizzying variety of cultures and who do not have a racial language.</description>
+                </special>
+                <special name="Travel" sourcetext="Cleric">
+                    <description>For a total time per day of 1 round per cleric level you possess, you can act normally regardless of magical effects that impede movement as if you were affected by the spell freedom of movement. This effect occurs automatically as soon as it applies, lasts until it runs out or is no longer needed, and can operate multiple times per day (up to the total daily limit of rounds). This granted power is a supernatural ability.
+
+Add Survival to your list of cleric class skills.
+
+Travel Domain Spells
+1 - Longstrider: Increases your speed.
+2 - Locate Object: Senses direction toward object (specific or type).
+3 - Fly: Subject flies at speed of 60 ft.
+4 - Dimension Door: Teleports you short distance.
+5 - Teleport: Instantly transports you as far as 100 miles/level.
+6 - Find the Path: Shows most direct way to a location.
+7 - Teleport, Greater: As teleport, but no range limit and no off-target arrival.
+8 - Phase Door: Creates an invisible passage through wood or stone.
+9 - Astral Projection: Projects you and companions onto Astral Plane.</description>
+                    <specsource>Cleric</specsource>
+                </special>
+                <special name="Turn Undead (5/day) (Su)" type="Supernatural Ability">
+                    <description>Good clerics and paladins and some neutral clerics can channel positive energy, which can halt, drive off (rout), or destroy undead. Evil clerics and some neutral clerics can channel negative energy, which can halt, awe (rebuke), control (command), or bolster undead. Regardless of the effect, the general term for the activity is "turning." When attempting to exercise their divine control over these creatures, characters make turning checks.
+
+Turning Checks
+Turning undead is a supernatural ability that a character can perform as a standard action. It does not provoke attacks of opportunity. You must present your holy symbol to turn undead. Turning is considered an attack.
+
+Times per Day
+You may attempt to turn undead a number of times per day equal to 3 + your Charisma modifier. You can increase this number by taking the Extra Turning feat.
+
+Range
+You turn the closest turnable undead first, and you can’t turn undead that are more than 60 feet away or that have total cover relative to you. You don’t need line of sight to a target, but you do need line of effect.
+
+Turning Check
+The first thing you do is roll a turning check to see how powerful an undead creature you can turn. This is a Charisma check (1d20 + your Charisma modifier). Table: Turning Undead gives you the Hit Dice of the most powerful undead you can affect, relative to your level. On a given turning attempt, you can turn no undead creature whose Hit Dice exceed the result on this table.
+
+Turning Damage
+If your roll on Table: Turning Undead is high enough to let you turn at least some of the undead within 60 feet, roll 2d6 + your cleric level + your Charisma modifier for turning damage. That’s how many total Hit Dice of undead you can turn. If your Charisma score is average or low, it’s possible to roll fewer Hit Dice of undead turned than indicated on Table: Turning Undead. You may skip over already turned undead that are still within range, so that you do not waste your turning capacity on them.
+
+Effect and Duration of Turning
+Turned undead flee from you by the best and fastest means available to them. They flee for 10 rounds (1 minute). If they cannot flee, they cower (giving any attack rolls against them a +2 bonus). If you approach within 10 feet of them, however, they overcome being turned and act normally. (You can stand within 10 feet without breaking the turning effect-you just can’t approach them.) You can attack them with ranged attacks (from at least 10 feet away), and others can attack them in any fashion, without breaking the turning effect.
+
+Destroying Undead
+If you have twice as many levels (or more) as the undead have Hit Dice, you destroy any that you would normally turn.</description>
+                </special>
+                <special name="Type - Humanoid">
+                    <description>A humanoid usually has two arms, two legs, and one head, or a humanlike torso, arms, and a head. Humanoids have few or no supernatural or extraordinary abilities, but most can speak and usually have well-developed societies. They usually are Small or Medium. Every humanoid creature also has a subtype.
+
+Humanoids with 1 Hit Die exchange the features of their humanoid Hit Die for the class features of a PC or NPC class. Humanoids of this sort are presented as 1st-level warriors, which means that they have average combat ability and poor saving throws.
+
+Humanoids with more than 1 Hit Die are the only humanoids who make use of the features of the humanoid type.
+
+Features: A humanoid has the following features (unless otherwise noted in a creature’s entry).
+—8-sided Hit Dice, or by character class.
+—Base attack bonus equal to 3/4 total Hit Dice (as cleric).
+—Good Reflex saves (usually; a humanoid’s good save varies).
+—Skill points equal to (2 + Int modifier, minimum 1) per Hit Die, with quadruple skill points for the first Hit Die, or by character class.
+
+Traits: A humanoid possesses the following traits (unless otherwise noted in a creature’s entry).
+—Proficient with all simple weapons, or by character class.
+—Proficient with whatever type of armor (light, medium, or heavy) it is described as wearing, or by character class. If a humanoid does not have a class and wears armor, it is proficient with that type of armor and all lighter types. Humanoids not indicated as wearing armor are not proficient with armor. Humanoids are proficient with shields if they are proficient with any form of armor.
+—Humanoids breathe, eat, and sleep.</description>
+                </special>
+            </otherspecials>
+            <spellsknown></spellsknown>
+            <spellsmemorized>
+                <spell name="Close Wounds" level="2" class="Cleric" casttime="Immediate" range="Close (25 ft. + 5 ft./2 levels)" duration="Instantaneous" save="Will Half (harmless); See Text" resist="Yes (harmless)" componenttext="Verbal" schooltext="Conjuration" subschooltext="Healing" castsleft="1">
+                    <description>Your ally falls from a crushing blow, but you don’t have time to reach him. You quickly speak words of power, and the worst of his injuries glow golden and begin to heal. 
+
+This spell cures 1d4 points of damage +1 point per caster level (maximum +5).
+
+If you cast this spell immediately after the subject takes damage, it effectively prevents the damage. It would keep alive someone who had just dropped to –10 hit points, for example, leaving the character at negative hit points but stable.
+
+Used against an undead creature, close wounds deals damage instead of curing the creature (which takes half damage if it makes a Will saving throw).</description>
+                    <spellcomp>Verbal</spellcomp>
+                    <spellschool>Conjuration</spellschool>
+                    <spellsubschool>Healing</spellsubschool>
+                </spell>
+                <spell name="Create Water" level="0" class="Cleric" casttime="1 Action" range="Close (25 ft. + 5 ft./2 levels)" duration="Instantaneous" save="None" resist="No" componenttext="Verbal, Somatic" schooltext="Conjuration" subschooltext="Creation, Water" castsleft="1">
+                    <description>This spell generates wholesome, drinkable water, just like clean rain water. Water can be created in an area as small as will actually contain the liquid, or in an area three times as large - possibly creating a downpour or filling many small receptacles.
+
+Note: Conjuration spells can't create substances or objects within a creature. Water weighs about 8 pounds per gallon. One cubic foot of water contains roughly 8 gallons and weighs about 60 pounds.</description>
+                    <spellcomp>Verbal</spellcomp>
+                    <spellcomp>Somatic</spellcomp>
+                    <spellschool>Conjuration</spellschool>
+                    <spellsubschool>Creation</spellsubschool>
+                    <spellsubschool>Water</spellsubschool>
+                </spell>
+                <spell name="Dark Way" level="2" class="Cleric" casttime="1 Action" range="Close (25 ft. + 5 ft./2 levels)" duration="1 round/level" save="None" resist="Yes" componenttext="Verbal, Somatic, Divine Focus" schooltext="Illusion" subschooltext="Shadow" castsleft="1">
+                    <description>You stand at the edge of the canyon and invoke the power. At your feet appears a thin black bridge that arches over the canyon. 
+
+You create a ribbonlike, weightless, unbreakable bridge. A dark way must be anchored at both ends to solid objects, but otherwise can be at any angle. Like a wall of force (PH 298), it must be continuous and unbroken when formed. It is typically used to cross a chasm or a hazardous space. Creatures can move on a dark way without penalty, since it is no more slippery than a typical dungeon floor.
+
+A dark way can support a maximum of 200 pounds per caster level. Creatures that cause the total weight on a dark way to exceed this limit fall through it as if it weren’t there. You never fall through a dark way unless your own weight exceeds the spell’s maximum capacity.
+
+Also known as Bridge of sound.</description>
+                    <spellcomp>Verbal</spellcomp>
+                    <spellcomp>Somatic</spellcomp>
+                    <spellcomp>Divine Focus</spellcomp>
+                    <spellschool>Illusion</spellschool>
+                    <spellsubschool>Shadow</spellsubschool>
+                </spell>
+                <spell name="Darkfire" level="3" class="Cleric" casttime="1 Action" range="0 ft" duration="1 round/level" save="None" resist="Yes" componenttext="Verbal, Somatic" schooltext="Evocation" subschooltext="Fire" castsleft="1">
+                    <description>Your hand feels warm cupping the eldritch flames. You cannot see the fire in the shadows, but you know it is there, as will those who will soon feel the hungry flames. 
+
+Dark flames appear in your hand. You can hurl them or use them to touch enemies. The flames appear in your open hand and harm neither you nor your equipment. They emit no light but produce the same amount of heat as an actual fire.
+
+Beginning the following round, you can strike opponents with a melee touch attack, dealing 1d6 points of fire damage per two caster levels (maximum 5d6). Alternatively, you can hurl the flames up to 120 feet as a thrown weapon. When doing so, you make a ranged touch attack (with no range penalty) and deal the same damage as with the melee attack. No sooner do you hurl the flames than a new set appears in your hand.
+
+The darkfire is invisible to normal vision but can be seen with darkvision as easily as a normal flame can be seen in darkness (this means that darkfire can be used as a signal or beacon for creatures with darkvision).
+
+The spell does not function underwater.</description>
+                    <spellcomp>Verbal</spellcomp>
+                    <spellcomp>Somatic</spellcomp>
+                    <spellschool>Evocation</spellschool>
+                    <spellsubschool>Fire</spellsubschool>
+                </spell>
+                <spell name="Detect Magic" level="0" class="Cleric" casttime="1 Action" range="60 ft." duration="Concentration, up to 1 minute/level (D)" save="None" resist="No" componenttext="Verbal, Somatic" schooltext="Divination" subschooltext="None" castsleft="1">
+                    <description>You detect magical auras. The amount of information revealed depends on how long you study a particular area or subject.
+
+1st Round: Presence or absence of magical auras.
+
+2nd Round: Number of different magical auras and the power of the most potent aura.
+
+3rd Round: The strength and location of each aura. If the items or creatures bearing the auras are in line of sight, you can make Spellcraft skill checks to determine the school of magic involved in each. (Make one check per aura; DC 15 + spell level, or 15 + half caster level for a nonspell effect.)
+
+Magical areas, multiple types of magic, or strong local magical emanations may distort or conceal weaker auras.
+
+Aura Strength: An aura's power depends on a spell's functioning spell level or an item's caster level. If an aura falls into more than one category, detect magic indicates the stronger of the two.
+
+Aura Power
+Source - Faint - Moderate - Strong - Overwhelming
+Spell- 0 - 3rd-4th-6th-7th-9th-10th+
+Magic item-1st-5th-6th-11th-12th-20th- 21st+
+
+Lingering Aura: A magical aura lingers after its original source dissipates (in the case of a spell) or is destroyed (in the case of a magic item). If detect magic is cast and directed at such a location, the spell indicates an aura strength of dim (even weaker than a faint aura). How long the aura lingers at this dim level depends on its original power:
+
+Original Strength - Duration of Lingering Aura
+Faint - 1d6 rounds
+Moderate - 1d6 minutes
+Strong - 1d6x10 minutes
+Overwhelming - 1d6 days
+
+Outsiders and elementals are not magical in themselves, but if they are summoned, the conjuration spell registers.
+
+Each round, you can turn to detect magic in a new area. The spell can penetrate barriers, but 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt blocks it.
+
+Detect magic can be made permanent with a permanency spell.</description>
+                    <spellcomp>Verbal</spellcomp>
+                    <spellcomp>Somatic</spellcomp>
+                    <spellschool>Divination</spellschool>
+                    <spellsubschool>None</spellsubschool>
+                </spell>
+                <spell name="Fly" level="3" class="" casttime="1 Action" range="Touch" duration="1 minute/level" save="Will Negates (harmless)" resist="Yes (harmless)" componenttext="Verbal, Somatic, Focus or Divine Focus" schooltext="Transmutation" subschooltext="None" castsleft="1">
+                    <description>The subject can fly at a speed of 60 feet (or 40 feet if it wears medium or heavy armor, or if it carries a medium or heavy load). It can ascend at half speed and descend at double speed, and its maneuverability is good. Using a fly spell requires only as much concentration as walking, so the subject can attack or cast spells normally. The subject of a fly spell can charge but not run, and it cannot carry aloft more weight than its maximum load, plus any armor it wears.
+
+Should the spell duration expire while the subject is still aloft, the magic fails slowly. The subject floats downward 60 feet per round for 1d6 rounds. If it reaches the ground in that amount of time, it lands safely. If not, it falls the rest of the distance, taking 1d6 points of damage per 10 feet of fall. Since dispelling a spell effectively ends it, the subject also descends in this way if the fly spell is dispelled, but not if it is negated by an antimagic field.</description>
+                    <spellcomp>Verbal</spellcomp>
+                    <spellcomp>Somatic</spellcomp>
+                    <spellcomp>Focus or Divine Focus</spellcomp>
+                    <spellschool>Transmutation</spellschool>
+                    <spellsubschool>None</spellsubschool>
+                </spell>
+                <spell name="Impede" level="1" class="Cleric" casttime="1 Action" range="Medium (100 + 10 ft./level" duration="1 round/level (D)" save="Will Partial" resist="Yes" componenttext="Verbal, Somatic, Divine Focus" schooltext="Enchantment" subschooltext="Compulsion, Mind-Affecting" castsleft="1">
+                    <description>Your will clamps down on the subject's mind, making the slightest movement a strenuous effort. 
+
+This spell locks the subject in place. An affected creature is capable of taking actions, such as attacking or casting spells, but it cannot step from its current square (or squares, if it occupies more than one). The subject also takes a -1 penalty on melee attack rolls and a -2 penalty on Reflex saves while so rooted. The penalties imposed by this spell are sacred (if your deity is good or neutral) or profane (if your deity is evil).
+
+If the subject succeeds on the initial Will save, it suffers no ill effects and the spell ends immediately. If it fails the initial save, it can attempt a new Will save every round thereafter. Once the subject succeeds on one of these secondary saves, it can move, but its base speed is reduced by 10 feet (to a minimum of 5 feet) for the duration of the spell. If the subject has multiple modes of movement, each is reduced accordingly. 
+
+If the subject is already under an effect that curtails its ability to move (such as slow or hold person), it also takes a -4 penalty to Dexterity for the duration of this spell, even if the other effect ends before this one does.</description>
+                    <spellcomp>Verbal</spellcomp>
+                    <spellcomp>Somatic</spellcomp>
+                    <spellcomp>Divine Focus</spellcomp>
+                    <spellschool>Enchantment</spellschool>
+                    <spellsubschool>Compulsion</spellsubschool>
+                    <spellsubschool>Mind-Affecting</spellsubschool>
+                </spell>
+                <spell name="Insignia of Healing" level="3" class="Cleric" casttime="1 Action" range="Long (400 ft. + 40 ft./level)" duration="Instantaneous" save="Will half (harmless); see text" resist="Yes (harmless); see text" componenttext="Verbal, Somatic, Focus" schooltext="Conjuration" subschooltext="Healing" castsleft="1">
+                    <description>This spell works just like insignia of alarm except the insignia wearers are instead healed by positive energy. The spell cures 1d8 points of damage +1 point per caster level (maximum +10) to all wearers of the insignia.
+Since undead are powered by negative energy, this spell deals damage to them instead of curing their wounds. Any undead creature can apply spell resistance and attempt a Will save to take half damage.</description>
+                    <spellcomp>Verbal</spellcomp>
+                    <spellcomp>Somatic</spellcomp>
+                    <spellcomp>Focus</spellcomp>
+                    <spellschool>Conjuration</spellschool>
+                    <spellsubschool>Healing</spellsubschool>
+                </spell>
+                <spell name="Ironguts" level="1" class="Cleric" casttime="1 Action" range="Touch" duration="10 minutes/level" save="Will Negates" resist="Yes" componenttext="Verbal, Somatic, Material" schooltext="Abjuration" subschooltext="None" castsleft="1">
+                    <description>You mutter the spell and uncork a bottle with a noxious concoction of scorpion venom, toad sweat, adder venom, and the strained brains of carrion crawlers. The poisonous liquid evaporates into a black cloud that surrounds your hand as you reach out to touch the target.
+
+You enable a creature to better fight off the effect of poison. The subject is filled with antitoxin and gains a +5 alchemical bonus on Fortitude saves against all kinds of poisons, whether injury, contact, ingestion, or inhalation. After the spell ends, the subject is nauseated for 1 round.</description>
+                    <spellcomp>Verbal</spellcomp>
+                    <spellcomp>Somatic</spellcomp>
+                    <spellcomp>Material</spellcomp>
+                    <spellschool>Abjuration</spellschool>
+                    <spellsubschool>None</spellsubschool>
+                </spell>
+                <spell name="Light" level="0" class="Cleric" casttime="1 Action" range="Touch" duration="10 minutes/level (D)" save="None" resist="No" componenttext="Verbal, Material or Divine Focus" schooltext="Evocation" subschooltext="Light" castsleft="1">
+                    <description>This spell causes an object to glow like a torch, shedding bright light in a 20-foot radius (and dim light for an additional 20 feet) from the point you touch. The effect is immobile, but it can be cast on a movable object. Light taken into an area of magical darkness does not function.
+
+A light spell (one with the light descriptor) counters and dispels a darkness spell (one with the darkness descriptor) of an equal or lower level.</description>
+                    <spellcomp>Verbal</spellcomp>
+                    <spellcomp>Material or Divine Focus</spellcomp>
+                    <spellschool>Evocation</spellschool>
+                    <spellsubschool>Light</spellsubschool>
+                </spell>
+                <spell name="Locate Object" level="2" class="" casttime="1 Action" range="Long (400 ft. + 40 ft./level)" duration="1 minute/level" save="None" resist="No" componenttext="Verbal, Somatic, Focus or Divine Focus" schooltext="Divination" subschooltext="None" castsleft="1">
+                    <description>You sense the direction of a well-known or clearly visualized object. You can search for general items, in which case you locate the nearest one of its kind if more than one is within range. Attempting to find a certain item requires a specific and accurate mental image; if the image is not close enough to the actual object, the spell fails. You cannot specify a unique item unless you have observed that particular item firsthand (not through divination).
+
+The spell is blocked by even a thin sheet of lead. Creatures cannot be found by this spell. Polymorph any object fools it.</description>
+                    <spellcomp>Verbal</spellcomp>
+                    <spellcomp>Somatic</spellcomp>
+                    <spellcomp>Focus or Divine Focus</spellcomp>
+                    <spellschool>Divination</spellschool>
+                    <spellsubschool>None</spellsubschool>
+                </spell>
+                <spell name="Longstrider" level="1" class="" casttime="1 Action" range="Personal" duration="1 hour/level (D)" save="" resist="" componenttext="Verbal, Somatic, Material" schooltext="Transmutation" subschooltext="None" castsleft="1">
+                    <description>This spell increases your base land speed by 10 feet. (This adjustment counts as an enhancement bonus.) It has no effect on other modes of movement, such as burrow, climb, fly, or swim.</description>
+                    <spellcomp>Verbal</spellcomp>
+                    <spellcomp>Somatic</spellcomp>
+                    <spellcomp>Material</spellcomp>
+                    <spellschool>Transmutation</spellschool>
+                    <spellsubschool>None</spellsubschool>
+                </spell>
+                <spell name="Protection from Evil" level="1" class="Cleric" casttime="1 Action" range="Touch" duration="1 minute/level (D)" save="Will Negates (harmless)" resist="No; See Text" componenttext="Verbal, Somatic, Material or Divine Focus" schooltext="Abjuration" subschooltext="Good" castsleft="1">
+                    <description>This spell wards a creature from attacks by evil creatures, from mental control, and from summoned creatures. It creates a magical barrier around the subject at a distance of 1 foot. The barrier moves with the subject and has three major effects.
+
+First, the subject gains a +2 deflection bonus to AC and a +2 resistance bonus on saves. Both these bonuses apply against attacks made or effects created by evil creatures.
+
+Second, the barrier blocks any attempt to possess the warded creature (by a magic jar attack, for example) or to exercise mental control over the creature (including enchantment (charm) effects and enchantment (compulsion) effects that grant the caster ongoing control over the subject, such as dominate person). The protection does not prevent such effects from targeting the protected creature, but it suppresses the effect for the duration of the protection from evil effect. If the protection from evil effect ends before the effect granting mental control does, the would-be controller would then be able to mentally command the controlled creature. Likewise, the barrier keeps out a possessing life force but does not expel one if it is in place before the spell is cast. This second effect works regardless of alignment.
+
+Third, the spell prevents bodily contact by summoned creatures. This causes the natural weapon attacks of such creatures to fail and the creatures to recoil if such attacks require touching the warded creature. Good summoned creatures are immune to this effect. The protection against contact by summoned creatures ends if the warded creature makes an attack against or tries to force the barrier against the blocked creature. Spell resistance can allow a creature to overcome this protection and touch the warded creature.</description>
+                    <spellcomp>Verbal</spellcomp>
+                    <spellcomp>Somatic</spellcomp>
+                    <spellcomp>Material or Divine Focus</spellcomp>
+                    <spellschool>Abjuration</spellschool>
+                    <spellsubschool>Good</spellsubschool>
+                </spell>
+                <spell name="Read Magic" level="0" class="Cleric" casttime="1 Action" range="Personal" duration="10 minutes/level" save="" resist="" componenttext="Verbal, Somatic, Focus" schooltext="Divination" subschooltext="None" castsleft="1">
+                    <description>By means of read magic, you can decipher magical inscriptions on objects - books, scrolls, weapons, and the like - that would otherwise be unintelligible. This deciphering does not normally invoke the magic contained in the writing, although it may do so in the case of a cursed scroll. Furthermore, once the spell is cast and you have read the magical inscription, you are thereafter able to read that particular writing without recourse to the use of read magic. You can read at the rate of one page (250 words) per minute. The spell allows you to identify a glyph of warding with a DC 13 Spellcraft check, a greater glyph of warding with a DC 16 Spellcraft check, or any symbol spell with a Spellcraft check (DC 10 + spell level).
+
+Read magic can be made permanent with a permanency spell.</description>
+                    <spellcomp>Verbal</spellcomp>
+                    <spellcomp>Somatic</spellcomp>
+                    <spellcomp>Focus</spellcomp>
+                    <spellschool>Divination</spellschool>
+                    <spellsubschool>None</spellsubschool>
+                </spell>
+                <spell name="Spiritual Weapon" level="2" class="Cleric" casttime="1 Action" range="Medium (100 + 10 ft./level" duration="1 round/level (D)" save="None" resist="Yes" componenttext="Verbal, Somatic, Divine Focus" schooltext="Evocation" subschooltext="Force" castsleft="1">
+                    <description>A weapon made of pure force springs into existence and attacks opponents at a distance, as you direct it, dealing 1d8 force damage per hit, +1 point per three caster levels (maximum +5 at 15th level). The weapon takes the shape of a weapon favored by your deity or a weapon with some spiritual significance or symbolism to you (see below) and has the same threat range and critical multipliers as a real weapon of its form. It strikes the opponent you designate, starting with one attack in the round the spell is cast and continuing each round thereafter on your turn. It uses your base attack bonus (possibly allowing it multiple attacks per round in subsequent rounds) plus your Wisdom modifier as its attack bonus. It strikes as a spell, not as a weapon, so, for example, it can damage creatures that have damage reduction. As a force effect, it can strike incorporeal creatures without the normal miss chance associated with incorporeality. The weapon always strikes from your direction. It does not get a flanking bonus or help a combatant get one. Your feats (such as Weapon Focus) or combat actions (such as charge) do not affect the weapon. If the weapon goes beyond the spell range, if it goes out of your sight, or if you are not directing it, the weapon returns to you and hovers.
+
+Each round after the first, you can use a move action to redirect the weapon to a new target. If you do not, the weapon continues to attack the previous round’s target. On any round that the weapon switches targets, it gets one attack. Subsequent rounds of attacking that target allow the weapon to make multiple attacks if your base attack bonus would allow it to. Even if the spiritual weapon is a ranged weapon, use the spell’s range, not the weapon’s normal range increment, and switching targets still is a move action.
+
+A spiritual weapon cannot be attacked or harmed by physical attacks, but dispel magic, disintegrate, a sphere of annihilation, or a rod of cancellation affects it. A spiritual weapon’s AC against touch attacks is 12 (10 + size bonus for Tiny object).
+
+If an attacked creature has spell resistance, you make a caster level check (1d20 + caster level) against that spell resistance the first time the spiritual weapon strikes it. If the weapon is successfully resisted, the spell is dispelled. If not, the weapon has its normal full effect on that creature for the duration of the spell.
+
+The weapon that you get is often a force replica of your deity’s own personal weapon, many of which have individual names. A cleric without a deity gets a weapon based on his alignment. A neutral cleric without a deity can create a spiritual weapon of any alignment, provided he is acting at least generally in accord with that alignment at the time. The weapons associated with each alignment are as follows.
+
+Chaos: Battleaxe
+Evil: Flail
+Good: Warhammer
+Law: Longsword</description>
+                    <spellcomp>Verbal</spellcomp>
+                    <spellcomp>Somatic</spellcomp>
+                    <spellcomp>Divine Focus</spellcomp>
+                    <spellschool>Evocation</spellschool>
+                    <spellsubschool>Force</spellsubschool>
+                </spell>
+                <spell name="Summon Holy Symbol" level="0" class="Cleric" casttime="1 Action" range="0 ft." duration="1 round/level (D)" save="None" resist="No" componenttext="Verbal, Somatic" schooltext="Conjuration" subschooltext="Summoning" castsleft="1">
+                    <description>You whisper a prayer to your deity, and his symbol appears in your hand. 
+
+You conjure a small holy symbol, which you can then use to turn undead, or as a divine focus for spells, or for any other purpose that you would normally use one. The conjured holy symbol is made of wood and is neither magical nor particularly valuable.</description>
+                    <spellcomp>Verbal</spellcomp>
+                    <spellcomp>Somatic</spellcomp>
+                    <spellschool>Conjuration</spellschool>
+                    <spellsubschool>Summoning</spellsubschool>
+                </spell>
+                <spell name="Summon Monster II" level="2" class="Cleric" casttime="1 Round(s)" range="Close (25 ft. + 5 ft./2 levels)" duration="1 round/level (D)" save="None" resist="No" componenttext="Verbal, Somatic, Focus or Divine Focus" schooltext="Conjuration" subschooltext="Summoning" castsleft="1">
+                    <description>This spell functions like summon monster I, except that you can summon one creature from the 2nd-level list or 1d3 creatures of the same kind from the 1st-level list.
+
+Summon Monster Tables
+2nd Level
+Celestial giant bee (LG)
+Celestial giant bombardier beetle (NG)
+Celestial riding dog (NG)
+Celestial eagle (CG)
+Lemure (devil) (LE)
+Fiendish squid (LE)
+Fiendish wolf (LE)
+Fiendish monstrous centipede, Large (NE)
+Fiendish monstrous scorpion, Medium (NE)
+Fiendish shark, Medium (NE)
+Fiendish monstrous spider, Medium (CE)
+Fiendish snake, Medium viper (CE)
+
+1st Level
+Celestial dog (LG)
+Celestial owl (LG)
+Celestial giant fire beetle (NG)
+Celestial porpoise (NG)
+Celestial badger (CG)
+Celestial monkey (CG)
+Fiendish dire rat (LE)
+Fiendish raven (LE)
+Fiendish monstrous centipede, Medium (NE)
+Fiendish monstrous scorpion, Small (NE)
+Fiendish hawk (CE)
+Fiendish monstrous spider, Small (CE)
+Fiendish octopus (CE)
+Fiendish snake
+Small viper (CE)</description>
+                    <spellcomp>Verbal</spellcomp>
+                    <spellcomp>Somatic</spellcomp>
+                    <spellcomp>Focus or Divine Focus</spellcomp>
+                    <spellschool>Conjuration</spellschool>
+                    <spellsubschool>Summoning</spellsubschool>
+                </spell>
+                <spell name="Updraft" level="1" class="Cleric" casttime="Swift" range="Personal" duration="Instantaneous" save="None" resist="No" componenttext="Verbal, Somatic, Material" schooltext="Conjuration" subschooltext="Air, Creation" castsleft="1">
+                    <description>Detritus and loose debris on the ground beneath you begins to spin about, caught in a small vortex. The vortex quickly coalesces into a column of dirty gray-brown air thick enough to hold you aloft.
+
+Updraft conjures forth rushing air that propels you upward. You gain 10 feet per level of altitude, and then gently float back down to the ground. At any point during your descent, you can move up to 5 feet laterally.</description>
+                    <spellcomp>Verbal</spellcomp>
+                    <spellcomp>Somatic</spellcomp>
+                    <spellcomp>Material</spellcomp>
+                    <spellschool>Conjuration</spellschool>
+                    <spellsubschool>Air</spellsubschool>
+                    <spellsubschool>Creation</spellsubschool>
+                </spell>
+                <spell name="Water Walk" level="3" class="Cleric" casttime="1 Action" range="Touch" duration="10 minutes/level (D)" save="Will Negates (harmless)" resist="Yes (harmless)" componenttext="Verbal, Somatic, Divine Focus" schooltext="Transmutation" subschooltext="Water" castsleft="1">
+                    <description>The transmuted creatures (one touched creature/level) can tread on any liquid as if it were firm ground. Mud, oil, snow, quicksand, running water, ice, and even lava can be traversed easily, since the subjects’ feet hover an inch or two above the surface. (Creatures crossing molten lava still take damage from the heat because they are near it.) The subjects can walk, run, charge, or otherwise move across the surface as if it were normal ground.
+
+If the spell is cast underwater (or while the subjects are partially or wholly submerged in whatever liquid they are in), the subjects are borne toward the surface at 60 feet per round until they can stand on it.</description>
+                    <spellcomp>Verbal</spellcomp>
+                    <spellcomp>Somatic</spellcomp>
+                    <spellcomp>Divine Focus</spellcomp>
+                    <spellschool>Transmutation</spellschool>
+                    <spellsubschool>Water</spellsubschool>
+                </spell>
+            </spellsmemorized>
+            <spellbook></spellbook>
+            <spellclasses>
+                <spellclass name="Cleric" maxspelllevel="9" spells="Memorized">
+                    <spelllevel level="0" maxcasts="5" used="5"></spelllevel>
+                    <spelllevel level="1" maxcasts="4" used="4"></spelllevel>
+                    <spelllevel level="2" maxcasts="4" used="4"></spelllevel>
+                    <spelllevel level="3" maxcasts="3" used="3"></spelllevel>
+                    <spelllevel level="4" maxcasts="0" used="0"></spelllevel>
+                    <spelllevel level="5" maxcasts="0" used="0"></spelllevel>
+                    <spelllevel level="6" maxcasts="0" used="0"></spelllevel>
+                    <spelllevel level="7" maxcasts="0" used="0"></spelllevel>
+                    <spelllevel level="8" maxcasts="0" used="0"></spelllevel>
+                    <spelllevel level="9" maxcasts="0" used="0"></spelllevel>
+                </spellclass>
+            </spellclasses>
+            <journals>
+                <journal name="18 to 6" gamedate="0" realdate="20221231" xp="-138000" pp="0" gp="-77261" sp="25" cp="10">
+                    <description>Date (game world): 0000/00/00; Date (real world): 2022/12/31
+XP Reward: -138000 XP; Net Cash: -77261 GP 25 SP 10 CP 
+
+- no notes -</description>
+                </journal>
+                <journal name="Title" gamedate="0" realdate="20221231" xp="0" pp="0" gp="0" sp="0" cp="0">
+                    <description>Date (game world): 0000/00/00; Date (real world): 2022/12/31
+XP Reward: 0 XP; Net Cash: 
+
+- no notes -</description>
+                </journal>
+            </journals>
+            <images></images>
+            <validation>
+                <report></report>
+            </validation>
+            <settings summary="d20 SRD Additional Domains; d20 SRD Psionics Support; Lone Wolf Content; Open Content from Unearthed Arcana; User Content: Age of Worms, Dragon Magazine, Poisoncraft: The Dark Art, Bodrins Custom Stuff, Corruption Spells, Online Content, Sanctified Spells, The Book of Fiends, Toby's Custom Stuff, Wild Shape Adjustments; User Content -&gt; 3.0 D&amp;D Books: Arms &amp; Equipment Guide, Book of Vile Darkness, Deities and Demigods, Fiend Folio, Ghostwalk Campaign Source, Manual of the Planes, Masters of the Wild, Oriental Adventures, Savage Species, Sword and Fist; User Content -&gt; 3.5 D&amp;D Books: Advanced Bestiary, Book of Exalted Deeds, Cityscape, Complete Adventurer, Complete Arcane, Complete Champion, Complete Divine, Complete Mage, Complete Psionics, Complete Scoundrel, Complete Warrior, Draconomicon, Dragon Compendium, Dragon Magic, Dragon Monster Ecologies, Drow of the Underdark, Dungeon Masters Guide, Dungeon Masters Guide II, Dungeonscape, Epic Level Handbook, Fiendish Codex 1, Fiendish Codex 2, Frostburn, Heroes of Battle, Heroes of Horror, Libris Mortis, Lords of Madness, Magic Item Compendium, Magic of Incarnum, Miniatures Handbook, Monster Manual, Monster Manual 2, Monster Manual 3, Monster Manual 4, Monster Manual 5, Player's Handbook 2, Races of Destiny, Races of Stone, Races of the Dragon, Races of the Wild, Sandstorm, Spell Compendium, Stormwrack, Tome of Battle, Tome of Magic, Weapons of Legacy; User Content -&gt; Dark Sun Campaign Setting Books: Athas.org 3.5 Dark Sun Campaign Setting; User Content -&gt; Dragonlance Campaign Setting Books: Age of Mortals, Bestiary of Krynn, Dragonlance Campaign Setting, Dragons of Krynn, Holy Order of the Stars, Knightly Orders of Ansalon, Krynn Languages, Legends of the Twins, Races of Ansalon, Towers of High Sorcery, War of the Lance; User Content -&gt; Eberron Campaign Setting Books: Eberron Campaign Setting, Magic of Eberron, Player's Guide to Eberron, Races of Eberron, Secrets of Sarlona, Secrets of Xen'drik, Sharn: City of Towers; User Content -&gt; Forgotten Realms Campaign Setting Books: Champions of Ruin 3.5, Champions of Valor, Faiths and Pantheons 3.0, Forgotten Realms Campaign Setting, Lords of Darkness 3.0, Magic of Faerun 3.0, Monsters of Faerun, Players Guide to Faerun, Races of Faerun, Unapproachable East, Underdark; User Content -&gt; Legend of the Five Rings - Oriental Adventures: Creatures of Rokugan, Magic of Rokugan, Rokugan Campaign Setting, Way of the Ninja, Way of the Samurai, Way of the Shugenja; User Content -&gt; Living Greyhawk: LGC Greyhawk Deities v2.0, Living Greyhawk Gazeteer; User Content -&gt; Paizo - Modules: Blood of Dragonscar, Carnival of Tears; User Content -&gt; Ravenloft Campaign Setting Books: Champions of Darkness, Denizens of Dread, Ravenloft Campaign Setting, Van Richten's Arsenal, Van Richten's Guide to the Shadow Fey; Pathfinder Adventure Paths: Pathfinder - Curse of the Crimson Throne, Pathfinder - Legacy of Fire, Pathfinder - Rise of the Runelords, Pathfinder - Second Darkness; Optional Rules: Don't Restrict Companion Race, No Age, Height, Weight Limits, No Encumbrance, Use Traits &amp; Flaws, Use Variant Classes; Output Options: Always Print 2-Weapon Attacks, Hide Unusable Skills, Hide Validation Messages, Show Feat / Ability Descriptions, Show Hero Portrait"></settings>
+            <minions></minions>
+        </character>
+    </public>
+</document>

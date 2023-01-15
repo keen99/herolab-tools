@@ -1,0 +1,1244 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<document>
+    <public>
+        <program name="Hero Lab" url="https://www.wolflair.com">
+            <programinfo>Hero Lab and the Hero Lab logo are Registered Trademarks of LWD Technology, Inc. Free download at https://www.wolflair.com
+Contents copyright Wizards of the Coast, Inc. 'd20 System' is a trademark of Wizards of the Coast, Inc. and is used with permission.</programinfo>
+            <version version="8.9h" primary="8" secondary="9" tertiary="h" build="957"></version>
+        </program>
+        <localization language="eng" units="imperial"></localization>
+        <character active="yes" characterindex="1" nature="normal" role="pc" relationship="ally" type="Hero" name="Bronn Skyfall L6" playername="">
+            <race name="Dwarf"></race>
+            <alignment name="Chaotic Neutral"></alignment>
+            <templates summary="Half-Dragon Template +3"></templates>
+            <size name="Medium">
+                <space text="5'" value="5"></space>
+                <reach text="5'" value="5"></reach>
+            </size>
+            <deity name=""></deity>
+            <classes level="3" summary="Fighter 3" summaryabbr="Ftr 3">
+                <class name="Fighter" level="3" spells="" casterlevel="0" castersource=""></class>
+            </classes>
+            <senses>
+                <special name="Darkvision (60 feet)" sourcetext="Dwarf, Half-Dragon">
+                    <description>You can see in the dark (black and white vision only).</description>
+                    <specsource>Dwarf</specsource>
+                    <specsource>Half-Dragon</specsource>
+                </special>
+            </senses>
+            <auras></auras>
+            <health hitdice="3d10+12" hitpoints="46" damage="0" nonlethal="0" currenthp="46"></health>
+            <xp total="15000" text="15,000 XP"></xp>
+            <challengerating text="CR 3" value="3"></challengerating>
+            <money total="0" pp="0" gp="695" sp="0" cp="0"></money>
+            <personal gender="Male" age="58" hair="Scaley" eyes="Gold" skin="Green">
+                <description>Bronn Skyfall was born to a family of dwarves living in a small village nestled in the mountains. His father was a powerful green dragon who took on a dwarven form in order to be with his mother, a skilled blacksmith. Despite his dragon heritage, Bronn inherited his mother's dwarven blood and had a strong connection to the earth. However, his green, scaly skin often made him stand out and he was often teased and ostracized by his peers.
+
+As a child, Bronn's parents fiercely protected him and taught him to channel his anger into becoming a skilled fighter. When he was just a teenager, his mother died defending the village from a group of goblins, and his father, devastated by her loss, left to wander the land. Determined to honor his parents' legacy and make a name for himself as a warrior, Bronn set out on his own journey and eventually joined a group of adventurers.
+
+Bronn's older brother, Eilif, followed in the footsteps of their father and became a skilled blacksmith, while his sister, Nara, inherited her mother's love of magic and became a powerful sorceress. As he traveled the land, Bronn often found himself drawn to dragons and sought them out, hoping to learn more about his own heritage. He even defended dragons when they were threatened, using his strength and skill in combat to protect them. Bronn is a fierce and courageous warrior, always ready to stand up for what he believes in and fight for those in need.
+
+
+As an adult, Bronn's reputation as a skilled fighter and dragon-blooded warrior grew, and he was eventually hired by a wealthy merchant to act as a bodyguard on a long journey through treacherous mountain passes. Along the way, Bronn encountered a group of bandits who attempted to rob the merchant's caravan. Bronn fought bravely to defend the merchant and his goods, ultimately driving off the bandits and earning the gratitude of his employer.
+
+Bronn's love of dragons and desire to learn more about his own heritage led him to seek out and defend dragons when they were threatened. One such instance involved a group of hunters who were attempting to capture a young dragon for use as a mount. Bronn joined forces with the dragon and fought off the hunters, freeing the dragon and earning its gratitude.  The dragon's name was Arya.</description>
+                <charheight text="4' 2&quot;" value="50"></charheight>
+                <charweight text="184lb." value="184"></charweight>
+            </personal>
+            <languages>
+                <language name="Common" useradded="no"></language>
+                <language name="Draconic"></language>
+                <language name="Dwarven" useradded="no"></language>
+                <language name="Gnome"></language>
+            </languages>
+            <attributes>
+                <attribute name="Strength">
+                    <attrvalue text="24" base="24" modified="24"></attrvalue>
+                    <attrbonus text="+7" base="+7" modified="+7"></attrbonus>
+                </attribute>
+                <attribute name="Dexterity">
+                    <attrvalue text="18" base="18" modified="18"></attrvalue>
+                    <attrbonus text="+4" base="+4" modified="+4"></attrbonus>
+                </attribute>
+                <attribute name="Constitution">
+                    <attrvalue text="19" base="19" modified="19"></attrvalue>
+                    <attrbonus text="+4" base="+4" modified="+4"></attrbonus>
+                </attribute>
+                <attribute name="Intelligence">
+                    <attrvalue text="14" base="14" modified="14"></attrvalue>
+                    <attrbonus text="+2" base="+2" modified="+2"></attrbonus>
+                </attribute>
+                <attribute name="Wisdom">
+                    <attrvalue text="5" base="5" modified="5"></attrvalue>
+                    <attrbonus text="-3" base="-3" modified="-3"></attrbonus>
+                </attribute>
+                <attribute name="Charisma">
+                    <attrvalue text="12" base="12" modified="12"></attrvalue>
+                    <attrbonus text="+1" base="+1" modified="+1"></attrbonus>
+                </attribute>
+            </attributes>
+            <saves>
+                <save name="Fortitude Save" abbr="Fort" save="+7" base="+3" fromattr="+4" fromresist="" frommisc=""></save>
+                <save name="Reflex Save" abbr="Ref" save="+5" base="+1" fromattr="+4" fromresist="" frommisc=""></save>
+                <save name="Will Save" abbr="Will" save="+0" base="+1" fromattr="-3" fromresist="" frommisc="+2"></save>
+            </saves>
+            <defensive>
+                <special name="+4 dodge bonus to AC vs Giants" sourcetext="Dwarf">
+                    <description>+4 dodge bonus to AC against monsters of the Giant type.</description>
+                    <specsource>Dwarf</specsource>
+                </special>
+            </defensive>
+            <damagereduction></damagereduction>
+            <immunities>
+                <special name="Immunity to Sleep, Paralysis, 1 energy type" sourcetext="Half-Dragon">
+                    <description>You are immune to sleep, paralysis, and an energy type based on your dragon color:
+
+Black: Acid
+Blue: Electricity
+Green: Acid
+Red: Fire
+White: Cold
+Brass: Fire
+Bronze: Electricity
+Copper: Acid
+Gold: Fire
+Silver: Cold</description>
+                    <specsource>Half-Dragon</specsource>
+                </special>
+            </immunities>
+            <resistances></resistances>
+            <weaknesses></weaknesses>
+            <armorclass ac="24" touch="14" flatfooted="20" fromarmor="+6" fromshield="" fromdexterity="+4" fromsize="" fromnatural="+4" fromdeflect="" fromdodge="" frommisc=""></armorclass>
+            <penalties>
+                <penalty name="Armor Check Penalty" text="0" value="0"></penalty>
+                <penalty name="Max Dex Bonus" text="4" value="4"></penalty>
+            </penalties>
+            <initiative total="+4" attrtext="+4" misctext="+0" attrname="Dexterity"></initiative>
+            <movement>
+                <speed text="20'" value="20"></speed>
+                <basespeed text="20'" value="20"></basespeed>
+            </movement>
+            <encumbrance carried="172.9" light="233" medium="466" heavy="700" level="Light Load"></encumbrance>
+            <skills>
+                <skill name="Appraise" attrbonus="2" attrname="Intelligence" value="2" ranks="0">
+                    <description>You can appraise common or well-known objects with a DC 12 Appraise check. Failure means that you estimate the value at 50% to 150% of its actual value.
+Appraising a rare or exotic item requires a successful check against DC 15, 20, or higher. If the check is successful, you estimate the value correctly; failure means you cannot estimate the item's value.
+
+Synergy: If you have 5 ranks in any Craft skill, you gain a +2 bonus to Appraise checks related to items made with that craft skill.</description>
+                </skill>
+                <skill name="Autohypnosis" attrbonus="-3" attrname="Wisdom" value="-3" ranks="0" trainedonly="yes" usable="no">
+                    <description>You have trained your mind to gain mastery over your body and the mind’s own deepest capabilities. This includes ignoring wounds from caltrops, memorizing large amounts of data, resisting death and fear, tolerating poison, and operating while disabled (at 0 hit points).
+
+Synergy: If you have 5 or more ranks in this skill, you get +2 to Knowledge (Psionics) checks. If you have 5 or more ranks in Concentration, you get a +2 bonus on Autohypnosis checks.</description>
+                </skill>
+                <skill name="Balance" attrbonus="4" attrname="Dexterity" value="4" ranks="0" armorcheck="yes">
+                    <description>Allows you to walk on precarious surfaces. A successful check lets you move at half your speed for 1 round. Failing means you can't move for 1 round, or falling if you fail by 5 or more. The difficulty varies with surface.
+
+Synergy: If you have 5 ranks in Tumble, you get a +2 bonus on Balance checks.</description>
+                </skill>
+                <skill name="Battle" attrbonus="-3" attrname="Wisdom" value="1" ranks="4">
+                    <description>You are a skilled officer and manager of troops.  You can command others effectively on the field of battle.
+
+Check While the Knowledge (history) skill can represent a knowledge of warfare and tactics, this skill represents battlfield cunning and the ability to put tactics into action.  This skill also represents a general familiarity with tactics and can be used to perform any of the following actions.
+
+Find Advantage: Once per round as a free action you may use this skill to find the quickest route to higher ground, cover, concealment, or an effective place to hide (gaining a +2 circumstance bonus to any Bluff checks used to create a diversion to hide this round).
+
+Hunch: A successful check can reveal whether the enemy is fighting defensively to delay you, intends to concentrate on a specific objective, or simply wishes to retreat.  (If you have 5 or more ranks in Sense Motive, you gain a +2 synergy bonus to this check.)
+
+Recognize Ambush: This use of the skill allows you to recognize areas that would make effective ambush points, allowing you to either avoid an ambush or organzie one of your own.  This only bestows a general wariness; detecting hidden attackers still requires a successful Spot check.
+
+Find Weakness: An opposed Battle check against the leader of an enemy army to find a weakness in the opponent's strategy.
+
+Battle Task            DC
+Find Advantage           15
+Hunch                            20
+Recognize Ambush   20
+Find Weakness          Variable
+
+If you have 5 or more ranks in Knowledge (history) you get a +2 synergy bonus on Battle checks.
+
+Retry: A failed Battle check cannot be re-rolled unless something significant alters the makeup of the battle.
+
+Special: A ranger may apply his favored enemy bonus to Battle checks against an army composed mostly of or led by his favored enemy.</description>
+                </skill>
+                <skill name="Bluff" attrbonus="1" attrname="Charisma" value="1" ranks="0">
+                    <description>Opposed by the target's Sense Motive check. A successful Bluff check indicates that the target reacts as you wish, at least for a short time, to believe something that you want it to believe. Bluff can also be used for feinting in combat, among other things.
+
+Synergy: If you have 5 ranks in Bluff, you get a +2 bonus to Diplomacy, Intimidate and Sleight of Hand checks, as well as on Disguise checks made when you know you're being observed and try to act in character.</description>
+                </skill>
+                <skill name="Climb" attrbonus="7" attrname="Strength" value="8" ranks="1" armorcheck="yes">
+                    <description>With a successful Climb check, you can advance up, down or across a slope, a wall, or some other steep incline (or even a ceiling with handholds. A slope is any angle measuring less than 60 degrees; a wall is 60 degrees or more.
+
+Synergy: If you have 5 or more ranks in Use Rope, you get a +2 bonus on Climb checks made to climb involving a rope.</description>
+                </skill>
+                <skill name="Concentration" attrbonus="4" attrname="Constitution" value="4" ranks="0">
+                    <description>Make a Concentration check whenever you might be distracted (e.g., by taking damage) while engaged in some action that requires your full attention, such as spellcasting.</description>
+                </skill>
+                <skill name="Cooking" attrbonus="-3" attrname="Wisdom" value="-3" ranks="0">
+                    <description>New Open Content by Lone Wolf Development!
+
+You can cook tasty meals for your friends and aquaintances with a DC 20 Cooking check.</description>
+                </skill>
+                <skill name="Craft: Stoneworking" attrbonus="2" attrname="Intelligence" value="3" ranks="1">
+                    <description>You are skilled at the working of stone for a variety of building or ornamental purposes.</description>
+                </skill>
+                <skill name="Decipher Script" attrbonus="2" attrname="Intelligence" value="2.5" ranks="0.5" trainedonly="yes">
+                    <description>You can decipher writing in an unfamiliar language or a message written in an incomplete or archaic form. If the check succeeds, you understand the general content of about a page of writing.
+
+Synergy: If you have 5 or more ranks in Decipher Script, you get a +2 bonus on Use Magic Device checks involving scrolls.</description>
+                </skill>
+                <skill name="Diplomacy" attrbonus="1" attrname="Charisma" value="1" ranks="0">
+                    <description>You can change the attitudes of other NPCs with a successful check. The DC increases depending on the attitude of the NPC.
+
+Synergy: If you have 5 or more ranks in Bluff, Knowledge (Nobility &amp; Royalty) or Sense Motive, you get a +2 bonus on Diplomacy checks.</description>
+                </skill>
+                <skill name="Disable Device" attrbonus="2" attrname="Intelligence" value="2.5" ranks="0.5" trainedonly="yes">
+                    <description>Used for everything from jamming locks and sabotaging wheels to disarming and resetting complex traps.</description>
+                </skill>
+                <skill name="Disguise" attrbonus="1" attrname="Charisma" value="1" ranks="0">
+                    <description>Your disguise check determines how good a disguise you create is, and it is opposed by others Spot check results. If you don't draw any attention to yourself, others do not get to make Spot checks; suspicious people (such as guards at a city gate) can be assumed to be Taking 10 on their Spot checks.
+
+Synergy: If you have 5 or more ranks in Bluff, you get a +2 bonus on Disguise checks when you know that you're being observed and you act in character.</description>
+                </skill>
+                <skill name="Escape Artist" attrbonus="4" attrname="Dexterity" value="4" ranks="0" armorcheck="yes">
+                    <description>You can use this skill to escape various forms of restraints.
+
+Synergy: If you have 5 or more ranks in Escape Artist, you get a +2 bonus on Use Rope checks to bind someone. If you have 5 or more ranks in Use Rope, you get a +2 bonus on Escape Artist checks when escaping from rope bonds.</description>
+                </skill>
+                <skill name="Forgery" attrbonus="2" attrname="Intelligence" value="2" ranks="0">
+                    <description>You can forge official-looking document. The better or more unusual the document, the higher the DC.</description>
+                </skill>
+                <skill name="Gather Information" attrbonus="1" attrname="Charisma" value="1" ranks="0">
+                    <description>An evening's time, a few gold pieces for buying drinks and making friends, and a DC 10 Gather Information check get you a general idea of a city's major news items, assuming there are no obvious reasons why the information would be withheld. The higher your check result, the better the information.
+If you want to find out about a specific rumor, or a specific item, or obtain a map, or do something else along those lines, the DC for the check is 15 to 25, or even higher.
+
+Synergy: If you have 5 or more ranks in Knowledge (Local), you get a +2 bonus on Gather Information checks.</description>
+                </skill>
+                <skill name="Handle Animal" attrbonus="1" attrname="Charisma" value="2" ranks="1" trainedonly="yes">
+                    <description>This skill is used for everything from training an animal to perform specific tricks, to combat riding and performance.
+
+Synergy: If you have 5 or more ranks in Handle Animal, you get a +2 bonus on Ride checks and wild empathy checks.</description>
+                </skill>
+                <skill name="Heal" attrbonus="-3" attrname="Wisdom" value="-3" ranks="0">
+                    <description>First Aid can save a dying character, and Long-Term Care can help him or her recover. Treating a poison or disease requires a check against the poison or diseases DC.</description>
+                </skill>
+                <skill name="Hide" attrbonus="4" attrname="Dexterity" value="4" ranks="0" armorcheck="yes">
+                    <description>Your Hide check is opposed by the Spot check of anyone who might see you. You can move up to one half your normal speed while Hiding at no penalty; moving faster while hiding imposes a penalty on your Hide check. You need cover or concealment to attempt a Hide check.</description>
+                </skill>
+                <skill name="Hypnosis" attrbonus="1" attrname="Charisma" value="1" ranks="0" trainedonly="yes" usable="no">
+                    <description>You have studied the hidden workings of the human mind and can unlock its secrets.
+
+Check: You can use hypnosis to induce a deep, calming trance in your subject. The effects of a hypnotic trance are identical to those created by the hypnotism spell.
+
+Unlike the spell, however, the skill allows you to hypnotize only one target at a time, who does not receive the -2 penalty to her Will save. Each attempt to use hypnosis requires 1 hour. If the target is unwilling, you must first succeed at a Bluff check to disguise your intent.
+
+A Hypnosis check is opposed by the target's Will save. Loud or distracting surroundings grant a +2 circumstance modifier to the target's Will save. Willing targets can voluntarily choose not to make their saving throw.
+
+Once the target is hypnotized, you can either plant a suggestion (as per the hypnotism spell) or aid the recovery of a target who suffers from the effects of a failed Madness save. The latter option is detailed under "Recovering from Madness" in chapter 3.
+
+Retry: Generally, you cannot retry a Hypnosis check against an unwilling target; the target becomes too suspicious to cooperate. If attempting to hypnotize a willing target, you may retry freely. Retries are a vital component in the process of helping targets recover from Madness effects, in fact.</description>
+                </skill>
+                <skill name="Intimidate" attrbonus="1" attrname="Charisma" value="2" ranks="1">
+                    <description>You can change another's behavior with a successful check. Your Intimidate check is opposed by the target's modified level check (1d20 + character level or Hit Dice + target's Wisdom bonus [if any] + target's modifiers on saves against fear). If you beat your target's check result, you may treat the target as friendly, but only for the purpose of actions taken while it remains intimidated.
+
+Synergy: If you have 5 or more ranks in Bluff, you get a +2 bonus on Intimidate checks.</description>
+                </skill>
+                <skill name="Jump" attrbonus="7" attrname="Strength" value="12" ranks="1" armorcheck="yes">
+                    <description>You can make long or high jumps to traverse horizontal or vertical distances. For long jumps, the DC is equal to the horizontal distance cleared. For high jumps, the DC is equal to 4 times the vertical distance cleared.
+
+Synergy: If you have 5 or more ranks in Tumble, you get a +2 bonus on Jump checks. If you have 5 or more ranks in Jump, you get a +2 bonus on Tumble checks.
+
+Note that you receive -6 to your Jump skill for every 10 feet of your speed below 30, and a +4 for every 10 feet above 30.</description>
+                </skill>
+                <skill name="Knowledge: Arcana" attrbonus="2" attrname="Intelligence" value="2" ranks="0" trainedonly="yes" usable="no">
+                    <description>You have studied the lore and discipline of Arcana (ancient mysteries, magical traditions, arcane symbols, cryptic phrases, constructs, dragons, magical beasts).
+
+Synergy: +2 to Spellcraft checks.</description>
+                </skill>
+                <skill name="Knowledge: Dungeoneering" attrbonus="2" attrname="Intelligence" value="2.5" ranks="0.5" trainedonly="yes">
+                    <description>You have studied the lore and discipline of Dungeoneering (aberrations, caverns, oozes, spelunking).
+
+Synergy: +2 to Survival checks made while underground.</description>
+                </skill>
+                <skill name="Listen" attrbonus="-3" attrname="Wisdom" value="-2" ranks="0">
+                    <description>Test to hear noises. The DC varies by how quiet the noise is that you're trying to hear.</description>
+                </skill>
+                <skill name="Literacy" value="0" ranks="0" trainedonly="yes" usable="no">
+                    <description>For every point you spend in this skill, you can read and write one additional language (Ability to speak the language is not required).</description>
+                </skill>
+                <skill name="Martial Lore" attrbonus="2" attrname="Intelligence" value="2.5" ranks="0.5" trainedonly="yes">
+                    <description>You can use this skill to identify martial maneuvers as soon as they are initiated.
+
+Check: You can identify maneuvers and disciplines used by a combatant. The DCs for Martial Lore checks relating to various tasks are summarized below.
+
+DC Task
+10 + maneuver level: Identify a maneuver being initiated by someone you can see. No action required. No retry.
+10 + maneuver level: Identify a maneuver recorded on a martial script. One try per day. Requires a full-round action.
+20 + target’s initiator level: Determine all disciplines known by a particular creature by watching it initiate at least one maneuver. No action required. Retry only if the subject initiates another maneuver.
+
+Action: Varies, as noted above.
+
+Try Again: See above.
+
+Special: A swordsage gains a +2 bonus on a Martial Lore check involving a maneuver in a discipline in which he has discipline focus.</description>
+                </skill>
+                <skill name="Mimic" attrbonus="1" attrname="Charisma" value="1" ranks="0" trainedonly="yes" usable="no">
+                    <description>You can reproduce the voices of others, or the sounds made by creatures you have heard.
+
+Check: You can attempt to disguise your voice as that of another person, or trick others into believing they have heard whatever creature sound you wish to mimic.  You must spend at least a day practicing your mimicry, or suffer a -5 circumstance penalty to your check.  You may not attempt to mimic people or creatures you have never heard before.  Anyone that hears you must make an opposed Listen check to realize that what they are hearing is not authentic.
+
+Retry: Generally, once you have failed to fool a target you cannot fool him again.  Any further Mimic checks (emulating other voices or noises) against the same person during that encounter suffer a -2 penalty.
+
+Special: If you have 6 or more ranks in Listen, you receive a +2 synergy bonus on Mimic checks.</description>
+                </skill>
+                <skill name="Monster Lore: Dragons" attrbonus="2" attrname="Intelligence" value="3" ranks="1">
+                    <description>Lore skills mix academic study with a broad overview of legend and superstition. Characters can attempt to use lore skills untrained (an Intelligence check, which the DM should roll) by relying on their knowledge of common folklore. However, folklore is often misleading. If a character trained in lore fails the skill check, she realizes that she simply does not know the needed information. If an untrained character fails the check, the DM should provide a skewed (or even dangerously unreliable) version of the desired information.</description>
+                </skill>
+                <skill name="Move Silently" attrbonus="4" attrname="Dexterity" value="4" ranks="0" armorcheck="yes">
+                    <description>Your Move Silently check is opposed by the Listen check of anyone who might hear you. You can move up to one-half your normal speed at no penalty; increasing your speed imposes a penalty depending on how fast you go. Noisy surfaces, such as bogs and undergrowth, are tough to move silently across, and impose a further modifier.</description>
+                </skill>
+                <skill name="Open Lock" attrbonus="4" attrname="Dexterity" value="4" ranks="0" trainedonly="yes" usable="no">
+                    <description>The DC for Open Locks varies from 20 to 40, depending on the quality of the lock. Opening a lock is a full round action.</description>
+                </skill>
+                <skill name="Perform: Sing" attrbonus="1" attrname="Charisma" value="1" ranks="0">
+                    <description>You can impress audiences with your talent and skill at Singing (ballad, chant, melody). DC ranges from 10 for a routine performance to 30 for an extraordinary performance.</description>
+                </skill>
+                <skill name="Psicraft" attrbonus="2" attrname="Intelligence" value="2" ranks="0" trainedonly="yes" usable="no">
+                    <description>Use this skill to identify powers as they are manifest or powers already in place. The DC ranges from 15 + power level to identify a power, to 30+ for understanding a strange or unique psionic effect.
+
+Synergy: If you have 5 or more ranks in this skill, you get +2 to Use Psionic Device checks related to power stones. If you have 5 or more ranks in Knowledge: Psionics, you get a +2 bonus on Psicraft checks. If you have 5 or more ranks in Use Psionic Device, you get a +2 bonus on Psicraft checks to address power stones.</description>
+                </skill>
+                <skill name="Ride" attrbonus="4" attrname="Dexterity" value="5" ranks="1">
+                    <description>Make a Ride check when trying to do something special on a mount (for example, leap a chasm or use as cover).
+
+Synergy: If you have 5 or more ranks in Handle Animal, you get a +2 bonus on Ride checks.</description>
+                </skill>
+                <skill name="Search" attrbonus="2" attrname="Intelligence" value="3" ranks="0">
+                    <description>You must generally be within 10 feet of the object or surface to be searched. The DC ranges from 10 (for finding something in a pile of junk) to 30+ to find a well-hidden secret door.
+
+Synergy: If you have 5 or more ranks in Search, you get a +2 bonus on Search checks to find secret doors or hidden compartments.</description>
+                </skill>
+                <skill name="Sense Motive" attrbonus="-3" attrname="Wisdom" value="-3" ranks="0">
+                    <description>This skill allows you to avoid being Bluffed, and to determine when "something is up" or to assess someone's trustworthiness.
+
+Synergy: A ranger gains a bonus on Sense Motive checks when using this skill against a favored enemy. If you have the Negotiator feat, you get a +2 bonus on Sense Motive checks.</description>
+                </skill>
+                <skill name="Sleight of Hand" attrbonus="4" attrname="Dexterity" value="4.5" ranks="0.5" armorcheck="yes" trainedonly="yes">
+                    <description>A DC10 Sleight of Hand check lets you palm a coin-sized, unattended object. Performing a minor feat of legerdemain, such as making a coin disappear, also has a DC of 10 unless an observer is determined to note where the item went. When you use this skill under close observation, your skill check is opposed by the observer's Spot check.
+
+Synergy: If you have 5 or more ranks in Bluff, you get +2 on Sleight of Hand checks.</description>
+                </skill>
+                <skill name="Speak Language" value="0" ranks="0" trainedonly="yes" usable="no">
+                    <description>For every point you spend in this skill, you can speak one additional language (chosen on the Personal tab).</description>
+                </skill>
+                <skill name="Spellcraft" attrbonus="2" attrname="Intelligence" value="2" ranks="0" trainedonly="yes" usable="no">
+                    <description>Use this skill to identify spells as they are cast or spells already in place.
+
+Synergy: If you have 5 or more ranks in Knowledge (Arcana) you get a +2 bonus on Spellcraft checks. If you have 5 or more ranks in Use Magic Device, you get a +2 bonus on Spellcraft checks to decipher spells on scrolls. If you have 5 or more ranks in Spellcraft, you get a +2 bonus on Use Magic Device checks related to scrolls.</description>
+                </skill>
+                <skill name="Spot" attrbonus="-3" attrname="Wisdom" value="-1" ranks="1">
+                    <description>The Spot skill is used primarily to detect characters or creatures who are hiding. Typically, your Spot check is opposed by the Hide check of the creature trying not to be seen. Sometimes a creature isn't intentionally hiding but is still difficult to see, so a succesful Spot check is necessary to notice it.</description>
+                </skill>
+                <skill name="Survival" attrbonus="-3" attrname="Wisdom" value="-1" ranks="2">
+                    <description>You can keep yourself and others safe and fed in the wild. A single survival check may represent activity over the course of hours or a full day.
+
+Synergy: If you have 5 or more ranks in Survival, you get a +2 bonus on Knowledge (nature) checks. If you have 5 or more ranks in Knowledge (dungeoneering), you get a +2 bonus on Survival checks made while underground. If you have 5 or more ranks in Knowledge (nature), you get a +2 bonus on Survival checks in aboveground natural environments (aquatic, desert, forest, hill, marsh, mountains, and plains). If you have 5 or more ranks in Knowledge (geography), you get a +2 bonus on Survival checks made to keep from getting lost or to avoid natural hazards. If you have 5 or more ranks in Knowledge (the planes), you get a +2 bonus on Survival checks made while on other planes. If you have 5 or more ranks in Search, you get a +2 bonus on Survival checks to find or follow tracks.</description>
+                </skill>
+                <skill name="Swim" attrbonus="7" attrname="Strength" value="7" ranks="0" armorcheck="yes">
+                    <description>Allows you to swim for long periods without going underwater, risking death by drowning.
+
+Note that for Swim, your Armor Check Penalty is doubled.</description>
+                </skill>
+                <skill name="Tumble" attrbonus="4" attrname="Dexterity" value="4.5" ranks="0.5" armorcheck="yes" trainedonly="yes">
+                    <description>You can land softly when you fall, or tumble past opponents. You can also tumble to entertain an audience, as if using the Perform skill.
+
+Synergy: If you have 5 or more ranks in Tumble, you get a +2 bonus on Balance and Jump checks. If you have 5 or more ranks in Jump, you get a +2 bonus on Tumble checks.</description>
+                </skill>
+                <skill name="Use Magic Device" attrbonus="1" attrname="Charisma" value="1" ranks="0" trainedonly="yes" usable="no">
+                    <description>You can use this skill to read a spell or activate a magic item. Use Magic Device lets you use a magic item as if you had the spell ability or class features of another class, as if you were a different race, or as if you were of a different alignment.
+
+Synergy: If you have 5 or more ranks in Spellcraft, you get a +2 bonus on Use Magic Device checks related to scrolls. If you have 5 or more ranks in Decipher Script, you get a +2 bonus on Use Magic Device checks related to scrolls. If you have 5 or more ranks in Use Magic Device, you get a +2 bonus to Spellcraft checks made to decipher spells on scrolls.</description>
+                </skill>
+                <skill name="Use Psionic Device" attrbonus="1" attrname="Charisma" value="1" ranks="0" trainedonly="yes" usable="no">
+                    <description>Use this skill to activate Psionic devices, including power stones and dorjes, that you could not otherwise activate. You can activate an item blindly, emulate an ability score or other feature, and other effects.
+
+Synergy: If you have 5 or more ranks in Psicraft, you get a +2 bonus on Use Psionic Device checks related to power stones. If you have 5 or more ranks in this skill, you get a +2 bonus on Psicraft checks to address power stones.</description>
+                </skill>
+                <skill name="Use Rope" attrbonus="4" attrname="Dexterity" value="4" ranks="0">
+                    <description>You can perform complex tasks with a rope, such as tying knots, splicing ropes together and using ropes to bind prisoners or climb surfaces.
+
+Synergy: If you have 5 or more ranks in Use Rope, you get a +2 bonus on Climb checks made to climb a rope, a knotted rope, or a rope-and-wall combination. If you have 5 or more ranks in Use Rope, you get a +2 bonus on Escape Artist checks when escaping from rope bonds. If you have 5 or more ranks in Escape Artist, you get a +2 bonus on checks made to bind someone.</description>
+                </skill>
+            </skills>
+            <skillabilities></skillabilities>
+            <feats>
+                <feat name="Armor Proficiency (Heavy)" categorytext="General" profgroup="yes" useradded="no">
+                    <description>Prerequisites: Armor Proficiency (light), Armor Proficiency (medium).
+
+Benefit: When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Sleight of Hand, and Tumble checks.
+
+Normal: A character who is wearing armor with which she is not proficient applies its armor check penalty to attack rolls and to all skill checks that involve moving, including Ride.
+
+Special: Fighters, paladins, and clerics automatically have Armor Proficiency (heavy) as a bonus feat. They need not select it.</description>
+                    <featcategory>General</featcategory>
+                </feat>
+                <feat name="Armor Proficiency (Light)" categorytext="General" profgroup="yes" useradded="no">
+                    <description>Benefit: When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Sleight of Hand, and Tumble checks.
+
+Normal: A character who is wearing armor with which she is not proficient applies its armor check penalty to attack rolls and to all skill checks that involve moving, including Ride.
+
+Special: All characters except wizards, sorcerers, and monks automatically have Armor Proficiency (light) as a bonus feat. They need not select it.</description>
+                    <featcategory>General</featcategory>
+                </feat>
+                <feat name="Armor Proficiency (Medium)" categorytext="General" profgroup="yes" useradded="no">
+                    <description>Prerequisites: Armor Proficiency (light).
+
+Benefit: When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Sleight of Hand, and Tumble checks.
+
+Normal: A character who is wearing armor with which she is not proficient applies its armor check penalty to attack rolls and to all skill checks that involve moving, including Ride.
+
+Special: Fighters, barbarians, paladins, clerics, druids, and bards automatically have Armor Proficiency (medium) as a bonus feat. They need not select it.</description>
+                    <featcategory>General</featcategory>
+                </feat>
+                <feat name="Bullheaded" categorytext="Regional" useradded="no">
+                    <description>The stubbornness and determination of your kind are legendary. You are exceptionally headstrong and difficult to sway from your course.
+
+Prerequisite: Dwarf (Underdark [Earthroot], Underdark [Northdark], the Great Rift, or the Spine of the World), human (Altumbel, Damara, the Great Dale, Rashemen, or the Western Heartlands), or taer (the Icerim Mountains)
+
+Benefit: You receive a +2 bonus on all Will saves. You cannot become shaken, and you ignore the effects of the shaken condition.
+
+Special: You may select this feat only as a 1st-level character. You may have only one regional feat
+
+Source: Player's Guide to Faerûn, 3.5 Edition</description>
+                    <featcategory>Regional</featcategory>
+                </feat>
+                <feat name="Class Level Count: 6" categorytext="General">
+                    <description>You have a trace of draconic power, a result of dragons in your ancestry or a spiritual connection between you and the forces of dragonkind.
+
+Prerequisite: CHA 11
+
+Benefit: You gain the dragonblood subtype. You gain 1 hit point, a +1 bonus on Listen, Search, and Spot checks, and a +1 bonus on saving throws against paralysis and sleep effects. In addition, you can select draconic feats as if you were a sorcerer of your character level.</description>
+                    <featcategory>General</featcategory>
+                </feat>
+                <feat name="Combat Reflexes" categorytext="General">
+                    <description>Benefit: You may make a number of additional attacks of opportunity equal to your Dexterity bonus.
+With this feat, you may also make attacks of opportunity while flat-footed.
+
+Normal: A character without this feat can make only one attack of opportunity per round and can't make attacks of opportunity while flat-footed.
+
+Special: The Combat Reflexes feat does not allow a rogue to use her opportunist ability more than once per round.
+A fighter may select Combat Reflexes as one of his fighter bonus feats.
+A monk may select Combat Reflexes as a bonus feat at 2nd level.</description>
+                    <featcategory>General</featcategory>
+                </feat>
+                <feat name="Dragon Wings" categorytext="General">
+                    <description>Prerequisite: 1st level only, Dragonblood subtype
+
+Required for: Improved Dragon Wings (RDr)
+
+Benefit: You have wings that aid your jumps, granting a +10 racial bonus on Jump checks. In addition, you can use your wings to glide, negating damage from a fall from any height and allowing 20 feet of forward travel for every 5 feet of descent. You glide at a speed of 30 feet with average maneuverability. Even if your maneuverability improves, you can't hover while gliding. You can't glide while carrying a medium or heavy load. If you become unconscious or helpless while in midair, your wings naturally unfurl, and powerful ligaments stiffen them. You descend in a tight corkscrew and take only 1d6 points of falling damage, no matter what the actual distance of the fall.
+
+Special: Unlike most feats, this feat must be taken at 1st level, during character creation. A kobold with the Dragonwrought feat can take this feat at 3rd level.</description>
+                    <featcategory>General</featcategory>
+                </feat>
+                <feat name="Hardy Soul" categorytext="Ancestor">
+                    <description>You descended from ancestors that lived in a rugged, mountainous land.  You are particularly hard to kill.
+
+Nation: Shou Lung (Yu'l), Koryo
+
+Benefit: When you take this feat you gain +3 hit points.  Further, you are immune to death from massive damage.  When you are dying, you have a 25% chance to stabilize each round.
+
+Normal: The normal chance to stabilize each round is 10%.
+
+Source: Dragon #315</description>
+                    <featcategory>Ancestor</featcategory>
+                </feat>
+                <feat name="Improved Toughness" categorytext="General">
+                    <description>You are significantly tougher than normal.
+
+Prerequisite: Base Fortitude save bonus +2.
+
+Benefit: You gain a number of hit points equal to your current Hit Dice. Each time you gain a HD (such as by gaining a level), you gain 1 additional hit point. If you lose a HD (such as by losing a level), you lose 1 hit point permanently.
+
+Special: A fighter may select Improved Toughness as one of his fighter bonus feats.</description>
+                    <featcategory>General</featcategory>
+                </feat>
+                <feat name="Martial Weapon Proficiency - All" categorytext="General" profgroup="yes" useradded="no">
+                    <description>Benefit: You are proficient with all Martial weapons.
+
+Normal: When using a weapon with which you are not proficient, you are at -4 to attack rolls.</description>
+                    <featcategory>General</featcategory>
+                </feat>
+                <feat name="Shield Proficiency" categorytext="General" profgroup="yes" useradded="no">
+                    <description>Benefit: You can use a shield and take only the standard penalties.
+
+Normal: When you are using a shield with which you are not proficient, you take the shield's armor check penalty on attack rolls and on all skill checks that involve moving, including Ride checks.
+
+Special: Barbarians, bards, clerics, druids, fighters, paladins, and rangers automatically have Shield Proficiency as a bonus feat. They need not select it.</description>
+                    <featcategory>General</featcategory>
+                </feat>
+                <feat name="Simple Weapon Proficiency - All" categorytext="General" profgroup="yes" useradded="no">
+                    <description>Benefit: You are proficient with all Simple weapons.
+
+Normal: When using a weapon with which you are not proficient, you are at -4 to attack rolls.</description>
+                    <featcategory>General</featcategory>
+                </feat>
+                <feat name="Tower Shield Proficiency" categorytext="General" profgroup="yes" useradded="no">
+                    <description>Prerequisites: Shield Proficiency.
+
+Benefit: You can use a tower shield and suffer only the standard penalties.
+
+Normal: A character who is using a shield with which he or she is not proficient takes the shield's armor check penalty on attack rolls and on all skill checks that involve moving, including Ride.
+
+Special: Fighters automatically have Tower Shield Proficiency as a bonus feat. They need not select it.</description>
+                    <featcategory>General</featcategory>
+                </feat>
+                <feat name="Two-weapon Fighting" categorytext="General">
+                    <description>Prerequisites: Dex 15.
+
+You can fight with a weapon in each hand. You can make one extra attack each round with the second weapon.
+
+Benefit: Your penalties on attack rolls for fighting with two weapons are reduced. The penalty for your primary hand lessens by 2 and the one for your off hand lessens by 6.
+
+Normal: If you wield a second weapon in your off hand, you can get one extra attack per round with that weapon. When fighting in this way you suffer a -6 penalty with your regular attack or attacks with your primary hand and a -10 penalty to the attack with your off hand. If your off-hand weapon is light the penalties are reduced by 2 each. (An unarmed strike is always considered light.)
+
+Special: A 2nd-level ranger who has chosen the two-weapon combat style is treated as having Two-Weapon Fighting, even if he does not have the prerequisite for it, but only when he is wearing light or no armor.
+A fighter may select Two-Weapon Fighting as one of his fighter bonus feats.</description>
+                    <featcategory>General</featcategory>
+                </feat>
+            </feats>
+            <traits>
+                <trait name="Courageous" categorytext="Combat">
+                    <description>Your childhood was brutal, yet you persevered primarily through force of will and the hope that no matter how hard things might get, as long as you kept a level head you’d make it through.
+
+Benefit: You gain a +2 trait bonus on saving throws against fear effects.</description>
+                    <traitcategory>Combat</traitcategory>
+                </trait>
+                <trait name="The Spine of the World - Bullheaded" categorytext="Regional">
+                    <description>Required Race: Dwarf
+Recommended Subraces (Dwarf): Arctic Dwarf, Shield Dwarf, Urdunnir
+Automatic Languages (Dwarf): Dwarven
+Bonus Languages: (Dwarf) Chondathan, Draconic, Giant, Goblin, Illuskan, Orc
+Favored Deities (Dwarf): Dwarven Pantheon
+Regional Feats (Dwarf): Bullheaded, Foe Hunter (orc), Oral History, Thunder Twin
+Bonus Equipment (Dwarf): (A) Warhammer/dwarven Waraxe (B) Breastplate and 2 potions of cure light wounds (C) +100 gp
+Knowledge Local: The Silver Marches (includes Silverymoon and the Spine of the World)</description>
+                    <traitcategory>Regional</traitcategory>
+                </trait>
+            </traits>
+            <flaws>
+                <flaw name="Loudmouth">
+                    <description>You are a loud, obnoxious, boisterous, and compulsive talker.
+
+Effect: You suffer a -4 penalty on all Diplomacy and Move Silently checks.
+
+Source: Dragon #324</description>
+                </flaw>
+                <flaw name="Love of Nature">
+                    <description>You do not wish harm upon any natural creature.
+
+Effect: You must succeed at a DC 12 Will save before you can attack any creature with the animal, plant, or vermin type, or you lose your action. Note that animals, plants, and vermin may attack you without penalty.
+
+Source: Dragon #324</description>
+                </flaw>
+            </flaws>
+            <skilltricks></skilltricks>
+            <attack attackbonus="+3" meleeattack="+10" rangedattack="+7" baseattack="+3">
+                <special name="Dragon Breath (Su)" type="Supernatural Ability" sourcetext="Half-Dragon">
+                    <description>Once per day you can use a breath weapon that causes 6d8 damage. The breath weapon varies based on your race of dragon:
+
+Black: 60-foot line of acid
+Blue: 60-foot line of lightning
+Green: 30-foot cone of corrosive (acid) gas
+Red: 30-foot cone of fire
+White: 30-foot cone of cold
+Brass: 60-foot line of fire
+Bronze: 60-foot line of lightning
+Copper: 60-foot line of acid
+Gold: 30-foot cone of fire
+Silver: 30-foot cone of cold</description>
+                    <specsource>Half-Dragon</specsource>
+                </special>
+            </attack>
+            <melee>
+                <weapon name="+2 Giant's Ruin" categorytext="Double Weapon, Melee Weapon" typetext="SP" attack="+12" damage="1d8+12" crit="20/x3" equipped="bothhands" quantity="1">
+                    <weight text="12lbs" value="12"></weight>
+                    <cost text="36650 GP" value="36650"></cost>
+                    <description>Double damage when set to receive a charge. Dwarves treat this as a Martial weapon.
+
+- Normal -
+
+The surface of this weapon is covered with jagged lines resembling lightning bolts.
+
+A stunning weapon functions as a screaming weapon.
+
+In addition, on a successful critical hit with a stunning weapon, the target must succeed on a DC 17 Fortitude save or be stunned for 1 round.
+
+Projectile weapons bestow this property on their ammunition. 
+
+Price: +1 bonus
+Property: Weapon
+Caster Level: 9th
+Aura: Moderate; (DC 19) enchantment
+Activation: —
+Synergy Prerequisite: Screaming
+
+Prerequisites: Craft Magic Arms and Armor, hold monster.
+Cost to Create: Varies.</description>
+                    <itempower name="Stunning [Synergy]" pricebonusvalue="1" pricebonustext="+1" pricecashvalue="0" pricecashtext="">
+                        <description>The surface of this weapon is covered with jagged lines resembling lightning bolts.
+
+A stunning weapon functions as a screaming weapon.
+
+In addition, on a successful critical hit with a stunning weapon, the target must succeed on a DC 17 Fortitude save or be stunned for 1 round.
+
+Projectile weapons bestow this property on their ammunition. 
+
+Price: +1 bonus
+Property: Weapon
+Caster Level: 9th
+Aura: Moderate; (DC 19) enchantment
+Activation: —
+Synergy Prerequisite: Screaming
+
+Prerequisites: Craft Magic Arms and Armor, hold monster.
+Cost to Create: Varies.</description>
+                    </itempower>
+                    <wepcategory>Double Weapon</wepcategory>
+                    <wepcategory>Melee Weapon</wepcategory>
+                    <weptype>Slashing</weptype>
+                    <weptype>Piercing</weptype>
+                </weapon>
+                <weapon name="Bite (Half-Dragon Template)" categorytext="Melee Weapon" typetext="B/P/S" attack="+5" damage="1d6+3" crit="20/x2" useradded="no">
+                    <description>A creature's natural Bite attack.</description>
+                    <wepcategory>Melee Weapon</wepcategory>
+                    <weptype>Bludgeoning</weptype>
+                    <weptype>Piercing</weptype>
+                    <weptype>Slashing</weptype>
+                </weapon>
+                <weapon name="Claw x2 (Half-Dragon Template)" categorytext="Melee Weapon" typetext="P/S" attack="+5 x2" damage="1d4+3" crit="20/x2" useradded="no">
+                    <description>A creature's natural Claw attack.</description>
+                    <wepcategory>Melee Weapon</wepcategory>
+                    <weptype>Piercing</weptype>
+                    <weptype>Slashing</weptype>
+                </weapon>
+                <weapon name="Dagger" categorytext="Melee Weapon, Thrown Weapon" typetext="P/S" attack="+10" damage="1d4+7" crit="19-20/x2" quantity="1">
+                    <rangedattack attack="+7" rangeinctext="10'" rangeincvalue="10'"></rangedattack>
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="2 GP" value="2"></cost>
+                    <description>+2 bonus to Sleight of Hand checks to conceal a dagger about your body.</description>
+                    <wepcategory>Melee Weapon</wepcategory>
+                    <wepcategory>Thrown Weapon</wepcategory>
+                    <weptype>Piercing</weptype>
+                    <weptype>Slashing</weptype>
+                </weapon>
+                <weapon name="Dagger" categorytext="Melee Weapon, Thrown Weapon" typetext="P/S" attack="+10" damage="1d4+7" crit="19-20/x2" quantity="1">
+                    <rangedattack attack="+7" rangeinctext="10'" rangeincvalue="10'"></rangedattack>
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="2 GP" value="2"></cost>
+                    <description>+2 bonus to Sleight of Hand checks to conceal a dagger about your body.</description>
+                    <wepcategory>Melee Weapon</wepcategory>
+                    <wepcategory>Thrown Weapon</wepcategory>
+                    <weptype>Piercing</weptype>
+                    <weptype>Slashing</weptype>
+                </weapon>
+                <weapon name="Dagger" categorytext="Melee Weapon, Thrown Weapon" typetext="P/S" attack="+10" damage="1d4+7" crit="19-20/x2" quantity="1">
+                    <rangedattack attack="+7" rangeinctext="10'" rangeincvalue="10'"></rangedattack>
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="2 GP" value="2"></cost>
+                    <description>+2 bonus to Sleight of Hand checks to conceal a dagger about your body.</description>
+                    <wepcategory>Melee Weapon</wepcategory>
+                    <wepcategory>Thrown Weapon</wepcategory>
+                    <weptype>Piercing</weptype>
+                    <weptype>Slashing</weptype>
+                </weapon>
+                <weapon name="Dagger" categorytext="Melee Weapon, Thrown Weapon" typetext="P/S" attack="+10" damage="1d4+7" crit="19-20/x2" quantity="1">
+                    <rangedattack attack="+7" rangeinctext="10'" rangeincvalue="10'"></rangedattack>
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="2 GP" value="2"></cost>
+                    <description>+2 bonus to Sleight of Hand checks to conceal a dagger about your body.</description>
+                    <wepcategory>Melee Weapon</wepcategory>
+                    <wepcategory>Thrown Weapon</wepcategory>
+                    <weptype>Piercing</weptype>
+                    <weptype>Slashing</weptype>
+                </weapon>
+                <weapon name="Unarmed Strike" categorytext="Melee Weapon, Unarmed Attack" typetext="B" attack="+10" damage="1d3+7" crit="20/x2" useradded="no" quantity="1">
+                    <weight text="" value="0"></weight>
+                    <cost text="" value="0"></cost>
+                    <description>A Medium character deals 1d3 points of nonlethal damage with an unarmed strike. A Small character deals 1d2 points of nonlethal damage. A monk or any character with the Improved Unarmed Strike feat can deal lethal or nonlethal damage with unarmed strikes, at her option. The damage from an unarmed strike is considered weapon damage for the purposes of effects that give you a bonus on weapon damage rolls.
+
+An unarmed strike is always considered a light weapon. Therefore, you can use the Weapon Finesse feat to apply your Dexterity modifier instead of your Strength modifier to attack rolls with an unarmed strike. </description>
+                    <wepcategory>Melee Weapon</wepcategory>
+                    <wepcategory>Unarmed Attack</wepcategory>
+                    <weptype>Bludgeoning</weptype>
+                </weapon>
+                <weapon name="Warhammer" categorytext="Melee Weapon" typetext="B" attack="+10" damage="1d8+7" crit="20/x3" quantity="1">
+                    <weight text="5lbs" value="5"></weight>
+                    <cost text="12 GP" value="12"></cost>
+                    <description></description>
+                    <wepcategory>Melee Weapon</wepcategory>
+                    <weptype>Bludgeoning</weptype>
+                </weapon>
+            </melee>
+            <ranged>
+                <weapon name="0 Crossbow, Heavy" categorytext="Projectile Weapon" typetext="P" attack="+3" damage="1d10" crit="19-20/x2" quantity="1">
+                    <rangedattack attack="+3" rangeinctext="120'" rangeincvalue="120'"></rangedattack>
+                    <weight text="8lbs" value="8"></weight>
+                    <cost text="50 GP" value="50"></cost>
+                    <description>You can shoot a Heavy Crossbow with one hand with a -4 penalty to attack rolls. Loading requires both hands.</description>
+                    <wepcategory>Projectile Weapon</wepcategory>
+                    <weptype>Piercing</weptype>
+                </weapon>
+            </ranged>
+            <defenses>
+                <armor name="Natural Armor" ac="+4" equipped="yes" natural="yes" useradded="no" quantity="1">
+                    <weight text="" value="0"></weight>
+                    <cost text="" value="0"></cost>
+                    <description></description>
+                    <itemslot>Body</itemslot>
+                </armor>
+                <armor name="The Dragonhide Coat" ac="+6" equipped="yes" quantity="1">
+                    <weight text="25lbs" value="25"></weight>
+                    <cost text="6650 GP" value="6650"></cost>
+                    <description>Dragonhide: No longer counts as metal.
+
+Items of Renown are masterwork items that are twice as effective as standard masterwork items – armor check penalty is lessened by 2.
+
+Provided that you and your called armor or shield are on the same plane, you can call it to you by speaking the proper command word, regardless of the intervening distance, if you aren't wearing armor at the time, a suit of called armor appears on your body, as though you had donned it in the normal fashion, if you are wearing other armor when you speak the command word, the called armor appears in your space or in an adjacent space you designate that is capable of holding it. A called shield appears on the proper arm if you are not already using another shield when you call it, or in your space or a designated adjacent space if you are.
+
+If any other creature has worn your called armor or shield since you last wore it, you can no longer call it until you wear it again.
+
+Prerequisites: Craft Magic Arms and Armor, teleport.
+
+Cost to Create: 1,000 gp, 80 XP, 2 days.</description>
+                    <itemslot>Body</itemslot>
+                    <itempower name="Called" pricebonusvalue="0" pricebonustext="+0" pricecashvalue="2000" pricecashtext="2000 GP">
+                        <description>Provided that you and your called armor or shield are on the same plane, you can call it to you by speaking the proper command word, regardless of the intervening distance, if you aren't wearing armor at the time, a suit of called armor appears on your body, as though you had donned it in the normal fashion, if you are wearing other armor when you speak the command word, the called armor appears in your space or in an adjacent space you designate that is capable of holding it. A called shield appears on the proper arm if you are not already using another shield when you call it, or in your space or a designated adjacent space if you are.
+
+If any other creature has worn your called armor or shield since you last wore it, you can no longer call it until you wear it again.
+
+Prerequisites: Craft Magic Arms and Armor, teleport.
+
+Cost to Create: 1,000 gp, 80 XP, 2 days.</description>
+                    </itempower>
+                    <itempower name="Item of Renown" pricebonusvalue="0" pricebonustext="+0" pricecashvalue="150" pricecashtext="150 GP">
+                        <description>Items of Renown are masterwork items that are twice as effective as standard masterwork items – armor check penalty is lessened by 2.</description>
+                    </itempower>
+                </armor>
+            </defenses>
+            <magicitems>
+                <item name="+2 Giant's Ruin" quantity="1">
+                    <weight text="12lbs" value="12"></weight>
+                    <cost text="36650 GP" value="36650"></cost>
+                    <description>Double damage when set to receive a charge. Dwarves treat this as a Martial weapon.
+
+- Normal -
+
+The surface of this weapon is covered with jagged lines resembling lightning bolts.
+
+A stunning weapon functions as a screaming weapon.
+
+In addition, on a successful critical hit with a stunning weapon, the target must succeed on a DC 17 Fortitude save or be stunned for 1 round.
+
+Projectile weapons bestow this property on their ammunition. 
+
+Price: +1 bonus
+Property: Weapon
+Caster Level: 9th
+Aura: Moderate; (DC 19) enchantment
+Activation: —
+Synergy Prerequisite: Screaming
+
+Prerequisites: Craft Magic Arms and Armor, hold monster.
+Cost to Create: Varies.</description>
+                    <itempower name="Stunning [Synergy]" pricebonusvalue="1" pricebonustext="+1" pricecashvalue="0" pricecashtext="">
+                        <description>The surface of this weapon is covered with jagged lines resembling lightning bolts.
+
+A stunning weapon functions as a screaming weapon.
+
+In addition, on a successful critical hit with a stunning weapon, the target must succeed on a DC 17 Fortitude save or be stunned for 1 round.
+
+Projectile weapons bestow this property on their ammunition. 
+
+Price: +1 bonus
+Property: Weapon
+Caster Level: 9th
+Aura: Moderate; (DC 19) enchantment
+Activation: —
+Synergy Prerequisite: Screaming
+
+Prerequisites: Craft Magic Arms and Armor, hold monster.
+Cost to Create: Varies.</description>
+                    </itempower>
+                </item>
+                <item name="0 Crossbow, Heavy" quantity="1">
+                    <weight text="8lbs" value="8"></weight>
+                    <cost text="50 GP" value="50"></cost>
+                    <description>You can shoot a Heavy Crossbow with one hand with a -4 penalty to attack rolls. Loading requires both hands.</description>
+                </item>
+                <item name="Bag of Boulders" quantity="1">
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="1400 GP" value="1400"></cost>
+                    <description>Caster Level: 5th
+Aura: Faint; (DC 17) transmutation
+Activation: Standard (thrown)
+
+This worn doeskin pouch holds a few unremarkable pebbles.
+
+This pouch creates tiny pebbles that strike with the force of a catapult stone when thrown. Each stone has a range increment of 50 feet. You are proficient with the stones and must make a successful ranged attack to strike with one. A stone disappears after it completes its flight. Activating a bag of boulders is a standard action that includes both drawing and throwing a stone.
+
+Each bag of boulders has 3 charges, which are renewed each day at dawn. Spending 1 or more charges when you draw a pebble from the bag determines the damage dealt by the stone when thrown.
+
+1 charge: Deals 2d6 points of bludgeoning damage.
+2 charges: Deals 3d6 points of bludgeoning damage.
+3 charges: Deals 4d6 points of bludgeoning damage.
+
+Prerequisites: Craft Wondrous Item, shrink item.
+
+Cost to Create: 700 gp, 56 XP, 2 days.</description>
+                </item>
+                <item name="Survival Pouch" quantity="1">
+                    <weight text="5lbs" value="5"></weight>
+                    <cost text="3300 GP" value="3300"></cost>
+                    <description>Price (Item Level): 3,300 gp (8th)
+Body Slot: — (held)
+Caster Level: 9th
+Aura: Moderate; (DC 19) conjuration
+Activation: Standard (manipulation)
+Weight: 5 lb.
+
+This pouch looks like it’s seen its share of rough use. It is tattered and stained from use in the wild.
+
+Five times per day, you can reach into a survival pouch and retrieve your choice of one of the following items. You can draw out the same item five times in one day, draw out five different items, or produce any combination of up to five items.
+
+Each item lasts for 8 hours or until indicated below, whichever comes first.
+
+• Trail rations for one Medium creature for one day.
+• Two gallons of water stored in a waterskin. The waterskin disappears if it is emptied completely.
+• A tent and two bedrolls sized for Medium creatures.
+• A 50-foot coil of hempen rope.
+• A shovel.
+• A campfire (about 2 feet square). The fire can be left to burn, or it can be pulled apart to produce eight lit torches. Each removed torch lasts for 1 hour and reduces the remaining burning time of the campfire by 1 hour. If the fire is extinguished, the unburnt portion vanishes.
+• A composite shortbow (+1 Str bonus) and a quiver of 20 arrows. The bow disappears 1 round after the last arrow has been drawn from the quiver.
+• A mule with bit, bridle, saddle, and saddlebags (treat as a summoned creature, except that it will not fight for you).
+
+Prerequisites: Craft Wondrous Item, major creation.
+
+Cost to Create: 1,650 gp, 132 XP, 4 days.</description>
+                </item>
+                <item name="The Dragonhide Coat" quantity="1">
+                    <weight text="25lbs" value="25"></weight>
+                    <cost text="6650 GP" value="6650"></cost>
+                    <description>Dragonhide: No longer counts as metal.
+
+Items of Renown are masterwork items that are twice as effective as standard masterwork items – armor check penalty is lessened by 2.
+
+Provided that you and your called armor or shield are on the same plane, you can call it to you by speaking the proper command word, regardless of the intervening distance, if you aren't wearing armor at the time, a suit of called armor appears on your body, as though you had donned it in the normal fashion, if you are wearing other armor when you speak the command word, the called armor appears in your space or in an adjacent space you designate that is capable of holding it. A called shield appears on the proper arm if you are not already using another shield when you call it, or in your space or a designated adjacent space if you are.
+
+If any other creature has worn your called armor or shield since you last wore it, you can no longer call it until you wear it again.
+
+Prerequisites: Craft Magic Arms and Armor, teleport.
+
+Cost to Create: 1,000 gp, 80 XP, 2 days.</description>
+                    <itemslot>Body</itemslot>
+                    <itempower name="Called" pricebonusvalue="0" pricebonustext="+0" pricecashvalue="2000" pricecashtext="2000 GP">
+                        <description>Provided that you and your called armor or shield are on the same plane, you can call it to you by speaking the proper command word, regardless of the intervening distance, if you aren't wearing armor at the time, a suit of called armor appears on your body, as though you had donned it in the normal fashion, if you are wearing other armor when you speak the command word, the called armor appears in your space or in an adjacent space you designate that is capable of holding it. A called shield appears on the proper arm if you are not already using another shield when you call it, or in your space or a designated adjacent space if you are.
+
+If any other creature has worn your called armor or shield since you last wore it, you can no longer call it until you wear it again.
+
+Prerequisites: Craft Magic Arms and Armor, teleport.
+
+Cost to Create: 1,000 gp, 80 XP, 2 days.</description>
+                    </itempower>
+                    <itempower name="Item of Renown" pricebonusvalue="0" pricebonustext="+0" pricecashvalue="150" pricecashtext="150 GP">
+                        <description>Items of Renown are masterwork items that are twice as effective as standard masterwork items – armor check penalty is lessened by 2.</description>
+                    </itempower>
+                </item>
+                <item name="Universal Solvent" quantity="1">
+                    <weight text="" value="0"></weight>
+                    <cost text="50 GP" value="50"></cost>
+                    <description>This substance has the unique property of being able to dissolve sovereign glue and tanglefoot bags. Applying the solvent is a standard action.
+
+Strong transmutation; CL 20th; Craft Wondrous Item, disintegrate; Price 50 gp.</description>
+                </item>
+                <item name="Wand of Cure Light Wounds" quantity="1">
+                    <weight text="" value="0"></weight>
+                    <cost text="750 GP" value="750"></cost>
+                    <description>(Caster Level 1st)</description>
+                </item>
+                <item name="Wyrmfang Amulet" quantity="1">
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="1350 GP" value="1350"></cost>
+                    <description>Price (Item Level): 1,350 gp (5th)
+Body Slot: Throat
+Caster Level: 12th
+Aura: Strong; (DC 21) transmutation
+Activation: —
+Weight: 1 lb.
+
+This necklace consists of a leather thong strung with dragon’s teeth.
+
+All attacks you make with natural weapons or unarmed strikes while wearing this amulet overcome damage reduction as through they were magic weapons. (The attacks don’t gain an enhancement bonus, just the ability to overcome some creatures’ damage reduction.)
+
+Prerequisites: Craft Wondrous Item, greater magic fang.
+
+Cost to Create: 675 gp, 54 XP, 2 days.</description>
+                    <itemslot>Throat</itemslot>
+                </item>
+            </magicitems>
+            <gear>
+                <item name="Acid Bolt, Crossbow" quantity="5">
+                    <weight text="0.1lbs" value="0.1"></weight>
+                    <cost text="200 GP" value="200"></cost>
+                    <description>This crossbow bolt has a glass reservior of acid, and deals normal damage + 1d4 acid damage (no splash).
+
+A crossbow bolt used as a melee weapon is treated as a light improvised weapon (–4 penalty on attack rolls) and deals damage as a dagger of its size (crit x2). Bolts come in a wooden case that holds 10 bolts (or 5, for a repeating crossbow). A bolt that hits its target is destroyed; one that misses has a 50% chance of being destroyed or lost.</description>
+                </item>
+                <item name="Acidic fire" quantity="1">
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="30 GP" value="30"></cost>
+                    <description>This alchemical concoction combines alchemist's fire with a strong acid.  A direct hit with acidic fire deals 1d4 points of acid damage and 1d4 points of fire damage.  Every creature within 5 feet of the ponit where the acidic fire hits takes 1 point of acid damage and 1 point of fire damage from the splash.  On the round following a direct hit, the target takes an additional 1d4 poitns of fire damage, thsi damage can be avoided in the same way as for alchemist's fire.</description>
+                </item>
+                <item name="Backpack (empty)" quantity="1">
+                    <weight text="2lbs" value="2"></weight>
+                    <cost text="2 GP" value="2"></cost>
+                    <description></description>
+                </item>
+                <item name="Bedroll" quantity="1">
+                    <weight text="5lbs" value="5"></weight>
+                    <cost text="1 SP" value="0.1"></cost>
+                    <description></description>
+                </item>
+                <item name="Bolts, Crossbow" quantity="30">
+                    <weight text="0.1lbs" value="0.1"></weight>
+                    <cost text="3 GP" value="3"></cost>
+                    <description>A crossbow bolt used as a melee weapon is treated as a light improvised weapon (-4 penalty on attack rolls) and deals damage as a dagger of its size (crit x2). Bolts come in a wooden case that holds 10 bolts (or 5, for a repeating crossbow). A bolt that hits its target is destroyed; one that misses has a 50% chance of being destroyed or lost.</description>
+                </item>
+                <item name="Courtier's outfit" quantity="1">
+                    <weight text="6lbs" value="6"></weight>
+                    <cost text="30 GP" value="30"></cost>
+                    <description>This outfit includes fancy, tailored clothes in whatever fashion happens to be the current style in the courts of the nobles. Anyone trying to influence nobles or courtiers while wearing street dress will have a hard time of it (-2 penalty on Charisma-based skill checks to influence such individuals). If you wear this outfit without jewelry (costing an additional 50 gp), you look like an out-of-place commoner.</description>
+                </item>
+                <item name="Dagger" quantity="1">
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="2 GP" value="2"></cost>
+                    <description>+2 bonus to Sleight of Hand checks to conceal a dagger about your body.</description>
+                </item>
+                <item name="Dagger" quantity="1">
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="2 GP" value="2"></cost>
+                    <description>+2 bonus to Sleight of Hand checks to conceal a dagger about your body.</description>
+                </item>
+                <item name="Dagger" quantity="1">
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="2 GP" value="2"></cost>
+                    <description>+2 bonus to Sleight of Hand checks to conceal a dagger about your body.</description>
+                </item>
+                <item name="Dagger" quantity="1">
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="2 GP" value="2"></cost>
+                    <description>+2 bonus to Sleight of Hand checks to conceal a dagger about your body.</description>
+                </item>
+                <item name="Fire Bolt, Crossbow" quantity="5">
+                    <weight text="0.1lbs" value="0.1"></weight>
+                    <cost text="250 GP" value="250"></cost>
+                    <description>This crossbow bolt has a reservior of alchemist's fire and deals normal damage + 1d4 fire damage (no splash).
+
+A crossbow bolt used as a melee weapon is treated as a light improvised weapon (–4 penalty on attack rolls) and deals damage as a dagger of its size (crit x2). Bolts come in a wooden case that holds 10 bolts (or 5, for a repeating crossbow). A bolt that hits its target is destroyed; one that misses has a 50% chance of being destroyed or lost.</description>
+                </item>
+                <item name="Fishing Tackle" quantity="1">
+                    <weight text="5lbs" value="5"></weight>
+                    <cost text="20 GP" value="20"></cost>
+                    <description>More than a mere fishhook, this set includes birch poles, silk line, sinkers, hooks, lures, and tackle box. It grants a +1 circumstance bonus on Survival checks when gathering food around bodies of water that contain fish.</description>
+                </item>
+                <item name="Flint and steel" quantity="1">
+                    <weight text="" value="-1"></weight>
+                    <cost text="1 GP" value="1"></cost>
+                    <description>Lighting a torch with flint and steel is a full-round action, and lighting any other fire with them takes at least that long.</description>
+                </item>
+                <item name="Forger's Kit" quantity="1">
+                    <weight text="2lbs" value="2"></weight>
+                    <cost text="25 GP" value="25"></cost>
+                    <description>This is a special collection of different pens, seals, guides, waxes, inks magnifying glasses, books of writing styles, parchment, and other instruments. It grants a +2 circumstance bonus on Forgery checks and lasts for ten uses before needing to be replaced.
+
+(Arms and Equipment Guide 3.0 Version, updated in Complete Adventurer)</description>
+                </item>
+                <item name="Gloves, Leather" quantity="1">
+                    <weight text="" value="0"></weight>
+                    <cost text="5 SP" value="0.5"></cost>
+                    <description></description>
+                </item>
+                <item name="Grappling Hook, Collapsible" quantity="1">
+                    <weight text="2lbs" value="2"></weight>
+                    <cost text="3 GP" value="3"></cost>
+                    <description>This small grappling hook has flat, retractable tines that fold out to create a working hook. It functions exactly like a normal grappling hook, except that it increases the DC of Search checks to find it by +4 when folded up and hidden among a person's garments.</description>
+                </item>
+                <item name="Hammer" quantity="1">
+                    <weight text="2lbs" value="2"></weight>
+                    <cost text="5 SP" value="0.5"></cost>
+                    <description>If a hammer is used in combat, treat it as a one-handed improvised weapon that deals bludgeoning damage equal to that of a spiked gauntlet of its size.</description>
+                </item>
+                <item name="Healer's kit" quantity="1">
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="50 GP" value="50"></cost>
+                    <description>It is the perfect tool for healing and provides a +2 circumstance bonus on Heal checks. A healer's kit is exhausted after ten uses.</description>
+                </item>
+                <item name="Honey Leather 10-Foot Square Tent" quantity="1">
+                    <weight text="20lbs" value="20"></weight>
+                    <cost text="120 GP" value="120"></cost>
+                    <description>For up to 4 Small or Medium creatures.  Add +4 bonus on Survival checks for anyone inside.</description>
+                </item>
+                <item name="Leap Capsule" quantity="2">
+                    <weight text="" value="0"></weight>
+                    <cost text="30 GP" value="30"></cost>
+                    <description>The thick gray liquid in this capsule allows the user to make powerful leaps for a short time. The user gains a +4 alchemical bonus on Jump checks for 1 round. The affect ends immediately after the round's actions are finished.
+
+It can be made with a DC 25 Craft (Alchemy) check.</description>
+                </item>
+                <item name="Mirror, small steel" quantity="1">
+                    <weight text="0.5lbs" value="0.5"></weight>
+                    <cost text="10 GP" value="10"></cost>
+                    <description></description>
+                </item>
+                <item name="Mobile Brace" quantity="1">
+                    <weight text="3lbs" value="3"></weight>
+                    <cost text="10 GP" value="10"></cost>
+                    <description>This small staff can extend and lock at any length from 5 to 11 feet. It is commonly used to make a sturdy brace across a passage, granting a sure purchase for one or more ropes. A properly set brace can support up to 400 pounds of weight (less if the walls are soft, slippery, crumbling, or otherwise offer unsure purchase). Setting a brace allows characters to 
+securely set a rope or grappling hook where doing so would normally be impossible.  Adventuring groups can send a skilled climber or jumper to negotiate tricky ascents or dangerous falls, set a brace on the far side of the obstacle, and then give less nimble characters something to hang on to while they cross the dangerous area.</description>
+                </item>
+                <item name="Piton" quantity="10">
+                    <weight text="0.5lbs" value="0.5"></weight>
+                    <cost text="1 GP" value="1"></cost>
+                    <description></description>
+                </item>
+                <item name="Pouch, belt (empty)" quantity="1">
+                    <weight text="0.5lbs" value="0.5"></weight>
+                    <cost text="1 GP" value="1"></cost>
+                    <description></description>
+                </item>
+                <item name="Quickflame Weapon Capsule" quantity="1">
+                    <weight text="" value="0"></weight>
+                    <cost text="25 GP" value="25"></cost>
+                    <description>A quickflame alchemical capsule coats a melee or thrown weapon with a thin sheet of oil that instantly bursts into flame. This substance allows the weapon to deal extra fire damage without harming the weapon or wielder. A weapon treated with quickflame deals 1d6 points of fire damage with each successful strike. This fire damage does not stack with any fire damage the weapon already deals.
+
+The capsule's effect lasts for 1 round, ending at the start of the wielders next turn.
+
+It can be made with a DC 25 Craft (Alchemy) check.</description>
+                </item>
+                <item name="Quickfrost Weapon Capsule" quantity="1">
+                    <weight text="" value="0"></weight>
+                    <cost text="25 GP" value="25"></cost>
+                    <description>A quickfrost alchemical capsule coats a melee or thrown weapon with a thin sheet of oil that instantly cools to a dangerously low temperature. This substance allows the weapon to deal extra cold damage without harming the weapon or wielder. A weapon treated with quickfrost deals 1d6 points of cold damage with each successful strike. This cold damage does not stack with any cold damage the weapon already deals.
+
+The capsule's effect lasts for 1 round, ending at the start of the wielders next turn.
+
+It can be made with a DC 25 Craft (Alchemy) check.</description>
+                </item>
+                <item name="Quicksilver Weapon Capsule" quantity="1">
+                    <weight text="" value="0"></weight>
+                    <cost text="50 GP" value="50"></cost>
+                    <description>A quicksilver alchemical capsule coats a melee or thrown weapon with a thick, silvery liquid. This substance allows the weapon to deal damage as though the weapon were coated with silver (including the normal -1 penalty on damage for silvered weapons). 
+
+The capsule's effect lasts for 3 rounds and override any other special material effects on the weapon.
+
+It can be made with a DC 30 Craft (Alchemy) check.</description>
+                </item>
+                <item name="Quickspark Weapon Capsule" quantity="1">
+                    <weight text="" value="0"></weight>
+                    <cost text="25 GP" value="25"></cost>
+                    <description>A quickspark alchemical capsule coats a melee or thrown weapon with a thin sheet of oil that crackles and sparks with electrical energy. This substance allows the weapon to deal extra electricity damage without harming the weapon or wielder. A weapon treated with quickspark deals 1d6 points of electricity damage with each successful strike. This electricity damage does not stack with any electricity damage the weapon already deals.
+
+The capsule's effect lasts for 1 round, ending at the start of the wielders next turn.
+
+It can be made with a DC 25 Craft (Alchemy) check.</description>
+                </item>
+                <item name="Quiver Scabbard (empty)" quantity="1">
+                    <weight text="2lbs" value="2"></weight>
+                    <cost text="10 GP" value="10"></cost>
+                    <description>Cleverly designed, this quiver (for either arrows or bolts) has a hidden scabbard that can hold a relatively flat weapon of size small or smaller, such as a shortsword, handaxe, or dagger. It increases the Search check DC to find the hidden weapon by +6.</description>
+                </item>
+                <item name="Rations, trail (per day)" quantity="10">
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="5 GP" value="5"></cost>
+                    <description></description>
+                </item>
+                <item name="Rope, hempen (50 ft.)" quantity="1">
+                    <weight text="10lbs" value="10"></weight>
+                    <cost text="1 GP" value="1"></cost>
+                    <description>This rope has 2 hit points and can be burst with a DC 23 Strength check.</description>
+                </item>
+                <item name="Spike, Iron" quantity="10">
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="1 GP" value="1"></cost>
+                    <description>Iron spikes have a variety of uses, though they are most commonly hammered into door frames to keep doors shut.  If you have a hammer or mallet, you can pound one spike in place as a full round action.  A door with one spike in it is considered stuck, and a door with two or more spikes in it  is considered locked for the purposes of breaking it down.  (for the break DCs for stuck and locked doors, see Table 3-10:doors, DMG 61)</description>
+                </item>
+                <item name="Sunrod" quantity="2">
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="4 GP" value="4"></cost>
+                    <description>This 1-foot-long, gold-tipped, iron rod glows brightly when struck. It clearly illuminates a 30-foot radius and provides shadowy illumination in a 60-foot radius. It glows for 6 hours, after which the gold tip is burned out and worthless.</description>
+                </item>
+                <item name="Thieves' tools" quantity="1">
+                    <weight text="1lb" value="1"></weight>
+                    <cost text="30 GP" value="30"></cost>
+                    <description>This kit contains the tools you need to use the Disable Device and Open Lock skills. Without these tools, you must improvise tools, and you take a -2 circumstance penalty on Disable Device and Open Locks checks.</description>
+                </item>
+                <item name="Twine, Roll (50 ft.)" quantity="1">
+                    <weight text="" value="0"></weight>
+                    <cost text="1 SP" value="0.1"></cost>
+                    <description>A roll of sturdy twine. It has 0 hardness and 1 hp. When tightly wrapped around an object, it has the same strength as hemp rope (0 hardness, 2 hp per inch).</description>
+                </item>
+                <item name="Warhammer" quantity="1">
+                    <weight text="5lbs" value="5"></weight>
+                    <cost text="12 GP" value="12"></cost>
+                    <description></description>
+                </item>
+                <item name="Waterskin" quantity="1">
+                    <weight text="4lbs" value="4"></weight>
+                    <cost text="1 GP" value="1"></cost>
+                    <description></description>
+                </item>
+                <item name="Weapon Capsule Retainer (empty)" quantity="1">
+                    <weight text="" value="0"></weight>
+                    <cost text="100 GP" value="100"></cost>
+                    <description>A capsule retainer consists of a long leather thong that is wrapped around a melee or thrown (not projectile) weapon just at the base of the blade or striking surface and holds a thin, fitted metal ring that can hold one alchemical capsule.
+
+Only one weapon capsule retainer can be attached to a weapon, and attaching it to the weapon or fitting a capsule into an empty retainer is a full round action that provokes attacks of opportunity. Using a capsule already equipped is a swift action that does not provoke attacks of opportunity.
+
+Alchemical weapon capsules can also be filled with a single dose of any injury poison, allowing the wielder to poison his enemies. A character using poison in this way still faces all the normal risks of using poison (including accidental exposure when activating the capsule or with a natural 1 on any attack roll).</description>
+                </item>
+            </gear>
+            <otherspecials>
+                <special name="+1 to attack rolls vs Orcs and Goblinoids" sourcetext="Dwarf">
+                    <description>+1 racial bonus to attacks against Orcs and Goblinoids.</description>
+                    <specsource>Dwarf</specsource>
+                </special>
+                <special name="+2 to Appraise and Craft on Stone/Metal items" sourcetext="Dwarf">
+                    <description>You gain a bonus to skill checks under certain conditions.</description>
+                    <specsource>Dwarf</specsource>
+                </special>
+                <special name="+2 to saves vs poison, spells &amp; spell-like effects" sourcetext="Dwarf">
+                    <description>+2 racial bonus to Poison, Spells and Spell-Like effects.</description>
+                    <specsource>Dwarf</specsource>
+                </special>
+                <special name="Dragon Wings (Ex)" type="Extraordinary Ability">
+                    <description>You have wings that aid your jumps, granting a +10 racial bonus on Jump checks. In addition, you can use your wings to glide.</description>
+                </special>
+                <special name="Fire Trap (1/day) (Sp)" type="Spell-Like Ability" sourcetext="Mark of Warding">
+                    <description>You may use the least power fire trap.</description>
+                    <specsource>Mark of Warding</specsource>
+                </special>
+                <special name="Gliding (Ex)" type="Extraordinary Ability">
+                    <description>You can use your wings to glide, negating damage from a fall from any height and allowing 20 feet of forward travel for every 5 feet of descent. 
+You glide at a speed of 30 feet with average maneuverability. Even if your maneuverability improves, you can't hover while gliding. 
+
+You can't glide while carrying a medium or heavy load. If you become unconscious or helpless while in midair, your wings naturally unfurl, and powerful ligaments stiffen them. 
+
+You descend in a tight corkscrew and take only 1d6 points of falling damage, no matter what the actual distance of the fall.</description>
+                </special>
+                <special name="Stability" sourcetext="Dwarf">
+                    <description>+4 bonus to ability checks made to avoid being bull rushed or tripped while standing on the ground.</description>
+                    <specsource>Dwarf</specsource>
+                </special>
+                <special name="Stonecunning" sourcetext="Dwarf">
+                    <description>+2 racial bonus to Search checks to notice unusual stonework, or things disguised as stonework. When you come within 10 feet of unusual stonework, you can make a Search check as if actively searching. You can use the Search skill to find stonework traps like a rogue. You can sense your approximate depth underground at all times.</description>
+                    <specsource>Dwarf</specsource>
+                </special>
+                <special name="Sturdy" sourcetext="Dwarf">
+                    <description>Your base speed is never modified by encumbrance.</description>
+                    <specsource>Dwarf</specsource>
+                </special>
+                <special name="Subtype - Dragonblood">
+                    <description>A creature that has the dragonblood subtype has a strong affinity to dragons. Which means that spells, effects, powers and abilities that effect or target dragons also effect it.
+
+The subtype qualifies a creature to use magic items normally usuable only by dragons, and it qualifies the creature to take feats that have the subtype as a prerequisite.
+
+The dragonblood subtype also makes creatures subject to harmful effects that affect dragons.
+
+The dragonblood subtype does not confer the dragon type or any traits associated with that type. If a creature that has the dragonblood subtype somehow acquires the dragon type, it loses this subtype.</description>
+                </special>
+                <special name="Subtype - Dwarf">
+                    <description>Dwarves are stoic and industrious humanoids who live largely underground and who all speak Dwarven.</description>
+                </special>
+                <special name="Type - Humanoid">
+                    <description>A humanoid usually has two arms, two legs, and one head, or a humanlike torso, arms, and a head. Humanoids have few or no supernatural or extraordinary abilities, but most can speak and usually have well-developed societies. They usually are Small or Medium. Every humanoid creature also has a subtype.
+
+Humanoids with 1 Hit Die exchange the features of their humanoid Hit Die for the class features of a PC or NPC class. Humanoids of this sort are presented as 1st-level warriors, which means that they have average combat ability and poor saving throws.
+
+Humanoids with more than 1 Hit Die are the only humanoids who make use of the features of the humanoid type.
+
+Features: A humanoid has the following features (unless otherwise noted in a creature’s entry).
+—8-sided Hit Dice, or by character class.
+—Base attack bonus equal to 3/4 total Hit Dice (as cleric).
+—Good Reflex saves (usually; a humanoid’s good save varies).
+—Skill points equal to (2 + Int modifier, minimum 1) per Hit Die, with quadruple skill points for the first Hit Die, or by character class.
+
+Traits: A humanoid possesses the following traits (unless otherwise noted in a creature’s entry).
+—Proficient with all simple weapons, or by character class.
+—Proficient with whatever type of armor (light, medium, or heavy) it is described as wearing, or by character class. If a humanoid does not have a class and wears armor, it is proficient with that type of armor and all lighter types. Humanoids not indicated as wearing armor are not proficient with armor. Humanoids are proficient with shields if they are proficient with any form of armor.
+—Humanoids breathe, eat, and sleep.</description>
+                </special>
+                <special name="Weapon Familiarity - Dwarven Waraxe &amp; Urgrosh" sourcetext="Dwarf">
+                    <description>Dwarven Waraxes and Dwarven Urgroshes count as Martial weapons.</description>
+                    <specsource>Dwarf</specsource>
+                </special>
+            </otherspecials>
+            <spellsknown></spellsknown>
+            <spellsmemorized></spellsmemorized>
+            <spellbook></spellbook>
+            <spellclasses></spellclasses>
+            <journals>
+                <journal name="reset starting gold" gamedate="0" realdate="20220421" xp="153000" pp="0" gp="756475" sp="0" cp="0">
+                    <description>Date (game world): 0000/00/00; Date (real world): 2022/04/21
+XP Reward: 153000 XP; Net Cash: 756475 GP 
+
+- no notes -</description>
+                </journal>
+                <journal name="6th level adjust" gamedate="0" realdate="20230101" xp="-138000" pp="0" gp="-246755" sp="-6" cp="0">
+                    <description>Date (game world): 0000/00/00; Date (real world): 2023/01/01
+XP Reward: -138000 XP; Net Cash: -246755 GP -6 SP 
+
+- no notes -</description>
+                </journal>
+                <journal name="6th level start" gamedate="0" realdate="20230101" xp="0" pp="0" gp="10833" sp="0" cp="0">
+                    <description>Date (game world): 0000/00/00; Date (real world): 2023/01/01
+XP Reward: 0 XP; Net Cash: 10833 GP 
+
+- no notes -</description>
+                </journal>
+                <journal name="adjustment for retained gear" gamedate="0" realdate="20230101" xp="0" pp="0" gp="-518" sp="0" cp="0">
+                    <description>Date (game world): 0000/00/00; Date (real world): 2023/01/01
+XP Reward: 0 XP; Net Cash: -518 GP 
+
+- no notes -</description>
+                </journal>
+                <journal name="adjustment for magic items" gamedate="0" realdate="20230106" xp="0" pp="0" gp="-5450" sp="0" cp="0">
+                    <description>Date (game world): 0000/00/00; Date (real world): 2023/01/06
+XP Reward: 0 XP; Net Cash: -5450 GP 
+
+- no notes -</description>
+                </journal>
+                <journal name="adjustment for armor" gamedate="0" realdate="20230106" xp="0" pp="0" gp="-3650" sp="0" cp="0">
+                    <description>Date (game world): 0000/00/00; Date (real world): 2023/01/06
+XP Reward: 0 XP; Net Cash: -3650 GP 
+
+- no notes -</description>
+                </journal>
+                <journal name="adjustment for weapons" gamedate="0" realdate="20230106" xp="0" pp="0" gp="-520" sp="0" cp="0">
+                    <description>Date (game world): 0000/00/00; Date (real world): 2023/01/06
+XP Reward: 0 XP; Net Cash: -520 GP 
+
+- no notes -</description>
+                </journal>
+            </journals>
+            <images>
+                <image filename="Bronn_Skyfall_L6-image001.jpg"></image>
+            </images>
+            <validation>
+                <report>Fighter: Too many  assigned.</report>
+                <validmessage>Error: Fighter: Too many  assigned.</validmessage>
+            </validation>
+            <settings summary="d20 SRD Additional Domains; d20 SRD Psionics Support; Lone Wolf Content; Open Content from Unearthed Arcana; User Content: Age of Worms, Dragon Magazine, Poisoncraft: The Dark Art, Bodrins Custom Stuff, Book of Erotic Fantasy, Corruption Spells, Online Content, Sanctified Spells, The Book of Fiends, Toby's Custom Stuff, Wild Shape Adjustments; User Content -&gt; 3.0 D&amp;D Books: Arms &amp; Equipment Guide, Book of Vile Darkness, Deities and Demigods, Fiend Folio, Ghostwalk Campaign Source, Manual of the Planes, Masters of the Wild, Oriental Adventures, Savage Species, Sword and Fist; User Content -&gt; 3.5 D&amp;D Books: Advanced Bestiary, Book of Exalted Deeds, Cityscape, Complete Adventurer, Complete Arcane, Complete Champion, Complete Divine, Complete Mage, Complete Psionics, Complete Scoundrel, Complete Warrior, Draconomicon, Dragon Compendium, Dragon Magic, Dragon Monster Ecologies, Drow of the Underdark, Dungeon Masters Guide, Dungeon Masters Guide II, Dungeonscape, Epic Level Handbook, Fiendish Codex 1, Fiendish Codex 2, Frostburn, Heroes of Battle, Heroes of Horror, Libris Mortis, Lords of Madness, Magic Item Compendium, Magic of Incarnum, Miniatures Handbook, Monster Manual, Monster Manual 2, Monster Manual 3, Monster Manual 4, Monster Manual 5, Player's Handbook 2, Races of Destiny, Races of Stone, Races of the Dragon, Races of the Wild, Sandstorm, Spell Compendium, Stormwrack, Tome of Battle, Tome of Magic, Weapons of Legacy; User Content -&gt; Dark Sun Campaign Setting Books: Athas.org 3.5 Dark Sun Campaign Setting; User Content -&gt; Dragonlance Campaign Setting Books: Age of Mortals, Bestiary of Krynn, Dragonlance Campaign Setting, Dragons of Krynn, Holy Order of the Stars, Knightly Orders of Ansalon, Krynn Languages, Legends of the Twins, Races of Ansalon, Towers of High Sorcery, War of the Lance; User Content -&gt; Eberron Campaign Setting Books: Eberron Campaign Setting, Magic of Eberron, Player's Guide to Eberron, Races of Eberron, Secrets of Sarlona, Secrets of Xen'drik, Sharn: City of Towers; User Content -&gt; Forgotten Realms Campaign Setting Books: Champions of Ruin 3.5, Champions of Valor, Faiths and Pantheons 3.0, Forgotten Realms Campaign Setting, Lords of Darkness 3.0, Magic of Faerun 3.0, Monsters of Faerun, Players Guide to Faerun, Races of Faerun, Unapproachable East, Underdark; User Content -&gt; Legend of the Five Rings - Oriental Adventures: Creatures of Rokugan, Magic of Rokugan, Rokugan Campaign Setting, Way of the Ninja, Way of the Samurai, Way of the Shugenja; User Content -&gt; Living Greyhawk: LGC Greyhawk Deities v2.0, Living Greyhawk Gazeteer; User Content -&gt; Paizo - Modules: Blood of Dragonscar, Carnival of Tears; User Content -&gt; Ravenloft Campaign Setting Books: Champions of Darkness, Denizens of Dread, Ravenloft Campaign Setting, Van Richten's Arsenal, Van Richten's Guide to the Shadow Fey; Pathfinder Adventure Paths: Pathfinder - Curse of the Crimson Throne, Pathfinder - Legacy of Fire, Pathfinder - Rise of the Runelords, Pathfinder - Second Darkness; House Rules: Allow Gestalt Class Variants, Bonus 0-level spells; Optional Rules: Use Traits &amp; Flaws, Use Variant Classes; Output Options: Always Print 2-Weapon Attacks, Hide Validation Messages, Show Feat / Ability Descriptions, Show Hero Portrait"></settings>
+            <minions></minions>
+        </character>
+    </public>
+</document>

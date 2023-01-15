@@ -1,0 +1,277 @@
+<!-- version 306 -->
+
+<!DOCTYPE html>
+    <style>
+
+@media print {
+  /* THIS causes our columns to flow properly from page to page*/
+  /* set page size and margins */
+  @page {
+    size: letter;
+    margin: 1.5cm;
+  }
+}
+@media Fakeprint {
+  /* THIS causes our columns to flow properly from page to page*/
+  /* set page size and margins */
+  @page {
+    size: letter;
+    margin: 1cm;
+  }
+  /* apply styles to the body element */
+  body {
+    font-size: 12pt;
+  }
+  /* apply styles to specific elements */
+  .grid-container {
+    column-count: 2;
+    column-gap: 10px;
+  }
+  /* apply styles to specific elements */
+  .elementpath {
+    font-weight: lighter;
+    font-size: 20%;
+    float: right;
+    display: inline-block;
+  }
+  /* apply styles to specific elements */
+  .name {
+    font-weight: bold;
+    display: inline-block;
+  }
+  /* apply styles to specific elements */
+  .description-block {
+    white-space: pre-wrap !important;
+    word-break: keep-all;
+    font-size: 80%;
+    font-family: monospace;
+    line-height: 1.5;
+    color: #333;
+  }
+}
+
+
+
+
+.elementpath {
+  font-weight: lighter;
+  font-size: 20%;
+  float: right;
+  display: inline-block
+}
+.name {
+  font-weight: bold;
+  display: inline-block;
+}
+.description-block {
+  /*white-space: pre-wrap;*/
+  white-space: pre-wrap !important; /* The pre-wrap value preserves newlines and whitespace characters, while allowing text to wrap to the next line. You can use this property to achieve a similar effect to the <pre> element, without actually using the <pre> element in your HTML. */
+  word-break: keep-all; /* to allow the text to break in between words if the text is too long. */
+  font-size: 80%;
+  /* match the <pre> style*/
+  font-family: monospace;
+  /*font-size: 14px;*/
+  line-height: 1.5;
+  color: #333;
+}
+
+.grid-container {
+  column-count: 2; /* creates two columns */
+  column-gap: 10px; /* adds some space between columns */
+  width: 80%; /* adjust as needed */
+}
+@media screen and (max-width: 600px) {
+  .grid-container {
+    column-count: 1; /* 1 column for screen widths less than 600px */
+  }
+}
+.grid-item {
+
+}
+.separator {
+  border-top: 1px solid gray; /* adds a top border */
+  margin: 10px 0; /* adds some margin */
+}
+    </style>
+<html>
+  <head>
+  <body>
+    <p id="status">Upload a Herolab XML file to begin processing - print to PDF to save</p>
+    <input type="file" id="xml-file" accept="application/xml, text/xml, .xml" onchange="processFile()">
+    <script>
+function removeElements() {
+  var fileInput = document.getElementById("xml-file");
+  fileInput.parentNode.removeChild(fileInput);
+  var status = document.getElementById("status");
+  status.parentNode.removeChild(status);
+}
+
+function processFile() {
+  // Get the file input element
+  var fileInput = document.getElementById("xml-file");
+  // Get the selected file
+  var file = fileInput.files[0];
+  // Update the status message
+  document.getElementById("status").innerHTML = "Processing file: " + file.name;
+
+  // Create a new FileReader
+  var reader = new FileReader();
+  // Add an event listener to be notified when the file has been read
+  reader.addEventListener("load", function () {
+    // Parse the file contents as XML
+    var parser = new DOMParser();
+    var xmlDoc = parser.parseFromString(reader.result, "text/xml");
+    //Variable to hold found elements
+    var elements = new Set();
+    //Find all elements with 'description'
+    var descriptionElements = xmlDoc.getElementsByTagName('description');
+    for (var i = 0; i < descriptionElements.length; i++) {
+      var path = getElementXPath(descriptionElements[i]);
+      console.log(path)
+      path = path.replace('/document/public/character', './');
+      path = path.replace('/description', '');
+      path = path.replace(/\[[0-9]+\]/g, '');
+      console.log(path)
+      elements.add(path)
+    } // end for
+    // convert the set to an array
+    var elements = [...elements];
+    // skip these if we find them.
+    // cant do ITEM level exceptions yet
+    var exceptions = {
+      ".//personal": true,
+      ".//journals/journal": true,
+      ".//skills/skill": true,
+      ".//spellsmemorized/spell": true,
+    };
+
+    var exceptionNames = {
+      "Additional Traits": true,
+      "Spell, Touch": true,
+      "Unarmed Strike": true,
+      "Natural Armor": true,
+      "Rations, trail (per day)": true,
+      "Spell component pouch": true,
+      "Waterskin": true,
+      "Aura (Ex)": true,
+      "Spell, Ranged": true,
+      "Subtype - Human": true,
+      "Type - Humanoid": true,
+      "Bolts, Crossbow": true,
+      "Darkvision (60 feet)": true,
+      "Armor Proficiency (Heavy)": true,
+      "Armor Proficiency (Light)": true,
+      "Armor Proficiency (Medium)": true,
+      "Martial Weapon Proficiency - All": true,
+      "Shield Proficiency": true,
+      "Simple Weapon Proficiency - All": true,
+      "Tower Shield Proficiency": true,
+      "Bedroll": true,
+      "Backpack (empty)": true,
+      "Item of Renown": true,
+    };
+
+
+    // create a set to store name + description combinations
+    var seenCombinations = new Set();
+    // Iterate through the elements and extract the data
+    for (var i = 0; i < elements.length; i++) {
+      if (!exceptions.hasOwnProperty(elements[i]) || !exceptions[elements[i]]) {
+        // code to add element to sheet
+        console.log("element: " + elements[i])
+        var items = xmlDoc.evaluate(elements[i], xmlDoc, null, XPathResult.ANY_TYPE, null);
+        var item = items.iterateNext();
+        while (item) {
+          try {
+            var name = item.getAttribute("name");
+            if (exceptionNames.hasOwnProperty(name)) {
+              throw new Error("Skipping exceptionNames: " + name);
+            } // end if exceptionName
+            var descriptions = item.getElementsByTagName("description");
+            if (descriptions.length === 0) {
+              throw new Error("No description tag found for element " + elements[i]);
+            } // end if desc.length
+            var description = descriptions[0].textContent;
+            var combination = name + description;
+            if(seenCombinations.has(combination)) {
+                console.log("duplicate name + description combination found: " + combination);
+            } else {
+                seenCombinations.add(combination);
+                // Create a new container element
+                var container = document.createElement("div");
+                container.classList.add("grid-item", "container");
+                // Create a name element
+                var nameEl = document.createElement("div");
+                nameEl.classList.add("grid-item", "name");
+                nameEl.innerHTML = name;
+                var elEl = document.createElement("div");
+                elEl.classList.add("grid-item", "elementpath");
+                elEl.innerHTML = elements[i];
+                // Create a description element
+                var descEl = document.createElement("div");
+                descEl.classList.add("grid-item", "description-block");
+                descEl.innerHTML = description;
+                // descEl.innerHTML = '<pre style="white-space: pre-wrap !important; word-break: keep-all;">' + description + "</pre>";
+
+                // Append the name and description elements to the container
+                container.appendChild(nameEl);
+                container.appendChild(elEl);
+                container.appendChild(descEl);
+                // Create a separator element
+                var separator = document.createElement("div");
+                separator.classList.add("separator");
+                container.appendChild(separator);
+                // Append the container to the grid container
+                var gridContainer = document.querySelector(".grid-container");
+                gridContainer.appendChild(container);
+            }
+            // Move to the next item
+            item = items.iterateNext();
+
+          } catch (error) {
+            console.log("WARN: reading element textContent:", error);
+            break;
+          } // end catch
+        } //end of while (item)
+      } // end if exceptions
+    } //end of  for (var i = 0; i < elements.length; i++)
+  }); //end of reader.addEventListener("load", function ()
+  reader.readAsText(file);
+  removeElements();
+} //end of processFile
+function getElementXPath(element) {
+  if (element && element.id)
+    return '//*[@id="' + element.id + '"]';
+  else
+    return getElementTreeXPath(element);
+}
+
+function getElementTreeXPath(element) {
+  var paths = [];
+  // Use nodeName (instead of localName) so namespace prefix is included (if any).
+  for (; element && element.nodeType == Node.ELEMENT_NODE; element = element.parentNode) {
+    var index = 0;
+    for (var sibling = element.previousSibling; sibling; sibling = sibling.previousSibling) {
+      // Ignore document type declaration.
+      if (sibling.nodeType == Node.DOCUMENT_TYPE_NODE)
+        continue;
+      if (sibling.nodeName == element.nodeName)
+        ++index;
+    }
+    var tagName = element.nodeName.toLowerCase();
+    var pathIndex = (index ? "[" + (index + 1) + "]" : "");
+    paths.splice(0, 0, tagName + pathIndex);
+  }
+  return paths.length ? "/" + paths.join("/") : null;
+}
+   </script>
+  </head>
+  <body>
+<div class="grid-container">
+  <div class="grid-item name"></div>
+  <div class="grid-item description-block"></div>
+</div>
+
+  </body>
+</html>
+
