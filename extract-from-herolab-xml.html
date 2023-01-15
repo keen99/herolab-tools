@@ -2,7 +2,6 @@
 
 <!DOCTYPE html>
     <style>
-
 @media print {
   /* THIS causes our columns to flow properly from page to page*/
   /* set page size and margins */
@@ -11,46 +10,6 @@
     margin: 1.5cm;
   }
 }
-@media Fakeprint {
-  /* THIS causes our columns to flow properly from page to page*/
-  /* set page size and margins */
-  @page {
-    size: letter;
-    margin: 1cm;
-  }
-  /* apply styles to the body element */
-  body {
-    font-size: 12pt;
-  }
-  /* apply styles to specific elements */
-  .grid-container {
-    column-count: 2;
-    column-gap: 10px;
-  }
-  /* apply styles to specific elements */
-  .elementpath {
-    font-weight: lighter;
-    font-size: 20%;
-    float: right;
-    display: inline-block;
-  }
-  /* apply styles to specific elements */
-  .name {
-    font-weight: bold;
-    display: inline-block;
-  }
-  /* apply styles to specific elements */
-  .description-block {
-    white-space: pre-wrap !important;
-    word-break: keep-all;
-    font-size: 80%;
-    font-family: monospace;
-    line-height: 1.5;
-    color: #333;
-  }
-}
-
-
 
 
 .elementpath {
@@ -75,16 +34,53 @@
   color: #333;
 }
 
-.grid-container {
-  column-count: 2; /* creates two columns */
-  column-gap: 10px; /* adds some space between columns */
-  width: 80%; /* adjust as needed */
+
+/* Style the header */
+.page-header {
+  /*position: absolute;*/
+  /*top: 0;*/
+  text-align: center;
+  /*display: block;*/
+  /*font-size: 20px;*/
+  /*margin-bottom: 20px;*/
 }
+/* Style the footer */
+.page-footer {
+  /*position: absolute;*/
+  /*bottom: 0;*/
+  text-align: center;
+  /*display: block;*/
+  /*font-size: 12px;*/
+  /*margin-top: 20px;*/
+}
+
+.main-container {
+    /*position: relative;*/
+    min-height:100%;
+    display: flex;
+    flex-direction: column;
+}
+.main-container-flex {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.grid-container {
+    flex: 1; /* This will make grid-container take the remaining space after header and footer */
+    column-count: 2; /* creates two columns */
+    column-gap: 10px; /* adds some space between columns */
+    width: 80%; /* adjust as needed */
+    margin: 0 auto; /* center the columns */
+    margin: auto; /* center the columns */
+}
+
 @media screen and (max-width: 600px) {
   .grid-container {
     column-count: 1; /* 1 column for screen widths less than 600px */
   }
 }
+
 .grid-item {
 
 }
@@ -99,12 +95,79 @@
     <p id="status">Upload a Herolab XML file to begin processing - print to PDF to save</p>
     <input type="file" id="xml-file" accept="application/xml, text/xml, .xml" onchange="processFile()">
     <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("xml-file").onchange = processFile;
+    });
+
 function removeElements() {
   var fileInput = document.getElementById("xml-file");
   fileInput.parentNode.removeChild(fileInput);
   var status = document.getElementById("status");
   status.parentNode.removeChild(status);
 }
+
+
+
+
+
+function createHeaderAndFooter(xmlDoc) {
+  // extract character name
+  var characterName = xmlDoc.querySelector("character").getAttribute("name");
+  // extract race name
+  var raceName = xmlDoc.querySelector("race").getAttribute("name");
+  // extract template names and levels
+  var templateNodes = xmlDoc.querySelectorAll("templates");
+  // var templateNames = [];
+  // var templateLevels = [];
+  for (var i = 0; i < templateNodes.length; i++) {
+    var template = templateNodes[i];
+    var templateSummary = template.getAttribute("summary");
+    // var parts = summary.split(" ");
+    // templateNames.push(parts[0]);
+    // templateLevels.push(parts[1]);
+  }
+  // extract class names and levels
+  // var classNodes = xmlDoc.querySelectorAll("class");
+  var classNodes = xmlDoc.querySelectorAll("classes");
+  // var classNames = [];
+  // var classLevels = [];
+  for (var i = 0; i < classNodes.length; i++) {
+    var classNode = classNodes[i];
+    var classSummary = classNode.getAttribute("summary");
+    // var name = classNode.getAttribute("name");
+    // var level = classNode.getAttribute("level");
+    // classNames.push(name);
+    // classLevels.push(level);
+  }
+
+  // Select the existing header element
+  var header = document.querySelector(".main-container .page-header");
+
+  header.classList.add("page-header");
+  header.innerHTML = "" + characterName + " -- " + raceName +
+    " " + templateSummary + " " + classSummary;
+
+  // Select the existing footer element
+  var footer = document.querySelector(".main-container .page-footer");
+  footer.classList.add("page-footer");
+  footer.innerHTML = "Footer....: ";
+
+  // Select the existing main-container element
+  var higherLevelContainer = document.querySelector(".main-container");
+  higherLevelContainer.classList.add("main-container");
+
+  // Select the existing grid-container element
+  var gridContainer = document.querySelector(".main-container .grid-container")
+  // Append gridContainer, header and footer to the main container
+  // be sure these are in the right order.  out of order will change the DOM
+  higherLevelContainer.appendChild(header);
+  higherLevelContainer.appendChild(gridContainer);
+  higherLevelContainer.appendChild(footer);
+
+  // Append the main container to the body
+  document.body.appendChild(higherLevelContainer);
+}
+
 
 function processFile() {
   // Get the file input element
@@ -121,6 +184,12 @@ function processFile() {
     // Parse the file contents as XML
     var parser = new DOMParser();
     var xmlDoc = parser.parseFromString(reader.result, "text/xml");
+
+    // createHeaderAndFooter(xmlDoc);
+    // Get the grid container created earlier
+    // var gridContainer = document.querySelector(".grid-container");
+    var gridContainer = document.querySelector(".main-container .grid-container")
+
     //Variable to hold found elements
     var elements = new Set();
     //Find all elements with 'description'
@@ -194,7 +263,7 @@ function processFile() {
             var description = descriptions[0].textContent;
             var combination = name + description;
             if(seenCombinations.has(combination)) {
-                console.log("duplicate name + description combination found: " + combination);
+                console.log("duplicate name + description combination found: " + name);
             } else {
                 seenCombinations.add(combination);
                 // Create a new container element
@@ -222,8 +291,9 @@ function processFile() {
                 separator.classList.add("separator");
                 container.appendChild(separator);
                 // Append the container to the grid container
-                var gridContainer = document.querySelector(".grid-container");
+                // var gridContainer = document.querySelector(".grid-container");
                 gridContainer.appendChild(container);
+
             }
             // Move to the next item
             item = items.iterateNext();
@@ -235,6 +305,7 @@ function processFile() {
         } //end of while (item)
       } // end if exceptions
     } //end of  for (var i = 0; i < elements.length; i++)
+  createHeaderAndFooter(xmlDoc);
   }); //end of reader.addEventListener("load", function ()
   reader.readAsText(file);
   removeElements();
@@ -267,11 +338,18 @@ function getElementTreeXPath(element) {
    </script>
   </head>
   <body>
-<div class="grid-container">
-  <div class="grid-item name"></div>
-  <div class="grid-item description-block"></div>
+<!-- <div class="main-container"> -->
+<div class="main-container main-container-flex">
+    <div class="page-header"></div>
+    <div class="grid-container">
+      <div class="grid-item name"></div>
+      <div class="grid-item description-block"></div>
+    </div>
+    <div class="page-footer"></div>
 </div>
+
 
   </body>
 </html>
 
+<!-- // END OF FILE -->
