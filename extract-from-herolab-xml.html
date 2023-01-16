@@ -99,6 +99,41 @@
       document.getElementById("xml-file").onchange = processFile;
     });
 
+    // skip these if we find them.
+    var exceptionPaths = {
+      ".//personal": true,
+      ".//journals/journal": true,
+      ".//skills/skill": true,
+      ".//spellsmemorized/spell": true,
+    };
+
+    var exceptionNames = {
+      "Additional Traits": true,
+      "Spell, Touch": true,
+      "Unarmed Strike": true,
+      "Natural Armor": true,
+      "Rations, trail ": true,
+      "Spell component pouch": true,
+      "Waterskin": true,
+      "Aura (Ex)": true,
+      "Spell, Ranged": true,
+      "Subtype - Human": true,
+      "Type - Humanoid": true,
+      "Bolts, Crossbow": true,
+      "Darkvision ": true,
+      "Armor Proficiency": true,
+      "Martial Weapon Proficiency - All": true,
+      "Shield Proficiency": true,
+      "Simple Weapon Proficiency - All": true,
+      "Tower Shield Proficiency": true,
+      "Bedroll": true,
+      "Backpack ": true,
+      "Item of Renown": true,
+    };
+
+
+
+
 function removeElements() {
   var fileInput = document.getElementById("xml-file");
   fileInput.parentNode.removeChild(fileInput);
@@ -164,6 +199,32 @@ function createHeaderAndFooter(xmlDoc) {
   document.body.appendChild(higherLevelContainer);
 }
 
+function createDescriptionElement(name, elementpath, description) {
+  // Create a new container element
+  var container = document.createElement("div");
+  container.classList.add("grid-item", "container");
+  // Create a name element
+  var nameEl = document.createElement("div");
+  nameEl.classList.add("grid-item", "name");
+  nameEl.innerHTML = name;
+  var elEl = document.createElement("div");
+  elEl.classList.add("grid-item", "elementpath");
+  elEl.innerHTML = elementpath;
+  // Create a description element
+  var descEl = document.createElement("div");
+  descEl.classList.add("grid-item", "description-block");
+  descEl.innerHTML = description;
+  // Append the name and description elements to the container
+  container.appendChild(nameEl);
+  container.appendChild(elEl);
+  container.appendChild(descEl);
+  return container;
+}
+
+// for throwing with a try/catch
+function Info(msg) {
+  this.msg = msg;
+}
 
 function processFile() {
   // Get the file input element
@@ -181,7 +242,6 @@ function processFile() {
     var parser = new DOMParser();
     var xmlDoc = parser.parseFromString(reader.result, "text/xml");
 
-    // createHeaderAndFooter(xmlDoc);
     // Get the grid container created earlier
     // var gridContainer = document.querySelector(".grid-container");
     var gridContainer = document.querySelector(".main-container .grid-container")
@@ -192,49 +252,13 @@ function processFile() {
     var descriptionElements = xmlDoc.getElementsByTagName('description');
     for (var i = 0; i < descriptionElements.length; i++) {
       var path = getElementXPath(descriptionElements[i]);
-      console.log(path)
       path = path.replace('/document/public/character', './');
       path = path.replace('/description', '');
       path = path.replace(/\[[0-9]+\]/g, '');
-      console.log(path)
       elements.add(path)
     } // end for
     // convert the set to an array
     var elements = [...elements];
-    // skip these if we find them.
-    // cant do ITEM level exceptions yet
-    var exceptions = {
-      ".//personal": true,
-      ".//journals/journal": true,
-      ".//skills/skill": true,
-      ".//spellsmemorized/spell": true,
-    };
-
-    var exceptionNames = {
-      "Additional Traits": true,
-      "Spell, Touch": true,
-      "Unarmed Strike": true,
-      "Natural Armor": true,
-      "Rations, trail ": true,
-      "Spell component pouch": true,
-      "Waterskin": true,
-      "Aura (Ex)": true,
-      "Spell, Ranged": true,
-      "Subtype - Human": true,
-      "Type - Humanoid": true,
-      "Bolts, Crossbow": true,
-      "Darkvision ": true,
-      // "Armor Proficiency (Heavy)": true,
-      // "Armor Proficiency (Light)": true,
-      "Armor Proficiency": true,
-      "Martial Weapon Proficiency - All": true,
-      "Shield Proficiency": true,
-      "Simple Weapon Proficiency - All": true,
-      "Tower Shield Proficiency": true,
-      "Bedroll": true,
-      "Backpack ": true,
-      "Item of Renown": true,
-    };
 
     var elementsArr = [];
     // create a set to store name + description combinations
@@ -242,8 +266,8 @@ function processFile() {
     var skippedElements = new Set();
     // Iterate through the elements and extract the data
     for (var i = 0; i < elements.length; i++) {
-      // skip processing the entire element if it's in the exceptions list
-      if (!exceptions.hasOwnProperty(elements[i]) || !exceptions[elements[i]]) {
+      // skip processing the entire element if it's in the exceptionPaths list
+      if (!exceptionPaths.hasOwnProperty(elements[i]) || !exceptionPaths[elements[i]]) {
         // code to add element to sheet
         var items = xmlDoc.evaluate(elements[i], xmlDoc, null, XPathResult.ANY_TYPE, null);
         var item = items.iterateNext();
@@ -254,53 +278,34 @@ function processFile() {
             for (var exceptionName in exceptionNames) {
               if (exceptionNames[exceptionName] && name.startsWith(exceptionName)) {
                   skippedElements.add(name);
-                throw new Error("Skipping exceptionNames: " + name);
+                throw new Info("Skipping exceptionNames: " + name);
               }
-            } // end for...exceptioName
+            } // end for...exceptionName
             var descriptions = item.getElementsByTagName("description");
             var description = descriptions[0].textContent;
             if (descriptions.length === 0) {
-              throw new Error("No description tag (len=0) found for element " + elements[i] + " name: " + name + "descr: " + description);
+              throw new Info("No description tag (len=0) found for element " + elements[i] + " name: " + name + "descr: " + description);
             } // end if desc.length
             // Check if the description is empty
             if (description === "") {
-              throw new Error("No description tag (empty) found for element " + elements[i] + " name: " + name + "descr: " + description);
-            } // end if descr ""
+              throw new Info("No description tag (empty) found for element " + elements[i] + " name: " + name + "descr: " + description);
+            } // end if descr empty
             var combination = name + description;
             if (seenCombinations.has(combination)) {
-              console.log("duplicate name + description combination found: " + name);
+              throw new Info("duplicate name + description combination found: " + name);
             } else {
               seenCombinations.add(combination);
-              // Create a new container element
-              var container = document.createElement("div");
-              container.classList.add("grid-item", "container");
-              // Create a name element
-              var nameEl = document.createElement("div");
-              nameEl.classList.add("grid-item", "name");
-              nameEl.innerHTML = name;
-              var elEl = document.createElement("div");
-              elEl.classList.add("grid-item", "elementpath");
-              elEl.innerHTML = elements[i];
-              // Create a description element
-              var descEl = document.createElement("div");
-              descEl.classList.add("grid-item", "description-block");
-              descEl.innerHTML = description;
-              // Append the name and description elements to the container
-              container.appendChild(nameEl);
-              container.appendChild(elEl);
-              container.appendChild(descEl);
-              // use an array to sort later instead of injecting now
               // Add the container element to the elements array
               elementsArr.push({
-                container: container,
+                container: createDescriptionElement(name, elements[i], description),
                 name: name
               });
             } // end if seenCombo/else
-          } catch (error) {
-            console.log("WARN: ", error);
+          } catch (info) {
+            // catch cases where we skip, log it and store the name for late use
+            console.info(info);
             // store the skipped name
-              skippedElements.add(name);
-
+            skippedElements.add(name);
           } // end try/catch
           // Move to the next item
           item = items.iterateNext();
@@ -309,52 +314,35 @@ function processFile() {
         // store the skipped element
           skippedElements.add(elements[i]);
 
-      } // end if exceptions
+      } // end if exceptionPaths
     } //end of  for (var i = 0; i < elements.length; i++)
 
-    // sort the array by name
+    // sort the elements array by name
     elementsArr.sort(function (a, b) {
-      if (a.name < b.name) {
-        return -1;
-      }
-      if (a.name > b.name) {
-        return 1;
-      }
+      if (a.name < b.name) { return -1; }
+      if (a.name > b.name) { return 1; }
       return 0;
     });
 
-    //iterate through the sorted array and append the container elements to the grid container
-    for (var i = 0; i < elementsArr.length; i++) {
-      gridContainer.appendChild(elementsArr[i].container);
-    }
-
+    // AFTER we sort, so the skipped section is last
     // Check if there are any skipped elements
     if (skippedElements.size > 0) {
-      // Create a new container element
-      var skippedContainer = document.createElement("div");
-      skippedContainer.classList.add("grid-item", "container");
-      // Create a name element
-      var skippedNameEl = document.createElement("div");
-      skippedNameEl.classList.add("grid-item", "name");
-      skippedNameEl.innerHTML = "Skipped";
-      // Append the name element to the container
-      skippedContainer.appendChild(skippedNameEl);
-
-      // Create a single description element that contains the combined text of the skipped names and elements
       var skippedDescription = document.createElement("div");
       skippedDescription.classList.add("grid-item", "description-block");
       var skippedText = "";
       for (var element of skippedElements) {
         skippedText += "'" + element + "' ";
       }
-      skippedDescription.innerHTML = skippedText;
-
-      // Append the single description element to the skipped container
-      skippedContainer.appendChild(skippedDescription);
-
-      // Append the skipped container to the grid container
-      gridContainer.appendChild(skippedContainer);
+      // Add the container element to the elements array
+      elementsArr.push({
+        container: createDescriptionElement("Skipped", "", skippedText),
+        name: name
+      });
     } // end if skippedElements
+    //iterate through the sorted array and append the container elements to the grid container
+    for (var i = 0; i < elementsArr.length; i++) {
+      gridContainer.appendChild(elementsArr[i].container);
+    }
 
 
     createHeaderAndFooter(xmlDoc);
