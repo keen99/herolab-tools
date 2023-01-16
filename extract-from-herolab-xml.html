@@ -106,10 +106,6 @@ function removeElements() {
   status.parentNode.removeChild(status);
 }
 
-
-
-
-
 function createHeaderAndFooter(xmlDoc) {
   // extract character name
   var characterName = xmlDoc.querySelector("character").getAttribute("name");
@@ -240,7 +236,7 @@ function processFile() {
       "Item of Renown": true,
     };
 
-
+    var elementsArr = [];
     // create a set to store name + description combinations
     var seenCombinations = new Set();
     // Iterate through the elements and extract the data
@@ -255,14 +251,18 @@ function processFile() {
             console.log("element: " + elements[i] + " item: " + item)
             var name = item.getAttribute("name");
             if (exceptionNames.hasOwnProperty(name)) {
-              // console.log("NOT Skipping exceptionNames: " + name)
               throw new Error("Skipping exceptionNames: " + name);
             } // end if exceptionName
             var descriptions = item.getElementsByTagName("description");
-            if (descriptions.length === 0) {
-              throw new Error("No description tag found for element " + elements[i]);
-            } // end if desc.length
             var description = descriptions[0].textContent;
+            if (descriptions.length === 0) {
+              throw new Error("No description tag (len=0) found for element " + elements[i] + " name: " + name + "descr: " + description);
+            } // end if desc.length
+            // Check if the description is empty
+            if (description === "") {
+              console.log(name + " empty: " + description);
+              throw new Error("No description tag (empty) found for element " + elements[i] + " name: " + name + "descr: " + description);
+            } // end if descr ""
             var combination = name + description;
             if(seenCombinations.has(combination)) {
                 console.log("duplicate name + description combination found: " + name);
@@ -290,8 +290,11 @@ function processFile() {
                 var separator = document.createElement("div");
                 separator.classList.add("separator");
                 container.appendChild(separator);
+                // use an array to sort later instead of injecting now
+                // Add the container element to the elements array
+                elementsArr.push({ container: container, name: name });
                 // Append the container to the grid container
-                gridContainer.appendChild(container);
+                // gridContainer.appendChild(container);
             } // end if seenCombo/else
             } catch (error) {
               console.log("WARN: ", error);
@@ -302,6 +305,15 @@ function processFile() {
         } //end of while (item)
       } // end if exceptions
     } //end of  for (var i = 0; i < elements.length; i++)
+
+    // Sort the elements array by name
+    elementsArr.sort((a, b) => (a.name > b.name ? 1 : -1));
+    // Append the sorted elements to the grid container
+    elementsArr.forEach((element) => {
+      gridContainer.appendChild(element.container);
+    });
+
+
   createHeaderAndFooter(xmlDoc);
   }); //end of reader.addEventListener("load", function ()
   reader.readAsText(file);
