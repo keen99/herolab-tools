@@ -245,15 +245,17 @@ function processFile() {
     var seenCombinations = new Set();
     // Iterate through the elements and extract the data
     for (var i = 0; i < elements.length; i++) {
+      // skip processing the entire element if it's in the exceptios list
       if (!exceptions.hasOwnProperty(elements[i]) || !exceptions[elements[i]]) {
         // code to add element to sheet
-        console.log("element: " + elements[i])
         var items = xmlDoc.evaluate(elements[i], xmlDoc, null, XPathResult.ANY_TYPE, null);
         var item = items.iterateNext();
         while (item) {
           try {
+            console.log("element: " + elements[i] + " item: " + item)
             var name = item.getAttribute("name");
             if (exceptionNames.hasOwnProperty(name)) {
+              // console.log("NOT Skipping exceptionNames: " + name)
               throw new Error("Skipping exceptionNames: " + name);
             } // end if exceptionName
             var descriptions = item.getElementsByTagName("description");
@@ -280,8 +282,6 @@ function processFile() {
                 var descEl = document.createElement("div");
                 descEl.classList.add("grid-item", "description-block");
                 descEl.innerHTML = description;
-                // descEl.innerHTML = '<pre style="white-space: pre-wrap !important; word-break: keep-all;">' + description + "</pre>";
-
                 // Append the name and description elements to the container
                 container.appendChild(nameEl);
                 container.appendChild(elEl);
@@ -291,17 +291,14 @@ function processFile() {
                 separator.classList.add("separator");
                 container.appendChild(separator);
                 // Append the container to the grid container
-                // var gridContainer = document.querySelector(".grid-container");
                 gridContainer.appendChild(container);
-
-            }
-            // Move to the next item
-            item = items.iterateNext();
-
-          } catch (error) {
-            console.log("WARN: reading element textContent:", error);
-            break;
-          } // end catch
+            } // end if seenCombo/else
+            } catch (error) {
+              console.log("WARN: ", error);
+          } // end try/catch
+          // console.log("moving to next item");
+          // Move to the next item
+          item = items.iterateNext();
         } //end of while (item)
       } // end if exceptions
     } //end of  for (var i = 0; i < elements.length; i++)
