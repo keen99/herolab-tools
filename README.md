@@ -13,7 +13,7 @@ The HeroLab XML Data Extractor is a tool that allows you to easily extract item,
 4. Upload the XML file using the file input field on the tool's page. You can also use one of the sample files provided for a demo.
 5. The extracted data will be displayed on the page and can be saved as a PDF using your browser's Print function for future reference.
 
-To use the tool, go to the [HeroLab XML Data Extractor page] (https://keen99.github.io/herolab-tools/)
+To use the tool, go to the [HeroLab XML Data Extractor page](https://keen99.github.io/herolab-tools/)
 
 ## Ignored Data
 
