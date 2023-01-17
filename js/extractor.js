@@ -1,6 +1,3 @@
-    document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("xml-file").onchange = function(){processXmlFile(false)};
-    });
 
 function processXmlFile(fileLocation) {
   if (fileLocation) {

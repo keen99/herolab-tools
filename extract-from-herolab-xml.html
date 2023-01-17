@@ -105,6 +105,11 @@
 </style>
 <html>
   <head>
+    <script >
+      document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("xml-file").onchange = function(){processXmlFile(false)};
+      });
+    </script>
     <script src="js/extractor.js"></script>
     <script src="js/utilities.js"></script>
     <script src="js/ignoredElements.js"></script>
