@@ -1,426 +1,131 @@
 <!-- version 306 -->
 
 <!DOCTYPE html>
-    <style>
-@media print {
-  /* THIS causes our columns to flow properly from page to page*/
-  /* set page size and margins */
-  @page {
-    size: letter;
-    margin: 1.5cm;
+<style>
+  @media print {
+
+    /* THIS causes our columns to flow properly from page to page*/
+    /* set page size and margins */
+    @page {
+      size: letter;
+      margin: 1.5cm;
+    }
   }
-}
 
 
-.elementpath {
-  font-weight: lighter;
-  font-size: 20%;
-  float: right;
-  display: inline-block
-}
-.name {
-  font-weight: bold;
-  display: inline-block;
-}
-.description-block {
-  /*white-space: pre-wrap;*/
-  white-space: pre-wrap !important; /* The pre-wrap value preserves newlines and whitespace characters, while allowing text to wrap to the next line. You can use this property to achieve a similar effect to the <pre> element, without actually using the <pre> element in your HTML. */
-  word-break: keep-all; /* to allow the text to break in between words if the text is too long. */
-  font-size: 80%;
-  /* match the <pre> style*/
-  font-family: monospace;
-  /*font-size: 14px;*/
-  line-height: 1.5;
-  color: #333;
-}
+  .element-path {
+    font-weight: lighter;
+    font-size: 20%;
+    float: right;
+    display: inline-block
+  }
 
+  .name-heading {
+    font-weight: bold;
+    display: inline-block;
+  }
 
-/* Style the header */
-.page-header {
-  /*position: absolute;*/
-  /*top: 0;*/
-  text-align: center;
-  /*display: block;*/
-  /*font-size: 20px;*/
-  /*margin-bottom: 20px;*/
-}
-/* Style the footer */
-.page-footer {
-  /*position: absolute;*/
-  /*bottom: 0;*/
-  text-align: center;
-  /*display: block;*/
-  /*font-size: 12px;*/
-  /*margin-top: 20px;*/
-}
+  .description-text {
+    /*white-space: pre-wrap;*/
+    white-space: pre-wrap !important;
+    /* The pre-wrap value preserves newlines and whitespace characters, while allowing text to wrap to the next line. You can use this property to achieve a similar effect to the <pre> element, without actually using the <pre> element in your HTML. */
+    word-break: keep-all;
+    /* to allow the text to break in between words if the text is too long. */
+    font-size: 80%;
+    /* match the <pre> style*/
+    font-family: monospace;
+    /*font-size: 14px;*/
+    line-height: 1.5;
+    color: #333;
+  }
 
-.main-container {
+  /* Style the header */
+  .page-header {
+    /*position: absolute;*/
+    /*top: 0;*/
+    text-align: center;
+    /*display: block;*/
+    /*font-size: 20px;*/
+    /*margin-bottom: 20px;*/
+  }
+
+  /* Style the footer */
+  .page-footer {
+    /*position: absolute;*/
+    /*bottom: 0;*/
+    text-align: center;
+    /*display: block;*/
+    /*font-size: 12px;*/
+    /*margin-top: 20px;*/
+  }
+
+  .main-container {
     /*position: relative;*/
-    min-height:100%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
-}
-.main-container-flex {
+  }
+
+  .main-container-flex {
     display: flex;
     flex-direction: column;
     min-height: 100%;
-}
-
-.grid-container {
-    flex: 1; /* This will make grid-container take the remaining space after header and footer */
-    column-count: 2; /* creates two columns */
-    column-gap: 10px; /* adds some space between columns */
-    width: 80%; /* adjust as needed */
-    margin: 0 auto; /* center the columns */
-    margin: auto; /* center the columns */
-}
-
-@media screen and (max-width: 600px) {
-  .grid-container {
-    column-count: 1; /* 1 column for screen widths less than 600px */
   }
-}
 
-.grid-item {
-}
-.grid-item.container{
-    border: 1px solid black; /*or any other border properties you would like*/
-    padding: 10px; /* add some space between the border and the contents */
-}
+  .grid-container {
+    flex: 1;
+    /* This will make grid-container take the remaining space after header and footer */
+    column-count: 2;
+    /* creates two columns */
+    column-gap: 10px;
+    /* adds some space between columns */
+    width: 80%;
+    /* adjust as needed */
+    margin: 0 auto;
+    /* center the columns */
+    margin: auto;
+    /* center the columns */
+  }
 
-    </style>
+  @media screen and (max-width: 600px) {
+    .grid-container {
+      column-count: 1;
+      /* 1 column for screen widths less than 600px */
+    }
+  }
+
+  .grid-item {}
+
+  .grid-item.container {
+    border: 1px solid black;
+    /*or any other border properties you would like*/
+    padding: 10px;
+    /* add some space between the border and the contents */
+  }
+</style>
 <html>
   <head>
-
-<body>
+    <script src="js/extractor.js"></script>
+    <script src="js/utilities.js"></script>
+    <script src="js/ignoredElements.js"></script>
+  </head>
+  <body>
     <div id="status">
       <p>Upload a Herolab XML file to begin processing - print to PDF to save</p>
       <p>File...output...</p>
     </div>
-    <input type="file" id="xml-file" accept="application/xml, text/xml, .xml" onchange="processFile(false)">
+    <input type="file" id="xml-file" accept="application/xml, text/xml, .xml" onchange="processXmlFile(false)">
     <div id="xml-button">
-      <button id="xml-button-1" onclick="processFile('sample-xml/Bronn_Skyfall_L6.xml')">Sample - Bronn_Skyfall_L6.xml</button>
-      <button id="xml-button-2" onclick="processFile('sample-xml/Flen_Nightinfire.6.xml')">Sample - Flen_Nightinfire.6.xml</button>
+      <button id="xml-button-1" onclick="processXmlFile('sample-xml/Bronn_Skyfall_L6.xml')">Sample -
+        Bronn_Skyfall_L6.xml</button>
+      <button id="xml-button-2" onclick="processXmlFile('sample-xml/Flen_Nightinfire.6.xml')">Sample -
+        Flen_Nightinfire.6.xml</button>
     </div>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("xml-file").onchange = function(){processFile(false)};
-    });
-
-function processFile(filePath) {
-  if(filePath){
-    console.log("in filepath");
-    var xmlDoc;
-    // Fetch the XML file
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", filePath, true);
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-         var parser = new DOMParser();
-         xmlDoc = parser.parseFromString(xhr.responseText, "text/xml");
-         // continue processing xmlDoc
-         processXmlDoc(xmlDoc);
-      }
-    }
-    xhr.send();
-  } else {
-    console.log("in else");
-    // Get the file input element
-    var fileInput = document.getElementById("xml-file");
-
-    // Get the selected file
-    var file = fileInput.files[0];
-    // Update the status message
-    document.getElementById("status").innerHTML = "Processing file: " + file.name;
-    // Create a new FileReader
-    var reader = new FileReader();
-    // Add an event listener to be notified when the file has been read
-    reader.addEventListener("load", function () {
-      // Parse the file contents as XML
-      var parser = new DOMParser();
-      xmlDoc = parser.parseFromString(reader.result, "text/xml");
-      // continue processing xmlDoc
-      processXmlDoc(xmlDoc);
-
-    });
-    // Read the file as text
-    reader.readAsText(file);
-  }
-}
-
-function processXmlDoc(xmlDoc) {
-
-    // Get the grid container created earlier
-    // var gridContainer = document.querySelector(".grid-container");
-    var gridContainer = document.querySelector(".main-container .grid-container")
-
-    //Variable to hold found elements
-    var elements = new Set();
-    //Find all elements with 'description'
-    var descriptionElements = xmlDoc.getElementsByTagName('description');
-    for (var i = 0; i < descriptionElements.length; i++) {
-      var path = getElementXPath(descriptionElements[i]);
-      path = path.replace('/document/public/character', './');
-      path = path.replace('/description', '');
-      path = path.replace(/\[[0-9]+\]/g, '');
-      elements.add(path)
-    } // end for
-    // convert the set to an array
-    var elements = [...elements];
-
-    var elementsArr = [];
-    // create a set to store name + description combinations
-    var seenCombinations = new Set();
-    var skippedElements = new Set();
-    // Iterate through the elements and extract the data
-    for (var i = 0; i < elements.length; i++) {
-      // skip processing the entire element if it's in the exceptionPaths list
-      if (!exceptionPaths.hasOwnProperty(elements[i]) || !exceptionPaths[elements[i]]) {
-        // code to add element to sheet
-        var items = xmlDoc.evaluate(elements[i], xmlDoc, null, XPathResult.ANY_TYPE, null);
-        var item = items.iterateNext();
-        while (item) {
-          try {
-            var name = item.getAttribute("name");
-            // if name STARTS with the test in the exception list, and it's not set false in the list, then skip
-            for (var exceptionName in exceptionNames) {
-              if (exceptionNames[exceptionName] && name.startsWith(exceptionName)) {
-                  skippedElements.add(name);
-                throw new Info("Skipping exceptionNames: " + name);
-              }
-            } // end for...exceptionName
-            var descriptions = item.getElementsByTagName("description");
-            var description = descriptions[0].textContent;
-            if (descriptions.length === 0) {
-              throw new Info("No description tag (len=0) found for element " + elements[i] + " name: " + name + "descr: " + description);
-            } // end if desc.length
-            // Check if the description is empty
-            if (description === "") {
-              throw new Info("No description tag (empty) found for element " + elements[i] + " name: " + name + "descr: " + description);
-            } // end if descr empty
-            var combination = name + description;
-            if (seenCombinations.has(combination)) {
-              throw new Info("duplicate name + description combination found: " + name);
-            } else {
-              seenCombinations.add(combination);
-              // Add the container element to the elements array
-              elementsArr.push({
-                container: createDescriptionElement(name, elements[i], description),
-                name: name
-              });
-            } // end if seenCombo/else
-          } catch (info) {
-            // catch cases where we skip, log it and store the name for late use
-            console.info(info);
-            // store the skipped name
-            skippedElements.add(name);
-          } // end try/catch
-          // Move to the next item
-          item = items.iterateNext();
-        } //end of while (item)
-      } else {
-        // store the skipped element
-          skippedElements.add(elements[i]);
-
-      } // end if exceptionPaths
-    } //end of  for (var i = 0; i < elements.length; i++)
-
-    // sort the elements array by name
-    elementsArr.sort(function (a, b) {
-      if (a.name < b.name) { return -1; }
-      if (a.name > b.name) { return 1; }
-      return 0;
-    });
-
-    // AFTER we sort, so the skipped section is last
-    // Check if there are any skipped elements
-    if (skippedElements.size > 0) {
-      var skippedDescription = document.createElement("div");
-      skippedDescription.classList.add("grid-item", "description-block");
-      var skippedText = "";
-      for (var element of skippedElements) {
-        skippedText += "'" + element + "' ";
-      }
-      // Add the container element to the elements array
-      elementsArr.push({
-        container: createDescriptionElement("Skipped", "", skippedText),
-        name: name
-      });
-    } // end if skippedElements
-    //iterate through the sorted array and append the container elements to the grid container
-    for (var i = 0; i < elementsArr.length; i++) {
-      gridContainer.appendChild(elementsArr[i].container);
-    }
-    // now create our header/footer....
-    // ALSO pushes our header, footer, and gridContainer
-    // this could use a refactor for sanity
-    createHeaderAndFooter(xmlDoc);
-    //
-    removeElements();
-
-}
-
-
-
-
-function createHeaderAndFooter(xmlDoc) {
-  // extract character name
-  var characterName = xmlDoc.querySelector("character").getAttribute("name");
-  // extract race name
-  var raceName = xmlDoc.querySelector("race").getAttribute("name");
-  // extract template names and levels
-  var templateNodes = xmlDoc.querySelectorAll("templates");
-  // var templateNames = [];
-  // var templateLevels = [];
-  for (var i = 0; i < templateNodes.length; i++) {
-    var template = templateNodes[i];
-    var templateSummary = template.getAttribute("summary");
-    // var parts = summary.split(" ");
-    // templateNames.push(parts[0]);
-    // templateLevels.push(parts[1]);
-  }
-  // extract class names and levels
-  // var classNodes = xmlDoc.querySelectorAll("class");
-  var classNodes = xmlDoc.querySelectorAll("classes");
-  // var classNames = [];
-  // var classLevels = [];
-  for (var i = 0; i < classNodes.length; i++) {
-    var classNode = classNodes[i];
-    var classSummary = classNode.getAttribute("summary");
-    // var name = classNode.getAttribute("name");
-    // var level = classNode.getAttribute("level");
-    // classNames.push(name);
-    // classLevels.push(level);
-  }
-  // Select the existing header element
-  var header = document.querySelector(".main-container .page-header");
-  header.classList.add("page-header");
-  header.innerHTML = "" + characterName + " -- " + raceName +
-    " " + templateSummary + " " + classSummary;
-  // Select the existing footer element
-  var footer = document.querySelector(".main-container .page-footer");
-  footer.classList.add("page-footer");
-  footer.innerHTML = "Footer....: ";
-  // Select the existing main-container element
-  var higherLevelContainer = document.querySelector(".main-container");
-  higherLevelContainer.classList.add("main-container");
-  // Select the existing grid-container element
-  var gridContainer = document.querySelector(".main-container .grid-container")
-  // Append gridContainer, header and footer to the main container
-  // be sure these are in the right order.  out of order will change the DOM
-  higherLevelContainer.appendChild(header);
-  higherLevelContainer.appendChild(gridContainer);
-  higherLevelContainer.appendChild(footer);
-  // Append the main container to the body
-  document.body.appendChild(higherLevelContainer);
-}
-
-function createDescriptionElement(name, elementpath, description) {
-  // Create a new container element
-  var container = document.createElement("div");
-  container.classList.add("grid-item", "container");
-  // Create a name element
-  var nameEl = document.createElement("div");
-  nameEl.classList.add("grid-item", "name");
-  nameEl.innerHTML = name;
-  var elEl = document.createElement("div");
-  elEl.classList.add("grid-item", "elementpath");
-  elEl.innerHTML = elementpath;
-  // Create a description element
-  var descEl = document.createElement("div");
-  descEl.classList.add("grid-item", "description-block");
-  descEl.innerHTML = description;
-  // Append the name and description elements to the container
-  container.appendChild(nameEl);
-  container.appendChild(elEl);
-  container.appendChild(descEl);
-  return container;
-}
-
-
-function removeElements() {
-  var fileInput = document.getElementById("xml-file");
-  fileInput.parentNode.removeChild(fileInput);
-  var status = document.getElementById("status");
-  status.parentNode.removeChild(status);
-  var xmlbutton = document.getElementById("xml-button");
-  xmlbutton.parentNode.removeChild(xmlbutton);
-
-}
-
-// for throwing with a try/catch
-function Info(msg) {
-  this.msg = msg;
-}
-
-function getElementXPath(element) {
-  if (element && element.id)
-    return '//*[@id="' + element.id + '"]';
-  else
-    return getElementTreeXPath(element);
-}
-
-function getElementTreeXPath(element) {
-  var paths = [];
-  // Use nodeName (instead of localName) so namespace prefix is included (if any).
-  for (; element && element.nodeType == Node.ELEMENT_NODE; element = element.parentNode) {
-    var index = 0;
-    for (var sibling = element.previousSibling; sibling; sibling = sibling.previousSibling) {
-      // Ignore document type declaration.
-      if (sibling.nodeType == Node.DOCUMENT_TYPE_NODE)
-        continue;
-      if (sibling.nodeName == element.nodeName)
-        ++index;
-    }
-    var tagName = element.nodeName.toLowerCase();
-    var pathIndex = (index ? "[" + (index + 1) + "]" : "");
-    paths.splice(0, 0, tagName + pathIndex);
-  }
-  return paths.length ? "/" + paths.join("/") : null;
-}
-
-
-    // skip these if we find them.
-    var exceptionPaths = {
-      ".//personal": true,
-      ".//journals/journal": true,
-      ".//skills/skill": true,
-      ".//spellsmemorized/spell": true,
-    };
-
-    var exceptionNames = {
-      "Additional Traits": true,
-      "Spell, Touch": true,
-      "Unarmed Strike": true,
-      "Natural Armor": true,
-      "Rations, trail ": true,
-      "Spell component pouch": true,
-      "Waterskin": true,
-      "Aura (Ex)": true,
-      "Spell, Ranged": true,
-      "Subtype - Human": true,
-      "Type - Humanoid": true,
-      "Bolts, Crossbow": true,
-      "Darkvision ": true,
-      "Armor Proficiency": true,
-      "Martial Weapon Proficiency - All": true,
-      "Shield Proficiency": true,
-      "Simple Weapon Proficiency - All": true,
-      "Tower Shield Proficiency": true,
-      "Bedroll": true,
-      "Backpack ": true,
-      "Item of Renown": true,
-    };
-
-
-   </script>
-  </head>
-  <body>
-    <div class="main-container main-container-flex">
+      <div class="main-container main-container-flex">
         <div class="page-header"></div>
         <div class="grid-container"></div>
-      <div class="page-footer"></div>
-    </div>
+        <div class="page-footer"></div>
+      </div>
   </body>
 </html>
 
