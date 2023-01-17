@@ -31,6 +31,10 @@ If you would like to contribute to this project, please fork the repository and 
 
 If you encounter any issues or have any questions about this tool, please open an issue in the repository's issue tracker.
 
+## Credits
+
+This version of the tools written primarily by [ChatGPT](https://chat.openai.com/chat) with guidance by [David Raistrick](https://www.brasstack.net/)
+
 ## License
 
 This project is in the public domain, and is released without any rights reserved.
