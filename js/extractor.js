@@ -78,14 +78,19 @@ function processParsedXml(parsedXml) {
         var descriptions = item.getElementsByTagName("description");
         var description = descriptions[0].textContent;
         if (descriptions.length === 0) {
-          throw new Info("No description tag (len=0) found for element " + xmlElements[i] + " name: " + name + "descr: " + description);
+        // store the skipped name
+          ignoredElements.add(name);
+          throw new Info("No description tag (len=0) found for element " + xmlElements[i] + " name: " + name + " descr: " + description);
         } // end if desc.length
         // Check if the description is empty
         if (description === "") {
-          throw new Info("No description tag (empty) found for element " + xmlElements[i] + " name: " + name + "descr: " + description);
+          // store the skipped name
+          ignoredElements.add(name);
+          throw new Info("No description tag (empty) found for element " + xmlElements[i] + " name: " + name + " descr: " + description);
         } // end if descr empty
         var combination = name + description;
         if (nameDescriptionCombinations.has(combination)) {
+          // do NOT store duplicates in ignoredElements
           throw new Info("duplicate name + description combination found: " + name);
         } else {
           nameDescriptionCombinations.add(combination);
@@ -98,8 +103,6 @@ function processParsedXml(parsedXml) {
       } catch (info) {
         // catch cases where we skip, log it and store the name for late use
         console.info(info);
-        // store the skipped name
-        ignoredElements.add(name);
       } // end try/catch
       // Move to the next item
       item = items.iterateNext();
@@ -146,10 +149,11 @@ function sortextractedDataay(extractedData) {
   });
 }
 
+
 function filterIgnoredNames(name, ignoredElements) {
   // if name STARTS with the test in the exception list, and it's not set false in the list, then skip
-  for (var exceptionName in exceptionName) {
-    if (exceptionName[exceptionName] && name.startsWith(exceptionName)) {
+  for (var ignoredName in ignoredNames) {
+    if (ignoredNames.hasOwnProperty(ignoredName) && ignoredNames[ignoredName] && name.startsWith(ignoredName)) {
       ignoredElements.add(name);
       throw new Info("Skipping ignoredNames: " + name);
     }

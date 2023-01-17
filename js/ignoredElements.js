@@ -8,7 +8,7 @@
       ".//spellsmemorized/spell": true,
     };
 
-    var exceptionNames = {
+    var ignoredNames = {
       "Additional Traits": true,
       "Spell, Touch": true,
       "Unarmed Strike": true,
