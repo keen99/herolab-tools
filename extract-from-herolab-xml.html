@@ -91,65 +91,64 @@
     </style>
 <html>
   <head>
-  <body>
-    <p id="status">Upload a Herolab XML file to begin processing - print to PDF to save</p>
-    <input type="file" id="xml-file" accept="application/xml, text/xml, .xml" onchange="processFile()">
+
+<body>
+    <div id="status">
+      <p>Upload a Herolab XML file to begin processing - print to PDF to save</p>
+      <p>File...output...</p>
+    </div>
+    <input type="file" id="xml-file" accept="application/xml, text/xml, .xml" onchange="processFile(false)">
+    <div id="xml-button">
+      <button id="xml-button-1" onclick="processFile('sample-xml/Bronn_Skyfall_L6.xml')">Sample - Bronn_Skyfall_L6.xml</button>
+      <button id="xml-button-2" onclick="processFile('sample-xml/Flen_Nightinfire.6.xml')">Sample - Flen_Nightinfire.6.xml</button>
+    </div>
     <script>
     document.addEventListener("DOMContentLoaded", function() {
-      document.getElementById("xml-file").onchange = processFile;
+        document.getElementById("xml-file").onchange = function(){processFile(false)};
     });
 
-    // skip these if we find them.
-    var exceptionPaths = {
-      ".//personal": true,
-      ".//journals/journal": true,
-      ".//skills/skill": true,
-      ".//spellsmemorized/spell": true,
-    };
+function processFile(filePath) {
+  if(filePath){
+    console.log("in filepath");
+    var xmlDoc;
+    // Fetch the XML file
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", filePath, true);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+         var parser = new DOMParser();
+         xmlDoc = parser.parseFromString(xhr.responseText, "text/xml");
+         // continue processing xmlDoc
+         processXmlDoc(xmlDoc);
+      }
+    }
+    xhr.send();
+  } else {
+    console.log("in else");
+    // Get the file input element
+    var fileInput = document.getElementById("xml-file");
 
-    var exceptionNames = {
-      "Additional Traits": true,
-      "Spell, Touch": true,
-      "Unarmed Strike": true,
-      "Natural Armor": true,
-      "Rations, trail ": true,
-      "Spell component pouch": true,
-      "Waterskin": true,
-      "Aura (Ex)": true,
-      "Spell, Ranged": true,
-      "Subtype - Human": true,
-      "Type - Humanoid": true,
-      "Bolts, Crossbow": true,
-      "Darkvision ": true,
-      "Armor Proficiency": true,
-      "Martial Weapon Proficiency - All": true,
-      "Shield Proficiency": true,
-      "Simple Weapon Proficiency - All": true,
-      "Tower Shield Proficiency": true,
-      "Bedroll": true,
-      "Backpack ": true,
-      "Item of Renown": true,
-    };
+    // Get the selected file
+    var file = fileInput.files[0];
+    // Update the status message
+    document.getElementById("status").innerHTML = "Processing file: " + file.name;
+    // Create a new FileReader
+    var reader = new FileReader();
+    // Add an event listener to be notified when the file has been read
+    reader.addEventListener("load", function () {
+      // Parse the file contents as XML
+      var parser = new DOMParser();
+      xmlDoc = parser.parseFromString(reader.result, "text/xml");
+      // continue processing xmlDoc
+      processXmlDoc(xmlDoc);
 
+    });
+    // Read the file as text
+    reader.readAsText(file);
+  }
+}
 
-
-
-
-function processFile() {
-  // Get the file input element
-  var fileInput = document.getElementById("xml-file");
-  // Get the selected file
-  var file = fileInput.files[0];
-  // Update the status message
-  document.getElementById("status").innerHTML = "Processing file: " + file.name;
-
-  // Create a new FileReader
-  var reader = new FileReader();
-  // Add an event listener to be notified when the file has been read
-  reader.addEventListener("load", function () {
-    // Parse the file contents as XML
-    var parser = new DOMParser();
-    var xmlDoc = parser.parseFromString(reader.result, "text/xml");
+function processXmlDoc(xmlDoc) {
 
     // Get the grid container created earlier
     // var gridContainer = document.querySelector(".grid-container");
@@ -257,10 +256,11 @@ function processFile() {
     // this could use a refactor for sanity
     createHeaderAndFooter(xmlDoc);
     //
-  }); //end of reader.addEventListener("load", function ()
-  reader.readAsText(file);
-  removeElements();
-} //end of processFile
+    removeElements();
+
+}
+
+
 
 
 function createHeaderAndFooter(xmlDoc) {
@@ -343,6 +343,9 @@ function removeElements() {
   fileInput.parentNode.removeChild(fileInput);
   var status = document.getElementById("status");
   status.parentNode.removeChild(status);
+  var xmlbutton = document.getElementById("xml-button");
+  xmlbutton.parentNode.removeChild(xmlbutton);
+
 }
 
 // for throwing with a try/catch
@@ -375,6 +378,41 @@ function getElementTreeXPath(element) {
   }
   return paths.length ? "/" + paths.join("/") : null;
 }
+
+
+    // skip these if we find them.
+    var exceptionPaths = {
+      ".//personal": true,
+      ".//journals/journal": true,
+      ".//skills/skill": true,
+      ".//spellsmemorized/spell": true,
+    };
+
+    var exceptionNames = {
+      "Additional Traits": true,
+      "Spell, Touch": true,
+      "Unarmed Strike": true,
+      "Natural Armor": true,
+      "Rations, trail ": true,
+      "Spell component pouch": true,
+      "Waterskin": true,
+      "Aura (Ex)": true,
+      "Spell, Ranged": true,
+      "Subtype - Human": true,
+      "Type - Humanoid": true,
+      "Bolts, Crossbow": true,
+      "Darkvision ": true,
+      "Armor Proficiency": true,
+      "Martial Weapon Proficiency - All": true,
+      "Shield Proficiency": true,
+      "Simple Weapon Proficiency - All": true,
+      "Tower Shield Proficiency": true,
+      "Bedroll": true,
+      "Backpack ": true,
+      "Item of Renown": true,
+    };
+
+
    </script>
   </head>
   <body>
