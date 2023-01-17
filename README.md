@@ -33,7 +33,7 @@ If you encounter any issues or have any questions about this tool, please open a
 
 ## Credits
 
-This version of the tools written primarily by [ChatGPT](https://chat.openai.com/chat) with guidance by [David Raistrick](https://www.brasstack.net/)
+This version of the tool was written from scratch primarily by [ChatGPT](https://chat.openai.com/chat) with guidance by [David Raistrick](https://www.brasstack.net/)
 
 ## License
 
