@@ -116,9 +116,13 @@
   </head>
   <body>
     <div id="status">
-      <p>Upload a Herolab XML file to begin processing - print to PDF to save</p>
-      <p>File...output...</p>
+    <!-- <div id="description"> -->
+      <h2>HeroLab XML Data Extractor</h2>
+      <p>This tool allows you to easily extract item, object, and power descriptions from HeroLab character sheets exported in XML format.</p>
+      <p>To use the tool, start by exporting your HeroLab character sheet in XML format. In HeroLab, go to the File menu, select Save Custom Output, and choose Generate XML File. Save the file to your computer.</p>
+      <p>Next, upload the XML file using the file input field on this page or use one of the provided sample files for a demo. The extracted data will be displayed on the page and can be saved as a PDF for future reference using your browser's Print function.</p>
     </div>
+
     <input type="file" id="xml-file" accept="application/xml, text/xml, .xml" onchange="processXmlFile(false)">
     <div id="xml-button">
       <button id="xml-button-1" onclick="processXmlFile('sample-xml/Bronn_Skyfall_L6.xml')">Sample -
