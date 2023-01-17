@@ -15,6 +15,11 @@ The HeroLab XML Data Extractor is a tool that allows you to easily extract item,
 
 To use the tool, go to the [HeroLab XML Data Extractor page](herolab-xml-data-extractor.html)
 
+
+## Ignored Data
+
+  In this tool, ignoredPaths and ignoredNames from `js/ignoredElements.js` are used as lists of elements and attributes to ignore while extracting data from the XML file. These elements and attributes are ignored because they do not contain useful information. For example, elements related to personal information or journals are ignored. Similarly, elements such as "Additional Traits" and "Spells".  It's worth noting that this tool is not perfect and may not be able to extract all desired information, especially if the data is not present in the mouseover tooltip in the original HeroLab sheet.
+
 ## Additional Tools
 
 Additional tools for working with HeroLab data will be added to this repository in the future.
@@ -31,50 +36,3 @@ If you encounter any issues or have any questions about this tool, please open a
 
 This project is in the public domain, and is released without any rights reserved.
 
-
-
-
-
-
-in herolab, hit file > Save Custom Output, select the xml output for the active hero.
-
-load that into the above, then print that to pdf (or paper).   it's mobile viewable but NO idea how/if mobile file upload works.
-
-minus some exceptions, this will grab the description from the question mark mouseover info that's in herolab.
-
-it's no better than what HL has, so it's not perfect for all things.  but.
-
-exceptions right now:
-
-    var exceptions = {
-      ".//personal": true,
-      ".//journals/journal": true,
-      ".//skills/skill": true,
-      ".//spellsmemorized/spell": true,
-    };
-
-    var exceptionNames = {
-      "Additional Traits": true,
-      "Spell, Touch": true,
-      "Unarmed Strike": true,
-      "Natural Armor": true,
-      "Rations, trail (per day)": true,
-      "Spell component pouch": true,
-      "Waterskin": true,
-      "Aura (Ex)": true,
-      "Spell, Ranged": true,
-      "Subtype - Human": true,
-      "Type - Humanoid": true,
-      "Bolts, Crossbow": true,
-      "Darkvision (60 feet)": true,
-      "Armor Proficiency (Heavy)": true,
-      "Armor Proficiency (Light)": true,
-      "Armor Proficiency (Medium)": true,
-      "Martial Weapon Proficiency - All": true,
-      "Shield Proficiency": true,
-      "Simple Weapon Proficiency - All": true,
-      "Tower Shield Proficiency": true,
-      "Bedroll": true,
-      "Backpack (empty)": true,
-      "Item of Renown": true,
-    };
