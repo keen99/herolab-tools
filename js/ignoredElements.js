@@ -6,6 +6,8 @@
       ".//journals/journal": true,
       ".//skills/skill": true,
       ".//spellsmemorized/spell": true,
+      ".//minions/character/skills/skill": true,
+      ".//minions/character/journals/journal": true,
     };
 
     var ignoredNames = {
