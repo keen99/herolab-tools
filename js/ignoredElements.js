@@ -1,13 +1,14 @@
 
+    var selectedOptions = [];
+
 
     // skip these if we find them.
     var ignoredPaths = {
       ".//personal": true,
       ".//journals/journal": true,
-      ".//skills/skill": true,
       ".//spellsmemorized/spell": true,
-      ".//minions/character/skills/skill": true,
-      ".//minions/character/journals/journal": true,
+      ".//skills": true,
+      ".//minions/": true,
     };
 
     var ignoredNames = {

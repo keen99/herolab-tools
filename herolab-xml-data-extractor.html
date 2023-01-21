@@ -102,6 +102,20 @@
     padding: 10px;
     /* add some space between the border and the contents */
   }
+
+/*#filterPaths, #filterNames {
+    display: inline-block;
+    vertical-align: top;
+    width: 49%;
+}
+*/
+#filterContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+
 </style>
 <html>
   <head>
@@ -134,6 +148,248 @@
         Bronn_Skyfall_L7.xml</button>
       <button id="xml-button-3" onclick="processXmlFile('sample-xml/Flen_Nightinfire.6.xml')">Sample -
         Flen_Nightinfire.6.xml</button>
+    </div>
+    <div id="filterContainer">
+      <div id="filterPaths"></div>
+      <div id="filterNames"></div>
+    </div>
+    <input type="checkbox" id="path1" data-path-id="path1" onchange="updateUrlParams(this)">
+
+
+<script>
+// checkboxes for 3 things
+            // // Define the options
+            // var options = ["Everything Else", "Skills", "Spells"];
+
+            // // Get the div element where the checkboxes will be added
+            // var checkboxDiv = document.getElementById("checkboxes");
+
+            // // Create a checkbox for each option
+            // options.forEach(function(option) {
+            //     var checkbox = document.createElement("input");
+            //     checkbox.type = "checkbox";
+            //     checkbox.value = option;
+            //     checkbox.id = option;
+            //     checkbox.name = "options";
+            //     checkboxDiv.appendChild(checkbox);
+
+            //     var label = document.createElement("label");
+            //     label.htmlFor = option;
+            //     label.innerHTML = option;
+            //     checkboxDiv.appendChild(label);
+
+            //     var br = document.createElement("br");
+            //     checkboxDiv.appendChild(br);
+            // });
+
+
+
+
+
+//
+// this ONLY supports a SINGLE name=value or path=value
+//
+function updateUrlParams(checkbox,isPath) {
+    var pathId = checkbox.value;
+    var key = isPath ? "path" : "name";
+    var currentUrl = window.location.href;
+    const url = new URL(window.location);
+    if (checkbox.checked) {
+        console.log(`Adding ${key}=${pathId} to the URL query: ${currentUrl} ${window.location.search}`);
+        url.searchParams.set(key, pathId);
+        history.pushState(null, null, url);
+    } else {
+        console.log(`Removing ${key}=${pathId} from the URL query: ${currentUrl} ${window.location.search}`);
+        url.searchParams.delete(key);
+        history.pushState(null, null, url);
+    }
+}
+
+
+function createCheckbox(name, containerId, isPath, onCheckCallback) {
+    var checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.value = name;
+    checkbox.id = name;
+    checkbox.name = "options";
+    checkbox.onchange = function(event) {
+        onCheckCallback(checkbox, isPath);
+        updateUrlParams(checkbox, isPath);
+    }
+
+    var label = document.createElement("label");
+    label.htmlFor = name;
+    label.innerHTML = name;
+
+    var container = document.getElementById(containerId);
+    container.appendChild(checkbox);
+    container.appendChild(label);
+    container.appendChild(document.createElement("br"));
+}
+
+
+function onCheckCallback(checkbox, isPath) {
+    var obj = isPath ? ignoredPaths : ignoredNames;
+    if (checkbox.checked) {
+        delete obj[checkbox.value];
+    } else {
+        obj[checkbox.value] = true;
+    }
+    console.log("Checkbox " + checkbox.value + " was " + (checkbox.checked ? "checked" : "unchecked"));
+    // console.log("Updated object: " + JSON.stringify(obj, null, 2));
+}
+
+
+// Create checkboxes for ignoredPaths
+for (var path in ignoredPaths) {
+  if (ignoredPaths.hasOwnProperty(path)) {
+    createCheckbox(path, "filterPaths", true, onCheckCallback);
+  }
+}
+
+// Create checkboxes for ignoredNames
+for (var name in ignoredNames) {
+  if (ignoredNames.hasOwnProperty(name)) {
+    createCheckbox(name, "filterNames", false, onCheckCallback);
+  }
+}
+
+
+
+
+
+// // this stuffs the entire objects into the url
+// function onCheckCallback(checkbox, isPath) {
+//     var obj = isPath ? ignoredPaths : ignoredNames;
+//     if (checkbox.checked) {
+//         delete obj[checkbox.value];
+//     } else {
+//         obj[checkbox.value] = true;
+//     }
+
+//     // Get the current URL
+//     var currentUrl = new URL(window.location.href);
+
+//     // Create a new URLSearchParams object from the current URL's search params
+//     var searchParams = new URLSearchParams(currentUrl.search);
+
+//     // Update the search params with the new values
+//     if (isPath) {
+//         searchParams.set("ignoredPaths", JSON.stringify(ignoredPaths));
+//     } else {
+//         searchParams.set("ignoredNames", JSON.stringify(ignoredNames));
+//     }
+
+//     // Update the current URL's search params
+//     currentUrl.search = searchParams.toString();
+
+//     // Update the URL in the address bar
+//     window.history.pushState({}, "", currentUrl.toString());
+// }
+
+
+// Create header for filterPaths column
+var filterPathsHeader = document.createElement("h3");
+filterPathsHeader.innerHTML = "Filter Paths";
+document.getElementById("filterPaths").prepend(filterPathsHeader);
+
+// Create header for filterNames column
+var filterNamesHeader = document.createElement("h3");
+filterNamesHeader.innerHTML = "Filter Names";
+document.getElementById("filterNames").prepend(filterNamesHeader);
+
+var filterPathsContainer = document.getElementById("filterPaths");
+var filterNamesContainer = document.getElementById("filterNames");
+
+var instructionText = "These elements are normally excluded. Select them to include them.";
+var filterPathsInstruction = document.createElement("p");
+filterPathsInstruction.innerHTML = instructionText;
+filterPathsContainer.appendChild(filterPathsInstruction);
+
+var filterNamesInstruction = document.createElement("p");
+filterNamesInstruction.innerHTML = instructionText;
+filterNamesContainer.appendChild(filterNamesInstruction);
+
+
+
+
+
+
+
+
+// // detect when they're changed
+// options.forEach(function(option) {
+//     var checkbox = document.getElementById(option);
+
+//     selectedOptions = options.filter(function(option) {
+//       return document.getElementById(option).checked;
+//     });
+
+//     checkbox.onchange = function() {
+//         if (checkbox.checked) {
+//             // Do something when the checkbox is checked
+//             console.log("checked");
+//         } else {
+//             // Do something when the checkbox is unchecked
+//             console.log("unchecked");
+//         }
+//         var selectedOptions = options.filter(function(option) {
+//             return document.getElementById(option).checked;
+//         });
+//         console.log(selectedOptions);
+
+//     };
+// });
+
+// // detect when the checkboxes are changed
+// options.forEach(function(option) {
+//     var checkbox = document.getElementById(option);
+//     checkbox.onchange = function() {
+//         var selectedOptions = options.filter(function(option) {
+//             return document.getElementById(option).checked;
+//         });
+//         console.log("inopt: " + selectedOptions);
+
+//         // reset ignoredPaths to its default state
+//         ignoredPaths = {
+//           ".//personal": true,
+//           ".//journals/journal": true,
+//           ".//skills": true,
+//           ".//spellsmemorized/spell": true,
+//           ".//minions/": true,
+//         };
+
+//         // modify ignoredPaths based on the selected options
+//         if (!selectedOptions.includes("everything else")) {
+//             // if "spells" is selected, we only want to ignore paths that don't start with .//spellsmemorized/
+//             if (selectedOptions.includes("spells")) {
+//                 ignoredPaths = {
+//                   ".//spellsmemorized/": false
+//                 };
+//             }
+//             // if "skills" is selected, we only want to ignore paths that don't start with .//skills/
+//             if (selectedOptions.includes("skills")) {
+//                 ignoredPaths = {
+//                   ".//skills/": false
+//                 };
+//             }
+//         }
+//     };
+// });
+
+
+
+
+// var selectedOptions = options.filter(function(option) {
+//     return document.getElementById(option).checked;
+// });
+// console.log(selectedOptions);
+// });
+
+
+</script>
+
+
     </div>
       <div class="main-container main-container-flex">
         <div class="page-header"></div>
