@@ -240,14 +240,14 @@ function createCheckbox(value, containerId) {
 // Create checkboxes for ignoredPaths
 for (var path in ignoredPaths) {
   if (ignoredPaths.hasOwnProperty(path)) {
-    createCheckbox(path, "filterPaths", true);
+    createCheckbox(path, "filterPaths");
   }
 }
 
 // Create checkboxes for ignoredNames
 for (var name in ignoredNames) {
   if (ignoredNames.hasOwnProperty(name)) {
-    createCheckbox(name, "filterNames", false);
+    createCheckbox(name, "filterNames");
   }
 }
 
