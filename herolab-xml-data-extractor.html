@@ -140,50 +140,26 @@
       </ul>
     </div>
 
-    <input type="file" id="xml-file" accept="application/xml, text/xml, .xml" onchange="processXmlFile(false)">
-    <div id="xml-button">
-      <button id="xml-button-1" onclick="processXmlFile('sample-xml/Bronn_Skyfall_L6.xml')">Sample -
-        Bronn_Skyfall_L6.xml</button>
-      <button id="xml-button-2" onclick="processXmlFile('sample-xml/Bronn_Skyfall_L7.xml')">Sample -
-        Bronn_Skyfall_L7.xml</button>
-      <button id="xml-button-3" onclick="processXmlFile('sample-xml/Flen_Nightinfire.6.xml')">Sample -
-        Flen_Nightinfire.6.xml</button>
-    </div>
+<input type="file" id="xml-file" accept="application/xml, text/xml, .xml" onchange="addName();">
+<div id="xml-button">
+  <button id="xml-button-1" onclick="addName(); processXmlFile('sample-xml/Bronn_Skyfall_L6.xml')">Sample - Bronn_Skyfall_L6.xml</button>
+  <button id="xml-button-2" onclick="addName(); processXmlFile('sample-xml/Bronn_Skyfall_L7.xml')">Sample - Bronn_Skyfall_L7.xml</button>
+  <button id="xml-button-3" onclick="addName(); processXmlFile('sample-xml/Flen_Nightinfire.6.xml')">Sample - Flen_Nightinfire.6.xml</button>
+</div>
+
+      <form id="addNameForm" onsubmit="addName(); return false;">
+        <label for="nameInput">Add Custom Filter (path or name):</label>
+        <input type="text" id="nameInput" name="nameInput">
+        <input type="submit" value="Add">
+      </form>
     <div id="filterContainer">
       <div id="filterPaths"></div>
       <div id="filterNames"></div>
-    </div>
-    <input type="checkbox" id="path1" data-path-id="path1" onchange="updateUrlParams(this)">
 
-<!-- 7 no lnger supports this mode because the author is an ass -->
-<script src="https://unpkg.com/qs@6.9.4/dist/qs.js"></script>
+
+    </div>
 
 <script>
-// checkboxes for 3 things
-            // // Define the options
-            // var options = ["Everything Else", "Skills", "Spells"];
-
-            // // Get the div element where the checkboxes will be added
-            // var checkboxDiv = document.getElementById("checkboxes");
-
-            // // Create a checkbox for each option
-            // options.forEach(function(option) {
-            //     var checkbox = document.createElement("input");
-            //     checkbox.type = "checkbox";
-            //     checkbox.value = option;
-            //     checkbox.id = option;
-            //     checkbox.name = "options";
-            //     checkboxDiv.appendChild(checkbox);
-
-            //     var label = document.createElement("label");
-            //     label.htmlFor = option;
-            //     label.innerHTML = option;
-            //     checkboxDiv.appendChild(label);
-
-            //     var br = document.createElement("br");
-            //     checkboxDiv.appendChild(br);
-            // });
-
 
 
 window.addEventListener('load', function() {
@@ -195,12 +171,34 @@ window.addEventListener('load', function() {
     var checked = new Set();
     for (const [key, value] of searchParams.entries()) {
         var checkbox = document.getElementById(key);
-        if (checkbox && !checked.has(key)) {
+    if (!checkbox) {
+        if(key.startsWith("./")){
+            createCheckbox(key, "filterPaths");
+        } else {
+            createCheckbox(key, "filterNames");
+        }
+        checkbox = document.getElementById(key);
+        console.log(checkbox);
+    }
+        if (!checked.has(key)) {
             checkbox.checked = true;
             checked.add(key);
         }
     }
 });
+
+
+function addName() {
+  var nameInput = document.getElementById("nameInput").value;
+  ignoredNames[nameInput] = true;
+  // updateUrlParamsWithForm(nameInput, true);
+  if(nameInput.startsWith("./")){
+      createCheckbox(nameInput, "filterPaths", true);
+  } else {
+      createCheckbox(nameInput, "filterNames", true);
+  }
+}
+
 
 function updateUrlParams(checkbox) {
     var currentUrl = window.location.href;
@@ -218,12 +216,20 @@ function updateUrlParams(checkbox) {
     console.log(`Updated URL query: ${window.location.href}`);
 }
 
-function createCheckbox(value, containerId) {
+function createCheckbox(value, containerId, checked = false) {
+    var existingCheckbox = document.getElementById(value);
+    if (existingCheckbox) {
+        return;
+    }
     var checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.value = value;
     checkbox.id = value;
     checkbox.name = "options";
+    if (checked) {
+        checkbox.checked = true;
+        updateUrlParams(checkbox);
+    }
     checkbox.onchange = function(event) {
         updateUrlParams(checkbox);
     }
@@ -251,38 +257,6 @@ for (var name in ignoredNames) {
   }
 }
 
-
-
-
-
-// // this stuffs the entire objects into the url
-// function onCheckCallback(checkbox, isPath) {
-//     var obj = isPath ? ignoredPaths : ignoredNames;
-//     if (checkbox.checked) {
-//         delete obj[checkbox.value];
-//     } else {
-//         obj[checkbox.value] = true;
-//     }
-
-//     // Get the current URL
-//     var currentUrl = new URL(window.location.href);
-
-//     // Create a new URLSearchParams object from the current URL's search params
-//     var searchParams = new URLSearchParams(currentUrl.search);
-
-//     // Update the search params with the new values
-//     if (isPath) {
-//         searchParams.set("ignoredPaths", JSON.stringify(ignoredPaths));
-//     } else {
-//         searchParams.set("ignoredNames", JSON.stringify(ignoredNames));
-//     }
-
-//     // Update the current URL's search params
-//     currentUrl.search = searchParams.toString();
-
-//     // Update the URL in the address bar
-//     window.history.pushState({}, "", currentUrl.toString());
-// }
 
 
 // Create header for filterPaths column
