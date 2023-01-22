@@ -88,6 +88,11 @@ function processParsedXml(parsedXml) {
 // // return;
 
 
+
+  console.log("ignoredPaths:", ignoredPaths);
+  // console.log("ignoredNames:", ignoredNames);
+
+
   // Iterate through the xmlElements and extract the data
   // label the outer loop so we can continue it from inside another
   processelements:
@@ -109,9 +114,11 @@ function processParsedXml(parsedXml) {
             continue processelements;
         }
     }
-    console.log("ok process, skpping rest for now");
+
+
+    console.log("ok process");
     // code to add element to sheet
-    // continue;
+    continue;
 
 
 
@@ -292,11 +299,10 @@ function createDescriptionElement(name, elementpath, description) {
   return container;
 }
 
-function removeElements() {
-  var xmlFileInput = document.getElementById("xml-file");
-  xmlFileInput.parentNode.removeChild(xmlFileInput);
-  var status = document.getElementById("status");
-  status.parentNode.removeChild(status);
-  var xmlbutton = document.getElementById("xml-button");
-  xmlbutton.parentNode.removeChild(xmlbutton);
+function removeElements(elements = ["xml-file", "status", "xml-button", "addNameForm", "filterHeaderContainer", "filterContainer"]) {
+  elements.forEach(elementId => {
+    var element = document.getElementById(elementId);
+    element.parentNode.removeChild(element);
+  });
 }
+

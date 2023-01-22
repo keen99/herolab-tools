@@ -195,26 +195,46 @@ window.addEventListener('load', function() {
     const searchParams = new URLSearchParams(url.search);
     var checked = new Set();
     for (const [key, value] of searchParams.entries()) {
+        // console.log("addEvent: ", key, value);
         var checkbox = document.getElementById(key);
-    if (!checkbox) {
-        // console.log("adding custom checkbox from params: " + key + " " + value)
-        if(key.startsWith("./")){
-            // console.log("path");
-            // force the BOOL of value instead of the string from the param
-            createCheckbox(key, "filterPaths", value, true);
-        } else {
-            // console.log("name");
-            createCheckbox(key, "filterNames", value, true);
+        // checkbox doesnt exist because it wasn't injected
+        // it must be custom
+        if (!checkbox) {
+            console.log("adding custom checkbox from params: " + key + " " + value)
+            if(key.startsWith("./")){
+                // console.log("path");
+                // force the BOOL of value instead of the string from the param
+                createCheckbox(key, "filterPaths", value, true);
+            } else {
+                // console.log("name");
+                createCheckbox(key, "filterNames", value, true);
+            }
+            // now update our copy of checkbox
+            checkbox = document.getElementById(key);
         }
-        checkbox = document.getElementById(key);
-        // console.log(checkbox);
-    }
-        // This is likely done to ensure that each checkbox element is only checked once, even if the same key appears multiple times in the search parameters.
-        if (!checked.has(key)) {
-            // console.log("updating checkbox.checked to value: " + (value === 'true'));
+        // if we get here and we STILL dont have a checkbox, there must be something wrong with this param.
+        // try to handle bad params
+        try {
             checkbox.checked = (value === 'true');
-            checked.add(key);
-        }
+        } catch (error) {
+            console.error(`Error setting checked property of checkbox for ${key}=${value}: ${error}`);
+            // remove the bad query parameter from the URL
+            // searchParams.delete(key);
+            // url.search = searchParams.toString();
+            // history.pushState(null, null, url);
+            // console.log(`Removed bad query parameter from URL: ${url.href}`);
+        } // end catch
+
+        // if(checkbox) {
+          // This is likely done to ensure that each checkbox element is only checked once, even if the same key appears multiple times in the search parameters.
+          if (!checked.has(key)) {
+              // console.log("updating checkbox.checked to value: " + (value === 'true'));
+              checkbox.checked = (value === 'true');
+              checked.add(key);
+          }
+          // console.log(checkbox);
+            handleCheckboxChange(checkbox);
+        // }
     }
 });
 
@@ -248,29 +268,6 @@ var headerDescription = "These elements are normally excluded. Deselect them to 
 createHeader("filterPathsHeader", "filterPathsDescription", "Filter Paths", headerDescription);
 createHeader("filterNamesHeader", "filterNamesDescription", "Filter Names", headerDescription);
 
-
-
-// // Create header for filterPaths column
-// var filterPathsHeader = document.createElement("h3");
-// filterPathsHeader.innerHTML = "Filter Paths";
-// document.getElementById("filterPathsHeader").prepend(filterPathsHeader);
-
-// // Create header for filterNames column
-// var filterNamesHeader = document.createElement("h3");
-// filterNamesHeader.innerHTML = "Filter Names";
-// document.getElementById("filterNamesHeader").prepend(filterNamesHeader);
-
-// var filterPathsContainer = document.getElementById("filterPathsDescription");
-// var filterNamesContainer = document.getElementById("filterNamesDescription");
-
-// var instructionText = "These elements are normally excluded. Deselect them to include them.";
-// var filterPathsInstruction = document.createElement("p");
-// filterPathsInstruction.innerHTML = instructionText;
-// filterPathsContainer.appendChild(filterPathsInstruction);
-
-// var filterNamesInstruction = document.createElement("p");
-// filterNamesInstruction.innerHTML = instructionText;
-// filterNamesContainer.appendChild(filterNamesInstruction);
 
 
 </script>
