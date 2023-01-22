@@ -191,14 +191,12 @@ window.addEventListener('load', function() {
 function addName() {
   var nameInput = document.getElementById("nameInput").value;
   ignoredNames[nameInput] = true;
-  // updateUrlParamsWithForm(nameInput, true);
   if(nameInput.startsWith("./")){
       createCheckbox(nameInput, "filterPaths", true);
   } else {
       createCheckbox(nameInput, "filterNames", true);
   }
 }
-
 
 function updateUrlParams(checkbox) {
     var currentUrl = window.location.href;
@@ -257,8 +255,6 @@ for (var name in ignoredNames) {
   }
 }
 
-
-
 // Create header for filterPaths column
 var filterPathsHeader = document.createElement("h3");
 filterPathsHeader.innerHTML = "Filter Paths";
@@ -280,82 +276,6 @@ filterPathsContainer.appendChild(filterPathsInstruction);
 var filterNamesInstruction = document.createElement("p");
 filterNamesInstruction.innerHTML = instructionText;
 filterNamesContainer.appendChild(filterNamesInstruction);
-
-
-
-
-
-
-
-
-// // detect when they're changed
-// options.forEach(function(option) {
-//     var checkbox = document.getElementById(option);
-
-//     selectedOptions = options.filter(function(option) {
-//       return document.getElementById(option).checked;
-//     });
-
-//     checkbox.onchange = function() {
-//         if (checkbox.checked) {
-//             // Do something when the checkbox is checked
-//             console.log("checked");
-//         } else {
-//             // Do something when the checkbox is unchecked
-//             console.log("unchecked");
-//         }
-//         var selectedOptions = options.filter(function(option) {
-//             return document.getElementById(option).checked;
-//         });
-//         console.log(selectedOptions);
-
-//     };
-// });
-
-// // detect when the checkboxes are changed
-// options.forEach(function(option) {
-//     var checkbox = document.getElementById(option);
-//     checkbox.onchange = function() {
-//         var selectedOptions = options.filter(function(option) {
-//             return document.getElementById(option).checked;
-//         });
-//         console.log("inopt: " + selectedOptions);
-
-//         // reset ignoredPaths to its default state
-//         ignoredPaths = {
-//           ".//personal": true,
-//           ".//journals/journal": true,
-//           ".//skills": true,
-//           ".//spellsmemorized/spell": true,
-//           ".//minions/": true,
-//         };
-
-//         // modify ignoredPaths based on the selected options
-//         if (!selectedOptions.includes("everything else")) {
-//             // if "spells" is selected, we only want to ignore paths that don't start with .//spellsmemorized/
-//             if (selectedOptions.includes("spells")) {
-//                 ignoredPaths = {
-//                   ".//spellsmemorized/": false
-//                 };
-//             }
-//             // if "skills" is selected, we only want to ignore paths that don't start with .//skills/
-//             if (selectedOptions.includes("skills")) {
-//                 ignoredPaths = {
-//                   ".//skills/": false
-//                 };
-//             }
-//         }
-//     };
-// });
-
-
-
-
-// var selectedOptions = options.filter(function(option) {
-//     return document.getElementById(option).checked;
-// });
-// console.log(selectedOptions);
-// });
 
 
 </script>
