@@ -113,6 +113,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+#filterHeaderContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 
 
 
@@ -146,20 +150,51 @@
   <button id="xml-button-2" onclick="addName(); processXmlFile('sample-xml/Bronn_Skyfall_L7.xml')">Sample - Bronn_Skyfall_L7.xml</button>
   <button id="xml-button-3" onclick="addName(); processXmlFile('sample-xml/Flen_Nightinfire.6.xml')">Sample - Flen_Nightinfire.6.xml</button>
 </div>
-
+      <br>
       <form id="addNameForm" onsubmit="addName(); return false;">
         <label for="nameInput">Add Custom Filter (path or name):</label>
         <input type="text" id="nameInput" name="nameInput">
         <input type="submit" value="Add">
       </form>
+
+    <div id="filterHeaderContainer">
+      <div id="filterPathsHeader">
+        <div id="filterPathsDescription"></div>
+        <button id="check-all-paths">Check All</button>
+        <button id="uncheck-all-paths">Uncheck All</button><br>
+      </div>
+      <div id="filterNamesHeader">
+        <div id="filterNamesDescription"></div>
+        <button id="check-all-names">Check All Names</button>
+        <button id="uncheck-all-names">Uncheck All Names</button><br>
+      </div>
+    </div>
     <div id="filterContainer">
-      <div id="filterPaths"></div>
-      <div id="filterNames"></div>
+      <div id="filterPaths">
+      </div>
+      <div id="filterNames">
 
-
+      </div>
     </div>
 
 <script>
+
+function handleCheckAll(containerId, check) {
+  const checkboxes = document.querySelectorAll(`${containerId} input[type="checkbox"]`);
+  checkboxes.forEach(checkbox => {
+    if (checkbox.checked !== check) {
+      checkbox.checked = check;
+      updateUrlParams(checkbox);
+    }
+  });
+}
+
+document.querySelector('#check-all-names').addEventListener('click', () => handleCheckAll('#filterNames', true));
+document.querySelector('#uncheck-all-names').addEventListener('click', () => handleCheckAll('#filterNames', false));
+document.querySelector('#check-all-paths').addEventListener('click', () => handleCheckAll('#filterPaths', true));
+document.querySelector('#uncheck-all-paths').addEventListener('click', () => handleCheckAll('#filterPaths', false));
+
+
 
 
 window.addEventListener('load', function() {
@@ -292,17 +327,17 @@ for (var name in ignoredNames) {
 // Create header for filterPaths column
 var filterPathsHeader = document.createElement("h3");
 filterPathsHeader.innerHTML = "Filter Paths";
-document.getElementById("filterPaths").prepend(filterPathsHeader);
+document.getElementById("filterPathsHeader").prepend(filterPathsHeader);
 
 // Create header for filterNames column
 var filterNamesHeader = document.createElement("h3");
 filterNamesHeader.innerHTML = "Filter Names";
-document.getElementById("filterNames").prepend(filterNamesHeader);
+document.getElementById("filterNamesHeader").prepend(filterNamesHeader);
 
-var filterPathsContainer = document.getElementById("filterPaths");
-var filterNamesContainer = document.getElementById("filterNames");
+var filterPathsContainer = document.getElementById("filterPathsDescription");
+var filterNamesContainer = document.getElementById("filterNamesDescription");
 
-var instructionText = "These elements are normally excluded. Select them to include them.";
+var instructionText = "These elements are normally excluded. Deselect them to include them.";
 var filterPathsInstruction = document.createElement("p");
 filterPathsInstruction.innerHTML = instructionText;
 filterPathsContainer.appendChild(filterPathsInstruction);
