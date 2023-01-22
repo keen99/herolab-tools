@@ -155,6 +155,8 @@
     </div>
     <input type="checkbox" id="path1" data-path-id="path1" onchange="updateUrlParams(this)">
 
+<!-- 7 no lnger supports this mode because the author is an ass -->
+<script src="https://unpkg.com/qs@6.9.4/dist/qs.js"></script>
 
 <script>
 // checkboxes for 3 things
@@ -184,42 +186,50 @@
 
 
 
+window.addEventListener('load', function() {
+    // code to execute when the page has finished loading
+    // Get the current URL
+    const url = new URL(window.location);
+    // Get the search params
+    const searchParams = new URLSearchParams(url.search);
+    var checked = new Set();
+    for (const [key, value] of searchParams.entries()) {
+        var checkbox = document.getElementById(key);
+        if (checkbox && !checked.has(key)) {
+            checkbox.checked = true;
+            checked.add(key);
+        }
+    }
+});
 
-
-//
-// this ONLY supports a SINGLE name=value or path=value
-//
-function updateUrlParams(checkbox,isPath) {
-    var pathId = checkbox.value;
-    var key = isPath ? "path" : "name";
+function updateUrlParams(checkbox) {
     var currentUrl = window.location.href;
     const url = new URL(window.location);
+    const urlParams = new URLSearchParams(url.search);
     if (checkbox.checked) {
-        console.log(`Adding ${key}=${pathId} to the URL query: ${currentUrl} ${window.location.search}`);
-        url.searchParams.set(key, pathId);
-        history.pushState(null, null, url);
+        console.log(`Adding ${checkbox.value} to the URL query: ${currentUrl}`);
+        urlParams.set(checkbox.value, true);
     } else {
-        console.log(`Removing ${key}=${pathId} from the URL query: ${currentUrl} ${window.location.search}`);
-        url.searchParams.delete(key);
-        history.pushState(null, null, url);
+        console.log(`Removing ${checkbox.value} from the URL query: ${currentUrl}`);
+        urlParams.delete(checkbox.value);
     }
+    url.search = urlParams.toString();
+    history.pushState(null, null, url);
+    console.log(`Updated URL query: ${window.location.href}`);
 }
 
-
-function createCheckbox(name, containerId, isPath, onCheckCallback) {
+function createCheckbox(value, containerId) {
     var checkbox = document.createElement("input");
     checkbox.type = "checkbox";
-    checkbox.value = name;
-    checkbox.id = name;
+    checkbox.value = value;
+    checkbox.id = value;
     checkbox.name = "options";
     checkbox.onchange = function(event) {
-        onCheckCallback(checkbox, isPath);
-        updateUrlParams(checkbox, isPath);
+        updateUrlParams(checkbox);
     }
-
     var label = document.createElement("label");
-    label.htmlFor = name;
-    label.innerHTML = name;
+    label.htmlFor = value;
+    label.innerHTML = value;
 
     var container = document.getElementById(containerId);
     container.appendChild(checkbox);
@@ -227,30 +237,17 @@ function createCheckbox(name, containerId, isPath, onCheckCallback) {
     container.appendChild(document.createElement("br"));
 }
 
-
-function onCheckCallback(checkbox, isPath) {
-    var obj = isPath ? ignoredPaths : ignoredNames;
-    if (checkbox.checked) {
-        delete obj[checkbox.value];
-    } else {
-        obj[checkbox.value] = true;
-    }
-    console.log("Checkbox " + checkbox.value + " was " + (checkbox.checked ? "checked" : "unchecked"));
-    // console.log("Updated object: " + JSON.stringify(obj, null, 2));
-}
-
-
 // Create checkboxes for ignoredPaths
 for (var path in ignoredPaths) {
   if (ignoredPaths.hasOwnProperty(path)) {
-    createCheckbox(path, "filterPaths", true, onCheckCallback);
+    createCheckbox(path, "filterPaths", true);
   }
 }
 
 // Create checkboxes for ignoredNames
 for (var name in ignoredNames) {
   if (ignoredNames.hasOwnProperty(name)) {
-    createCheckbox(name, "filterNames", false, onCheckCallback);
+    createCheckbox(name, "filterNames", false);
   }
 }
 
