@@ -4,18 +4,18 @@ function removeElements(elements, ignoredPaths, elementsIgnored = new Set()) {
   let filteredElements = []; // Create an empty array for the filtered elements
   // Sort the ignoredPaths by length (shortest to longest)
   let sortedIgnoredPaths = Object.keys(ignoredPaths).sort((a, b) => a.length - b.length);
-  // console.log("sortedIgnoredPaths", sortedIgnoredPaths);
+  console.log("sortedIgnoredPaths", sortedIgnoredPaths);
 
   // Iterate over the elements array
   for (let i = 0; i < elements.length; i++) {
-    // console.log("elements["+i+"]", elements[i]);
+    console.log("elements["+i+"]", elements[i]);
     let element = elements[i];
     let included = false; // Flag to check if the element has been included or excluded
 
     // Iterate over the sorted ignoredPaths
     for (let j = 0; j < sortedIgnoredPaths.length; j++) {
       let ignoredPath = sortedIgnoredPaths[j];
-      // console.log("  sortedignoredPath["+j+"]", ignoredPath, element.startsWith(ignoredPath));
+      console.log("  sortedignoredPath["+j+"]", ignoredPath, element.startsWith(ignoredPath));
       if (element.startsWith(ignoredPath)) {
         if (ignoredPaths[ignoredPath] === true) {
           // If the ignoredPath value is true, exclude the element
@@ -36,7 +36,7 @@ function removeElements(elements, ignoredPaths, elementsIgnored = new Set()) {
       filteredElements.push(element);
     }
   }
-  // console.log("filteredElements: ",filteredElements);
+  console.log("filteredElements: ",filteredElements);
   return { filteredElements: filteredElements, elementsIgnored: elementsIgnored };
 }
 
