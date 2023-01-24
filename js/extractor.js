@@ -57,24 +57,18 @@ function processParsedXml(parsedXml) {
   var xmlElements = [...xmlElements];
 
   var elementsIgnored = new Set();
-  console.log("xmlElements", JSON.stringify(xmlElements,null,2));
+  // console.log("xmlElements", JSON.stringify(xmlElements,null,2));
 
   // filter out elemets using ignoredPaths
   var [xmlElements, elementsIgnored] = Object.values(removeElements(xmlElements, ignoredPaths, elementsIgnored));
-
-  console.log("ignoredPaths", JSON.stringify(ignoredPaths,null,2));
-  console.log("filtered xmlElements", JSON.stringify(xmlElements,null,2));
-
+  // console.log("ignoredNames", JSON.stringify(ignoredNames,null,2));
+  // console.log("ignoredPaths", JSON.stringify(ignoredPaths,null,2));
+  // console.log("filtered xmlElements", JSON.stringify(xmlElements,null,2));
   var extractedData = [];
   // create a set to store name + description combinations
   var nameDescriptionCombinations = new Set();
-
-  // console.log("ignoredPaths", JSON.stringify(ignoredPaths,null,2));
-  // console.log("ignoredNames", JSON.stringify(ignoredNames,null,2));
-
   // Iterate through the xmlElements and extract the data
   // label the outer loop so we can continue it from inside another
-  // processelements:
   for (var i = 0; i < xmlElements.length; i++) {
     // console.log("xmlElements[i]: " + xmlElements[i]);
     var items = parsedXml.evaluate(xmlElements[i], parsedXml, null, XPathResult.ANY_TYPE, null);
@@ -83,12 +77,16 @@ function processParsedXml(parsedXml) {
       // console.log("  item name: ", item.getAttribute("name"));
       // skip based on ignoredNames
       var name = item.getAttribute("name");
-      if ( filterIgnoredNames(name, elementsIgnored)) {
+      // this return as false-able if we should skip this.
+      if ( !filterIgnoredNames(name, ignoredNames, elementsIgnored)) {
+        // console.log("    skipping, next.");
         item = items.iterateNext();
         continue;
       }
       // // gets descriptions, filters when apropos, and adds to the container is we should
       var handleDescriptionsResult = handleDescriptions(item, elementsIgnored, nameDescriptionCombinations, xmlElements[i]);
+      // if this returns a falseable, we dont push this item to the container
+      // that could be empty or duplicate.
       if (handleDescriptionsResult.shouldCreateContainer) {
         extractedData.push({
           container: createDescriptionElement(handleDescriptionsResult.name, handleDescriptionsResult.element, handleDescriptionsResult.description),
@@ -99,10 +97,8 @@ function processParsedXml(parsedXml) {
       item = items.iterateNext();
     } //end of while (item)
   } //end of  for (var i = 0; i < xmlElements.length; i++)
-
-  // sort the xmlElements array by name
+  // sort the xmlElements array by name for presentation
   sortextractedData(extractedData);
-
   // AFTER we sort, so the skipped section is last
   assembleSkipped(elementsIgnored, extractedData, name);
   //iterate through the sorted array and append the container elements to the grid container
@@ -115,7 +111,7 @@ function processParsedXml(parsedXml) {
 }
 
 
-function assembleSkipped(elementsIgnored, extractedData, name) {
+function assembleSkipped(elementsIgnored, extractedData) {
   // Check if there are any skipped elements
   if (elementsIgnored.size > 0) {
     var skippedDescription = document.createElement("div");
@@ -127,7 +123,7 @@ function assembleSkipped(elementsIgnored, extractedData, name) {
     // Add the container element to the elements array
     extractedData.push({
       container: createDescriptionElement("Skipped", "", skippedText),
-      name: name
+      name: "Skipped"
     });
   }
 }

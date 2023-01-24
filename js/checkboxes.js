@@ -97,7 +97,7 @@ function handleCheckboxChange(checkbox) {
   if(checkbox.value.startsWith("./")){
       var ignoredData = ignoredPaths;
   } else {
-      var ignoredData = ignoredPaths;
+      var ignoredData = ignoredNames;
   }
   // console.log("handleCheckboxChange: ", checkbox.value, checkbox.checked)
   // console.log(ignoredData);
