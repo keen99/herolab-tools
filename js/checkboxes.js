@@ -25,9 +25,17 @@ function updateUrlParams(checkbox) {
     // add to url params when
     // checkbox.custom = true
     // or
+
+// ok this logic is wrong.
+// we need to remove it IF what we're setting it for is different than the DEFAULT
+// which isn't always true.
+
+// so we have to go back to the unmolested original.
+
+
     // checkbox.custom = false and checkbox.checked = false
     if (checkbox.custom === true || (checkbox.custom === false && checkbox.checked === false)) {
-        // console.log(`Adding ${checkbox.value}=${checkbox.checked} to the URL query: ${url.href}`);
+        console.log(`Adding ${checkbox.value}=${checkbox.checked} to the URL query: ${url.href}`);
         // convert checkbox.checked from a boolean to a string
         let checkedValue = checkbox.checked ? 'true' : 'false';
         urlParams.set(checkbox.value, checkedValue);
@@ -36,12 +44,12 @@ function updateUrlParams(checkbox) {
     // and
     // checkbox.checked = true
     } else if (checkbox.custom === false && checkbox.checked === true) {
-        // console.log(`Removing ${checkbox.value}=${checkbox.checked} from the URL query: ${url.href}`);
+        console.log(`Removing ${checkbox.value}=${checkbox.checked} from the URL query: ${url.href}`);
         urlParams.delete(checkbox.value);
     }
     url.search = urlParams.toString();
     history.pushState(null, null, url);
-    // console.log(`Updated URL query: ${url.href}`);
+    console.log(`Updated URL query: ${url.href}`);
 }
 
 

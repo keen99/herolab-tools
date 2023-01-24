@@ -61,7 +61,7 @@ const test00 = new TestCase([".//spellselementthatdoesnt/exist", ".//spellsmemor
 console.log(test00.run())
 
 
-return;
+// return;
 
 console.log("Test 01: Check if all elements are removed when all paths are set to true in ignoredPaths.")
 const test01 = new TestCase([".//personal", ".//journals/journal", ".//spellsmemorized/spell", ".//skills", ".//minions/"], {

@@ -10,20 +10,23 @@ function removeElements(elements, ignoredPaths, elementsIgnored = new Set()) {
   for (let i = 0; i < elements.length; i++) {
     console.log("elements["+i+"]", elements[i]);
     let element = elements[i];
-    let included = false; // Flag to check if the element has been included or excluded
+    let included = true; // Flag to check if the element has been included or excluded
 
     // Iterate over the sorted ignoredPaths
     for (let j = 0; j < sortedIgnoredPaths.length; j++) {
       let ignoredPath = sortedIgnoredPaths[j];
-      console.log("  sortedignoredPath["+j+"]", ignoredPath, element.startsWith(ignoredPath));
+      console.log("  sortedignoredPath["+j+"]", "ignore:", ignoredPath, "starts with:", element.startsWith(ignoredPath));
       if (element.startsWith(ignoredPath)) {
+        console.log("   in startswith");
         if (ignoredPaths[ignoredPath] === true) {
+          console.log("   in ignoredpath - push false");
           // If the ignoredPath value is true, exclude the element
-          included = true;
+          included = false;
           elementsIgnored.add(element);
         } else {
+          console.log("   in else - push true");
           // If the ignoredPath value is false, include the element
-          filteredElements.push(element);
+          // filteredElements.push(element);
           included = true;
           // Check if the element is already in elementsIgnored and remove it
           elementsIgnored.delete(element);
@@ -32,7 +35,8 @@ function removeElements(elements, ignoredPaths, elementsIgnored = new Set()) {
     }
 
     // If the element was not included or excluded, add it to the filteredElements array
-    if (!included) {
+    if (included) {
+      console.log("push");
       filteredElements.push(element);
     }
   }
