@@ -56,103 +56,51 @@ function processParsedXml(parsedXml) {
   // convert the set to an array
   var xmlElements = [...xmlElements];
 
+  var elementsIgnored = new Set();
+  console.log("xmlElements", JSON.stringify(xmlElements,null,2));
+
+  // filter out elemets using ignoredPaths
+  var [xmlElements, elementsIgnored] = Object.values(removeElements(xmlElements, ignoredPaths, elementsIgnored));
+
+  console.log("ignoredPaths", JSON.stringify(ignoredPaths,null,2));
+  console.log("filtered xmlElements", JSON.stringify(xmlElements,null,2));
+
   var extractedData = [];
   // create a set to store name + description combinations
   var nameDescriptionCombinations = new Set();
-  var ignoredElements = new Set();
 
-
-
-// var selectedOptions = options.filter(function(option) {
-//     return document.getElementById(option).checked;
-// });
-// console.log("selectedOptions: " + selectedOptions);
-
-// console.log("in for selectedOptions: " + selectedOptions);
-
-// console.log("ignoredpaths before: " + JSON.stringify(ignoredPaths,null,2));
-// if (selectedOptions.includes("Spells")) {
-//     console.log("selected spells");
-//     delete ignoredPaths[".//spellsmemorized/spell"];
-//     console.log("ignoredpaths in: " + JSON.stringify(ignoredPaths,null,2));
-
-// }
-// // if "skills" is selected, we only want to ignore paths that don't start with .//skills/
-// if (selectedOptions.includes("Skills")) {
-//   console.log("selected skills");
-//     delete ignoredPaths[".//skills"];
-//   console.log("ignoredpaths in: " + JSON.stringify(ignoredPaths,null,2));
-// }
-// console.log("ignoredpaths after: " + JSON.stringify(ignoredPaths,null,2));
-
-// // return;
-
-
-
-  console.log("ignoredPaths:", ignoredPaths);
-  // console.log("ignoredNames:", ignoredNames);
-
+  // console.log("ignoredPaths", JSON.stringify(ignoredPaths,null,2));
+  // console.log("ignoredNames", JSON.stringify(ignoredNames,null,2));
 
   // Iterate through the xmlElements and extract the data
   // label the outer loop so we can continue it from inside another
-  processelements:
+  // processelements:
   for (var i = 0; i < xmlElements.length; i++) {
     console.log("xmlElements[i]: " + xmlElements[i]);
-
-
-    // skip processing the entire element if it's in the ignoredPaths list
-    for (var ignoredPath in ignoredPaths) {
-        // console.log("ignoredPath: " + ignoredPath);
-        console.log("logic:" + ignoredPaths.hasOwnProperty(ignoredPath) + ignoredPaths[ignoredPath] + xmlElements[i].startsWith(ignoredPath));
-        if (ignoredPaths.hasOwnProperty(ignoredPath) && ignoredPaths[ignoredPath] && xmlElements[i].startsWith(ignoredPath)) {
-        console.log("skipping path: " + xmlElements[i]);
-            // store the skipped element
-            // ignoredElements.add(xmlElements[i]);
-            // if we prefix match, at stores a lot of stuff.  so lets just store the prefix
-            ignoredElements.add(ignoredPath);
-
-            continue processelements;
-        }
-    }
-
-
-    console.log("ok process");
-    // code to add element to sheet
-    continue;
-
-
-
-
-
-
-
-
-
-
-
 
     var items = parsedXml.evaluate(xmlElements[i], parsedXml, null, XPathResult.ANY_TYPE, null);
     var item = items.iterateNext();
     while (item) {
       try {
+        // skip bsaed on ignoredNames
         var name = item.getAttribute("name");
-        filterIgnoredNames(name, ignoredElements);
+        filterIgnoredNames(name, elementsIgnored);
         var descriptions = item.getElementsByTagName("description");
         var description = descriptions[0].textContent;
         if (descriptions.length === 0) {
         // store the skipped name
-          ignoredElements.add(name);
+          elementsIgnored.add(name);
           throw new Info("No description tag (len=0) found for element " + xmlElements[i] + " name: " + name + " descr: " + description);
         } // end if desc.length
         // Check if the description is empty
         if (description === "") {
           // store the skipped name
-          ignoredElements.add(name);
+          elementsIgnored.add(name);
           throw new Info("No description tag (empty) found for element " + xmlElements[i] + " name: " + name + " descr: " + description);
         } // end if descr empty
         var combination = name + description;
         if (nameDescriptionCombinations.has(combination)) {
-          // do NOT store duplicates in ignoredElements
+          // do NOT store duplicates in elementsIgnored
           throw new Info("duplicate name + description combination found: " + name);
         } else {
           nameDescriptionCombinations.add(combination);
@@ -175,24 +123,24 @@ function processParsedXml(parsedXml) {
   sortextractedData(extractedData);
 
   // AFTER we sort, so the skipped section is last
-  assembleSkipped(ignoredElements, extractedData, name);
+  assembleSkipped(elementsIgnored, extractedData, name);
   //iterate through the sorted array and append the container elements to the grid container
   for (var i = 0; i < extractedData.length; i++) {
     mainGridContainer.appendChild(extractedData[i].container);
   }
   // now create our header/footer& pushes header, footer, and mainGridContainer
   createHeaderAndFooter(parsedXml);
-  removeElements();
+  removeHtmlElements();
 }
 
 
-function assembleSkipped(ignoredElements, extractedData, name) {
+function assembleSkipped(elementsIgnored, extractedData, name) {
   // Check if there are any skipped elements
-  if (ignoredElements.size > 0) {
+  if (elementsIgnored.size > 0) {
     var skippedDescription = document.createElement("div");
     skippedDescription.classList.add("grid-item", "description-text");
     var skippedText = "";
-    for (var element of ignoredElements) {
+    for (var element of elementsIgnored) {
       skippedText += "'" + element + "' ";
     }
     // Add the container element to the elements array
@@ -212,13 +160,13 @@ function sortextractedData(extractedData) {
 }
 
 
-function filterIgnoredNames(name, ignoredElements) {
+function filterIgnoredNames(name, elementsIgnored) {
   // we may enter into a section with a description but no name. that's a valid case.
   if (name !== null) {
     // if name STARTS with the test in the exception list, and it's not set false in the list, then skip
     for (var ignoredName in ignoredNames) {
       if (ignoredNames.hasOwnProperty(ignoredName) && ignoredNames[ignoredName] && name.startsWith(ignoredName)) {
-        ignoredElements.add(name);
+        elementsIgnored.add(name);
         throw new Info("Skipping ignoredNames: " + name);
       }
     }// end for...filterIgnoredNames
@@ -299,7 +247,7 @@ function createDescriptionElement(name, elementpath, description) {
   return container;
 }
 
-function removeElements(elements = ["xml-file", "status", "xml-button", "addNameForm", "filterHeaderContainer", "filterContainer"]) {
+function removeHtmlElements(elements = ["xml-file", "status", "xml-button", "addNameForm", "filterHeaderContainer", "filterContainer"]) {
   elements.forEach(elementId => {
     var element = document.getElementById(elementId);
     element.parentNode.removeChild(element);

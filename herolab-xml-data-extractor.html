@@ -128,10 +128,18 @@
         document.getElementById("xml-file").onchange = function(){processXmlFile(false)};
       });
     </script>
+<script src="js/extractor.js?time=<%= Date.now() %>"></script>
+<script src="js/utilities.js?time=<%= Date.now() %>"></script>
+<script src="js/ignoredElements.js?time=<%= Date.now() %>"></script>
+<script src="js/checkboxes.js?time=<%= Date.now() %>"></script>
+<script src="js/filter.js?time=<%= Date.now() %>"></script>
+<!--
     <script src="js/extractor.js"></script>
     <script src="js/utilities.js"></script>
     <script src="js/ignoredElements.js"></script>
     <script src="js/checkboxes.js"></script>
+    <script src="js/filter.js"></script> -->
+
   </head>
   <body>
     <div id="status">
@@ -264,7 +272,7 @@ function createHeader(headerId, containerId, headerText, instructionText) {
   container.appendChild(instruction);
 }
 
-var headerDescription = "These elements are normally excluded. Deselect them to include them."
+var headerDescription = "These elements are normally excluded. Deselect them to include them explicity (add a custom path and deselect if you want to override a less specific path that's excluded)."
 createHeader("filterPathsHeader", "filterPathsDescription", "Filter Paths", headerDescription);
 createHeader("filterNamesHeader", "filterNamesDescription", "Filter Names", headerDescription);
 
