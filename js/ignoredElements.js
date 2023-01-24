@@ -2,18 +2,19 @@
     var selectedOptions = [];
 
 
-    // skip these if we find them.
+    // include .//  so it's easily available for flipping
     var ignoredPaths = {
+      ".//": false,
       ".//personal": true,
       ".//journals/journal": true,
+      ".//spells": false,
       ".//spellsmemorized/spell": true,
       ".//skills": true,
-      ".//skills/subpath": true,
       ".//minions/": true,
     };
 
     var ignoredNames = {
-      "Additional Traits": true,
+      "Additional Traits": false,
       "Unarmed Strike": true,
       "Spell component pouch": true,
       "Aura (Ex)": true,

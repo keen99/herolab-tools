@@ -250,14 +250,14 @@ window.addEventListener('load', function() {
 // Create checkboxes for ignoredPaths
 for (var path in ignoredPaths) {
   if (ignoredPaths.hasOwnProperty(path)) {
-    createCheckbox(path, "filterPaths");
+    createCheckbox(path, "filterPaths", ignoredPaths[path]);
   }
 }
 
 // Create checkboxes for ignoredNames
 for (var name in ignoredNames) {
   if (ignoredNames.hasOwnProperty(name)) {
-    createCheckbox(name, "filterNames");
+    createCheckbox(name, "filterNames", ignoredNames[name]);
   }
 }
 

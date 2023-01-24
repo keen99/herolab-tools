@@ -51,6 +51,18 @@ class TestCase {
 } //end testCase
 
 
+
+
+console.log("Test 00: spells, less and more specific")
+const test00 = new TestCase([".//spellselementthatdoesnt/exist", ".//spellsmemorized/spell"], {
+    ".//spells": false,
+    ".//spellsmemorized/spell": true,
+  }, [".//spellselementthatdoesnt/exist"], [".//spellsmemorized/spell"])
+console.log(test00.run())
+
+
+return;
+
 console.log("Test 01: Check if all elements are removed when all paths are set to true in ignoredPaths.")
 const test01 = new TestCase([".//personal", ".//journals/journal", ".//spellsmemorized/spell", ".//skills", ".//minions/"], {
     ".//personal": true,
