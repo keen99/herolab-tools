@@ -29,35 +29,48 @@ class FilterIgnoredNamesTestCase {
     var elementsIgnored = [...elementsIgnored];
 
 
-    if (this.expectedOutput === false) {
-      console.log("expected");
-      if (output) {
-        console.log("got output");
-        return {
-          result: "Fail",
-          error: `Expected a false-able output but got a [true]. Output: ${(output === 'true')}`
-        };
-      }
-    }
-
-    if (output === this.expectedOutput) {
-      if (arraysContainSameElements(elementsIgnored, this.expectedIgnored)) {
+// handle the specific test case of testing for a false-able output
+if (this.expectedOutput === false) {
+  // if not one of our expected falses, fail
+  if (output !== undefined && output !== null && output !== false) {
+    return {
+      result: "Fail",
+      error: `Expected a false-able output but got a [true]. Output: ${(output === 'true'), output}`
+    };
+  } else {
+     // if one of our expected falses, pass
+     if (output === undefined ||output === null || output === false) {
         return {
           result: "Pass"
         };
       } else {
-        let ignoredDiff = findArrayDifference(elementsIgnored, this.expectedIgnored);
+      // otherwise we are testing for false, but got something unexpected, fale
         return {
           result: "Fail",
-          error: `Expected ignored elements [${this.expectedIgnored}], but got [${elementsIgnored}]. The difference: [${ignoredDiff}]. Output: ${output}`
+          error: `Expected a false-able output (false/null/undefined) but got a something unexpected. Output: ${(output === 'true'), output}`
         };
       }
+  }
+} else {
+  if (output === this.expectedOutput) {
+    if (arraysContainSameElements(elementsIgnored, this.expectedIgnored)) {
+      return {
+        result: "Pass"
+      };
     } else {
+      let ignoredDiff = findArrayDifference(elementsIgnored, this.expectedIgnored);
       return {
         result: "Fail",
-        error: `Expected output [${this.expectedOutput}], but got [${output}]. Ignored elements: [${elementsIgnored}]`
+        error: `Expected ignored elements [${this.expectedIgnored}], but got [${elementsIgnored}]. The difference: [${ignoredDiff}]. Output: ${output}`
       };
     }
+  } else {
+    return {
+      result: "Fail",
+      error: `Expected output [${this.expectedOutput}], but got [${output}]. Ignored elements: [${elementsIgnored}]`
+    };
+  }
+}
   }
 }
 
@@ -103,7 +116,7 @@ console.log(test19.run());
 
 
 // this doesnt work right yet.
-console.log("Test 20 - test a false output")
+console.log("Test 20 - test a false-able output")
 const test20 = new FilterIgnoredNamesTestCase("Additional Traits", {
 "Additional Traits": true
 }, false, []);
