@@ -56,92 +56,79 @@ function processParsedXml(parsedXml) {
   // convert the set to an array
   var xmlElements = [...xmlElements];
 
+  var elementsIgnored = new Set();
+  // console.log("xmlElements", JSON.stringify(xmlElements,null,2));
+
+  // filter out elemets using ignoredPaths
+  var [xmlElements, elementsIgnored] = Object.values(removeElements(xmlElements, ignoredPaths, elementsIgnored));
+  // console.log("ignoredNames", JSON.stringify(ignoredNames,null,2));
+  // console.log("ignoredPaths", JSON.stringify(ignoredPaths,null,2));
+  // console.log("filtered xmlElements", JSON.stringify(xmlElements,null,2));
   var extractedData = [];
   // create a set to store name + description combinations
   var nameDescriptionCombinations = new Set();
-  var ignoredElements = new Set();
   // Iterate through the xmlElements and extract the data
+  // label the outer loop so we can continue it from inside another
   for (var i = 0; i < xmlElements.length; i++) {
-    // skip processing the entire element if it's in the ignoredPaths list
-    if (ignoredPaths.hasOwnProperty(xmlElements[i]) || ignoredPaths[xmlElements[i]]) {
-      // store the skipped element
-      ignoredElements.add(xmlElements[i]);
-      continue;
-    } // end if ignoredPaths
-    // code to add element to sheet
+    // console.log("xmlElements[i]: " + xmlElements[i]);
     var items = parsedXml.evaluate(xmlElements[i], parsedXml, null, XPathResult.ANY_TYPE, null);
     var item = items.iterateNext();
     while (item) {
-      try {
-        var name = item.getAttribute("name");
-        filterIgnoredNames(name, ignoredElements);
-        var descriptions = item.getElementsByTagName("description");
-        var description = descriptions[0].textContent;
-        if (descriptions.length === 0) {
-        // store the skipped name
-          ignoredElements.add(name);
-          throw new Info("No description tag (len=0) found for element " + xmlElements[i] + " name: " + name + " descr: " + description);
-        } // end if desc.length
-        // Check if the description is empty
-        if (description === "") {
-          // store the skipped name
-          ignoredElements.add(name);
-          throw new Info("No description tag (empty) found for element " + xmlElements[i] + " name: " + name + " descr: " + description);
-        } // end if descr empty
-        var combination = name + description;
-        if (nameDescriptionCombinations.has(combination)) {
-          // do NOT store duplicates in ignoredElements
-          throw new Info("duplicate name + description combination found: " + name);
-        } else {
-          nameDescriptionCombinations.add(combination);
-          // Add the container element to the xmlElements array
-          extractedData.push({
-            container: createDescriptionElement(name, xmlElements[i], description),
-            name: name
-          });
-        } // end if seenCombo/else
-      } catch (info) {
-        // catch cases where we skip, log it and store the name for late use
-        console.info(info);
-      } // end try/catch
+      // console.log("  item name: ", item.getAttribute("name"));
+      // skip based on ignoredNames
+      var name = item.getAttribute("name");
+      // this return as false-able if we should skip this.
+      if ( !filterIgnoredNames(name, ignoredNames, elementsIgnored)) {
+        // console.log("    skipping, next.");
+        item = items.iterateNext();
+        continue;
+      }
+      // // gets descriptions, filters when apropos, and adds to the container is we should
+      var handleDescriptionsResult = handleDescriptions(item, elementsIgnored, nameDescriptionCombinations, xmlElements[i]);
+      // if this returns a falseable, we dont push this item to the container
+      // that could be empty or duplicate.
+      if (handleDescriptionsResult.shouldCreateContainer) {
+        extractedData.push({
+          container: createDescriptionElement(handleDescriptionsResult.name, handleDescriptionsResult.element, handleDescriptionsResult.description),
+          name: handleDescriptionsResult.name
+        });
+      }
       // Move to the next item
       item = items.iterateNext();
     } //end of while (item)
   } //end of  for (var i = 0; i < xmlElements.length; i++)
-
-  // sort the xmlElements array by name
-  sortextractedDataay(extractedData);
-
+  // sort the xmlElements array by name for presentation
+  sortextractedData(extractedData);
   // AFTER we sort, so the skipped section is last
-  assembleSkipped(ignoredElements, extractedData, name);
+  assembleSkipped(elementsIgnored, extractedData, name);
   //iterate through the sorted array and append the container elements to the grid container
   for (var i = 0; i < extractedData.length; i++) {
     mainGridContainer.appendChild(extractedData[i].container);
   }
   // now create our header/footer& pushes header, footer, and mainGridContainer
   createHeaderAndFooter(parsedXml);
-  removeElements();
+  removeHtmlElements();
 }
 
 
-function assembleSkipped(ignoredElements, extractedData, name) {
+function assembleSkipped(elementsIgnored, extractedData) {
   // Check if there are any skipped elements
-  if (ignoredElements.size > 0) {
+  if (elementsIgnored.size > 0) {
     var skippedDescription = document.createElement("div");
     skippedDescription.classList.add("grid-item", "description-text");
     var skippedText = "";
-    for (var element of ignoredElements) {
+    for (var element of elementsIgnored) {
       skippedText += "'" + element + "' ";
     }
     // Add the container element to the elements array
     extractedData.push({
       container: createDescriptionElement("Skipped", "", skippedText),
-      name: name
+      name: "Skipped"
     });
   }
 }
 
-function sortextractedDataay(extractedData) {
+function sortextractedData(extractedData) {
   extractedData.sort(function (a, b) {
     if (a.name < b.name) { return -1; }
     if (a.name > b.name) { return 1; }
@@ -149,16 +136,6 @@ function sortextractedDataay(extractedData) {
   });
 }
 
-
-function filterIgnoredNames(name, ignoredElements) {
-  // if name STARTS with the test in the exception list, and it's not set false in the list, then skip
-  for (var ignoredName in ignoredNames) {
-    if (ignoredNames.hasOwnProperty(ignoredName) && ignoredNames[ignoredName] && name.startsWith(ignoredName)) {
-      ignoredElements.add(name);
-      throw new Info("Skipping ignoredNames: " + name);
-    }
-  }// end for...filterIgnoredNames
-}
 
 function createHeaderAndFooter(parsedXml) {
   // extract character name
@@ -234,11 +211,10 @@ function createDescriptionElement(name, elementpath, description) {
   return container;
 }
 
-function removeElements() {
-  var xmlFileInput = document.getElementById("xml-file");
-  xmlFileInput.parentNode.removeChild(xmlFileInput);
-  var status = document.getElementById("status");
-  status.parentNode.removeChild(status);
-  var xmlbutton = document.getElementById("xml-button");
-  xmlbutton.parentNode.removeChild(xmlbutton);
+function removeHtmlElements(elements = ["xml-file", "status", "xml-button", "addNameForm", "filterHeaderContainer", "filterContainer"]) {
+  elements.forEach(elementId => {
+    var element = document.getElementById(elementId);
+    element.parentNode.removeChild(element);
+  });
 }
+

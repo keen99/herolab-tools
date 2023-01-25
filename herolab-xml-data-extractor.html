@@ -102,6 +102,24 @@
     padding: 10px;
     /* add some space between the border and the contents */
   }
+
+/*#filterPaths, #filterNames {
+    display: inline-block;
+    vertical-align: top;
+    width: 49%;
+}
+*/
+#filterContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#filterHeaderContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+
 </style>
 <html>
   <head>
@@ -110,9 +128,14 @@
         document.getElementById("xml-file").onchange = function(){processXmlFile(false)};
       });
     </script>
+
+
     <script src="js/extractor.js"></script>
     <script src="js/utilities.js"></script>
     <script src="js/ignoredElements.js"></script>
+    <script src="js/checkboxes.js"></script>
+    <script src="js/filter.js"></script>
+
   </head>
   <body>
     <div id="status">
@@ -126,14 +149,136 @@
       </ul>
     </div>
 
-    <input type="file" id="xml-file" accept="application/xml, text/xml, .xml" onchange="processXmlFile(false)">
-    <div id="xml-button">
-      <button id="xml-button-1" onclick="processXmlFile('sample-xml/Bronn_Skyfall_L6.xml')">Sample -
-        Bronn_Skyfall_L6.xml</button>
-      <button id="xml-button-2" onclick="processXmlFile('sample-xml/Bronn_Skyfall_L7.xml')">Sample -
-        Bronn_Skyfall_L7.xml</button>
-      <button id="xml-button-3" onclick="processXmlFile('sample-xml/Flen_Nightinfire.6.xml')">Sample -
-        Flen_Nightinfire.6.xml</button>
+<input type="file" id="xml-file" accept="application/xml, text/xml, .xml" onchange="addName();">
+<div id="xml-button">
+  <button id="xml-button-1" onclick="addName(); processXmlFile('sample-xml/Bronn_Skyfall_L6.xml')">Sample - Bronn_Skyfall_L6.xml</button>
+  <button id="xml-button-2" onclick="addName(); processXmlFile('sample-xml/Bronn_Skyfall_L7.xml')">Sample - Bronn_Skyfall_L7.xml</button>
+  <button id="xml-button-3" onclick="addName(); processXmlFile('sample-xml/Flen_Nightinfire.6.xml')">Sample - Flen_Nightinfire.6.xml</button>
+</div>
+      <br>
+      <form id="addNameForm" onsubmit="addName(); return false;">
+        <label for="nameInput">Add Custom Filter (path or name):</label>
+        <input type="text" id="nameInput" name="nameInput">
+        <input type="submit" value="Add">
+      </form>
+
+    <div id="filterHeaderContainer">
+      <div id="filterPathsHeader">
+        <div id="filterPathsDescription"></div>
+        <button id="check-all-paths">Check All</button>
+        <button id="uncheck-all-paths">Uncheck All</button><br>
+      </div>
+      <div id="filterNamesHeader">
+        <div id="filterNamesDescription"></div>
+        <button id="check-all-names">Check All Names</button>
+        <button id="uncheck-all-names">Uncheck All Names</button><br>
+      </div>
+    </div>
+    <div id="filterContainer">
+      <div id="filterPaths">
+      </div>
+      <div id="filterNames">
+
+      </div>
+    </div>
+
+<script>
+
+
+document.querySelector('#check-all-names').addEventListener('click', () => handleCheckAll('#filterNames', true));
+document.querySelector('#uncheck-all-names').addEventListener('click', () => handleCheckAll('#filterNames', false));
+document.querySelector('#check-all-paths').addEventListener('click', () => handleCheckAll('#filterPaths', true));
+document.querySelector('#uncheck-all-paths').addEventListener('click', () => handleCheckAll('#filterPaths', false));
+
+
+window.addEventListener('load', function() {
+    // code to execute when the page has finished loading
+    // Get the current URL
+    const url = new URL(window.location);
+    // Get the search params
+    const searchParams = new URLSearchParams(url.search);
+    var checked = new Set();
+    for (const [key, value] of searchParams.entries()) {
+        // console.log("addEvent: ", key, value);
+        var checkbox = document.getElementById(key);
+        // checkbox doesnt exist because it wasn't injected
+        // it must be custom
+        if (!checkbox) {
+            console.log("adding custom checkbox from params: " + key + " " + value)
+            if(key.startsWith("./")){
+                // console.log("path");
+                // force the BOOL of value instead of the string from the param
+                createCheckbox(key, "filterPaths", value, true);
+            } else {
+                // console.log("name");
+                createCheckbox(key, "filterNames", value, true);
+            }
+            // now update our copy of checkbox
+            checkbox = document.getElementById(key);
+        }
+        // if we get here and we STILL dont have a checkbox, there must be something wrong with this param.
+        // try to handle bad params
+        try {
+            // console.log("try checkbox.checked");
+            checkbox.checked = (value === 'true');
+        } catch (error) {
+            console.error(`Error setting checked property of checkbox for ${key}=${value}: ${error}`);
+            // remove the bad query parameter from the URL
+            // searchParams.delete(key);
+            // url.search = searchParams.toString();
+            // history.pushState(null, null, url);
+            // console.log(`Removed bad query parameter from URL: ${url.href}`);
+        } // end catch
+
+        // if(checkbox) {
+          // This is likely done to ensure that each checkbox element is only checked once, even if the same key appears multiple times in the search parameters.
+          if (!checked.has(key)) {
+              // console.log("updating checkbox.checked to value: " + (value === 'true'));
+              checkbox.checked = (value === 'true');
+              checked.add(key);
+          }
+            // console.log(checkbox);
+            // console.log("into handlecheckbox next");
+            handleCheckboxChange(checkbox);
+        // }
+    }
+});
+
+
+// Create checkboxes for ignoredPaths
+for (var path in ignoredPaths) {
+  if (ignoredPaths.hasOwnProperty(path)) {
+    createCheckbox(path, "filterPaths", ignoredPaths[path]);
+  }
+}
+
+// Create checkboxes for ignoredNames
+for (var name in ignoredNames) {
+  if (ignoredNames.hasOwnProperty(name)) {
+    createCheckbox(name, "filterNames", ignoredNames[name]);
+  }
+}
+
+function createHeader(headerId, containerId, headerText, instructionText) {
+  var header = document.createElement("h3");
+  header.innerHTML = headerText;
+  document.getElementById(headerId).prepend(header);
+
+  var container = document.getElementById(containerId);
+  var instruction = document.createElement("p");
+  instruction.innerHTML = instructionText;
+  container.appendChild(instruction);
+}
+
+var headerDescription = "These elements are normally excluded. Deselect them to include them explicity (add a custom path and deselect if you want to override a less specific path that's excluded)."
+createHeader("filterPathsHeader", "filterPathsDescription", "Filter Paths", headerDescription);
+createHeader("filterNamesHeader", "filterNamesDescription", "Filter Names", headerDescription);
+
+
+
+</script>
+
+
     </div>
       <div class="main-container main-container-flex">
         <div class="page-header"></div>
