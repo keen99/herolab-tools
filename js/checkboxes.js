@@ -8,6 +8,7 @@ function addName() {
     ignoredNames[nameInput] = true;
     console.log("addName");
     if(nameInput.startsWith("./")){
+        // default to true for newly added options
         createCheckbox(nameInput, "filterPaths", true, true);
     } else {
         createCheckbox(nameInput, "filterNames", true, true);
@@ -19,38 +20,40 @@ function updateUrlParams(checkbox) {
     const url = new URL(window.location);
     const urlParams = new URLSearchParams(url.search);
 
-    console.log("updateUrlParams value:", checkbox.value, "checked: " + checkbox.checked, "custom: " + checkbox.custom);
+    // console.log("updateUrlParams value:", checkbox.value, "checked: " + checkbox.checked, "custom: " + checkbox.custom);
     // console.log(checkbox);
-    //
+
+    defaultChecked = getOriginalIgnoredValue(checkbox.value);
+    // console.log("updateUrlParams: defaultChecked", checkbox.value, defaultChecked);
+
+    // if defaultChecked is undefined, treat it as true
+    if (defaultChecked === undefined) {
+        console.log("updateUrlParams: treating defaultChecked as true");
+        defaultChecked = true;
+    }
+
     // add to url params when
     // checkbox.custom = true
     // or
-
-// ok this logic is wrong.
-// we need to remove it IF what we're setting it for is different than the DEFAULT
-// which isn't always true.
-
-// so we have to go back to the unmolested original.
-
-
-    // checkbox.custom = false and checkbox.checked = false
-    if (checkbox.custom === true || (checkbox.custom === false && checkbox.checked === false)) {
-        console.log(`Adding ${checkbox.value}=${checkbox.checked} to the URL query: ${url.href}`);
+    // checkbox.custom = false and checkbox.checked differs from the default value
+    if (checkbox.custom === true || (checkbox.custom === false && checkbox.checked !== defaultChecked)) {
+        // console.log(`Adding ${checkbox.value}=${checkbox.checked} to the URL query: ${url.href}`);
         // convert checkbox.checked from a boolean to a string
         let checkedValue = checkbox.checked ? 'true' : 'false';
         urlParams.set(checkbox.value, checkedValue);
     // remove from url params when
     // checkbox.custom = false
     // and
-    // checkbox.checked = true
-    } else if (checkbox.custom === false && checkbox.checked === true) {
-        console.log(`Removing ${checkbox.value}=${checkbox.checked} from the URL query: ${url.href}`);
+    // checkbox.checked equals the default value
+    } else if (checkbox.custom === false && checkbox.checked === defaultChecked) {
+        // console.log(`Removing ${checkbox.value}=${checkbox.checked} from the URL query: ${url.href}`);
         urlParams.delete(checkbox.value);
     }
-    url.search = urlParams.toString();
-    history.pushState(null, null, url);
-    console.log(`Updated URL query: ${url.href}`);
-}
+
+        url.search = urlParams.toString();
+        history.pushState(null, null, url);
+        // console.log(`Updated URL query: ${url.href}`);
+    }
 
 
 function createCheckbox(value, containerId, checked = true, custom = false) {
@@ -85,7 +88,7 @@ function createCheckbox(value, containerId, checked = true, custom = false) {
 
     }
     checkbox.onchange = function(event) {
-        console.log("createCheckbox onchange update");
+        // console.log("createCheckbox onchange update");
         updateUrlParams(checkbox);
         handleCheckboxChange(checkbox);
     }
@@ -101,17 +104,17 @@ function createCheckbox(value, containerId, checked = true, custom = false) {
 
 function handleCheckboxChange(checkbox) {
   // console.log("handleCheckboxChange: ", checkbox.value, checkbox.checked)
-
   if(checkbox.value.startsWith("./")){
       var ignoredData = ignoredPaths;
   } else {
       var ignoredData = ignoredNames;
   }
   // console.log("handleCheckboxChange: ", checkbox.value, checkbox.checked)
-  // console.log(ignoredData);
+  // console.log(JSON.stringify(ignoredData));
   ignoredData[checkbox.value] = checkbox.checked;
-  // console.log(ignoredData);
+  // console.log(JSON.stringify(ignoredData));
   // Validate that the change happened
+  // console.log("ignoreddata...", ignoredData[checkbox.value], checkbox.checked);
   if (ignoredData[checkbox.value] !== checkbox.checked) {
     throw new Error(`Expected ${checkbox.value} to be ${checkbox.checked} in ignoredData, but got ${ignoredData[checkbox.value]}.
     Full ignoredData dump: ${JSON.stringify(ignoredData)}`);
@@ -128,7 +131,7 @@ function handleCheckAll(containerId, check) {
   checkboxes.forEach(checkbox => {
     if (checkbox.checked !== check) {
       checkbox.checked = check;
-      console.log("handleCheckAll update");
+      // console.log("handleCheckAll update");
       updateUrlParams(checkbox);
       handleCheckboxChange(checkbox);
     }

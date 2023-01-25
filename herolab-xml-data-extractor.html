@@ -223,6 +223,7 @@ window.addEventListener('load', function() {
         // if we get here and we STILL dont have a checkbox, there must be something wrong with this param.
         // try to handle bad params
         try {
+            // console.log("try checkbox.checked");
             checkbox.checked = (value === 'true');
         } catch (error) {
             console.error(`Error setting checked property of checkbox for ${key}=${value}: ${error}`);
@@ -240,7 +241,8 @@ window.addEventListener('load', function() {
               checkbox.checked = (value === 'true');
               checked.add(key);
           }
-          // console.log(checkbox);
+            // console.log(checkbox);
+            // console.log("into handlecheckbox next");
             handleCheckboxChange(checkbox);
         // }
     }

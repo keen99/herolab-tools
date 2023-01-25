@@ -7,14 +7,15 @@
       ".//": false,
       ".//personal": true,
       ".//journals/journal": true,
-      ".//spells": false,
+      ".//spells": true,
       ".//spellsmemorized/spell": true,
       ".//skills": true,
       ".//minions/": true,
     };
+    let origIgnoredPaths = {...ignoredPaths}; // make a copy
 
     var ignoredNames = {
-      "Additional Traits": false,
+      "Additional Traits": true,
       "Unarmed Strike": true,
       "Spell component pouch": true,
       "Aura (Ex)": true,
@@ -31,6 +32,18 @@
       "Tower Shield Proficiency": true,
       "Item of Renown": true,
     };
+    let origIgnoredNames = {...ignoredNames}; // make a copy
 
 
+
+function getOriginalIgnoredValue(nameOrPath) {
+  // console.log("getOriginalIgnoredValue", nameOrPath);
+  var nameOrPath = String(nameOrPath);
+  if(nameOrPath.startsWith("./")){
+      return origIgnoredPaths[nameOrPath];
+  } else {
+      return origIgnoredNames[nameOrPath];
+  }
+  return undefined;
+}
 
