@@ -28,3 +28,11 @@ function getElementTreeXPath(element) {
   }
   return paths.length ? "/" + paths.join("/") : null;
 }
+
+
+function strip_extension(str) {
+    return str.substr(0,str.lastIndexOf('.'));
+}
+function basename (path, sep = '/') {
+  return path.substring(path.lastIndexOf(sep) + 1)
+}

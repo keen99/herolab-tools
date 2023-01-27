@@ -4,6 +4,24 @@
 <style>
   @media print {
 
+    .show-button-header {
+      display: none
+    }
+
+     /*these aren't working.*/
+    .pdf-container {
+      visibility: none;
+      display: none
+    }
+    .show-pdf {
+      display: none;
+      visibility: hidden
+    }
+    .half-main-container {
+        width: 100%;
+    }
+
+
     /* THIS causes our columns to flow properly from page to page*/
     /* set page size and margins */
     @page {
@@ -25,18 +43,19 @@
     display: inline-block;
   }
 
+
   .description-text {
     /*white-space: pre-wrap;*/
     white-space: pre-wrap !important;
     /* The pre-wrap value preserves newlines and whitespace characters, while allowing text to wrap to the next line. You can use this property to achieve a similar effect to the <pre> element, without actually using the <pre> element in your HTML. */
-    word-break: keep-all;
+    /*word-break: keep-all;*/
     /* to allow the text to break in between words if the text is too long. */
     font-size: 80%;
     /* match the <pre> style*/
-    font-family: monospace;
+    font-family: times-roman;
     /*font-size: 14px;*/
-    line-height: 1.5;
-    color: #333;
+    /*line-height: 1.5;*/
+    /*color: #333;*/
   }
 
   /* Style the header */
@@ -64,6 +83,45 @@
     min-height: 100%;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    float: left;
+  }
+  /* when pdf is showing*/
+  .half-main-container {
+      width: 50%;
+  }
+
+
+.button-header {
+      visibility: hidden;
+}
+.show-button-header {
+      visibility: visible;
+}
+
+.pdf-container {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+.show-pdf {
+  visibility: visible;
+  width: 50%;
+  height: 100vh;
+  float: right;
+}
+
+/* force the form to float left, to allow next buttons to be on same line*/
+.pdf-form {
+    float: left;
+}
+
+.show-pdf-button {
+  visibility: hidden;
+}
+  .pdf-frame {
+    width: 100%;
+    height: 100vh
   }
 
   .main-container-flex {
@@ -123,19 +181,14 @@
 </style>
 <html>
   <head>
-    <script >
-      document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("xml-file").onchange = function(){processXmlFile(false)};
-      });
-    </script>
-
-
     <script src="js/extractor.js"></script>
     <script src="js/utilities.js"></script>
     <script src="js/ignoredElements.js"></script>
     <script src="js/checkboxes.js"></script>
     <script src="js/filter.js"></script>
-
+    <script src='js/pdfkit.js'></script>
+    <script src='js/blob-stream.js'></script>
+    <script src="js/createPdf.js"></script>
   </head>
   <body>
     <div id="status">
@@ -148,13 +201,14 @@
         <li><a href="https://github.com/keen99/herolab-tools"> herolab-tools repo</a> - Source freely available on github</li>
       </ul>
     </div>
-
-<input type="file" id="xml-file" accept="application/xml, text/xml, .xml" onchange="addName();">
-<div id="xml-button">
-  <button id="xml-button-1" onclick="addName(); processXmlFile('sample-xml/Bronn_Skyfall_L6.xml')">Sample - Bronn_Skyfall_L6.xml</button>
-  <button id="xml-button-2" onclick="addName(); processXmlFile('sample-xml/Bronn_Skyfall_L7.xml')">Sample - Bronn_Skyfall_L7.xml</button>
-  <button id="xml-button-3" onclick="addName(); processXmlFile('sample-xml/Flen_Nightinfire.6.xml')">Sample - Flen_Nightinfire.6.xml</button>
-</div>
+    <div id="xml-file-container">
+      <input type="file" id="xml-file" accept="application/xml, text/xml, .xml" onchange="addName();">
+    </div>
+    <div id="xml-button">
+      <button id="xml-button-1" onclick="addName(); processXmlFile('sample-xml/Bronn_Skyfall_L6.xml')">Sample - Bronn_Skyfall_L6.xml</button>
+      <button id="xml-button-2" onclick="addName(); processXmlFile('sample-xml/Bronn_Skyfall_L7.xml')">Sample - Bronn_Skyfall_L7.xml</button>
+      <button id="xml-button-3" onclick="addName(); processXmlFile('sample-xml/Flen_Nightinfire.6.xml')">Sample - Flen_Nightinfire.6.xml</button>
+    </div>
       <br>
       <form id="addNameForm" onsubmit="addName(); return false;">
         <label for="nameInput">Add Custom Filter (path or name):</label>
@@ -181,110 +235,119 @@
 
       </div>
     </div>
+  <div id="button-header" class="button-header">
+    <!-- inject buttons with JS -->
+  </div>
+  <div class="main-container main-container-flex">
+    <!-- to easier control order, inject these in html instead of js -->
+    <div class="page-header"></div>
+    <div class="grid-container"></div>
+    <div class="page-footer"></div>
+  </div>
+  <div class="pdf-container">
+      <!-- inject Iframe for displaying the PDF in js -->
+  </div>
+
+
+<script >
+  document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("xml-file").onchange = function(){processXmlFile(false)};
+  });
+</script>
 
 <script>
+  //
+  // everything below here is for checkboxes
+  //
+  document.querySelector('#check-all-names').addEventListener('click', () => handleCheckAll('#filterNames', true));
+  document.querySelector('#uncheck-all-names').addEventListener('click', () => handleCheckAll('#filterNames', false));
+  document.querySelector('#check-all-paths').addEventListener('click', () => handleCheckAll('#filterPaths', true));
+  document.querySelector('#uncheck-all-paths').addEventListener('click', () => handleCheckAll('#filterPaths', false));
 
-
-document.querySelector('#check-all-names').addEventListener('click', () => handleCheckAll('#filterNames', true));
-document.querySelector('#uncheck-all-names').addEventListener('click', () => handleCheckAll('#filterNames', false));
-document.querySelector('#check-all-paths').addEventListener('click', () => handleCheckAll('#filterPaths', true));
-document.querySelector('#uncheck-all-paths').addEventListener('click', () => handleCheckAll('#filterPaths', false));
-
-
-window.addEventListener('load', function() {
-    // code to execute when the page has finished loading
-    // Get the current URL
-    const url = new URL(window.location);
-    // Get the search params
-    const searchParams = new URLSearchParams(url.search);
-    var checked = new Set();
-    for (const [key, value] of searchParams.entries()) {
-        // console.log("addEvent: ", key, value);
-        var checkbox = document.getElementById(key);
-        // checkbox doesnt exist because it wasn't injected
-        // it must be custom
-        if (!checkbox) {
-            console.log("adding custom checkbox from params: " + key + " " + value)
-            if(key.startsWith("./")){
-                // console.log("path");
-                // force the BOOL of value instead of the string from the param
-                createCheckbox(key, "filterPaths", value, true);
-            } else {
-                // console.log("name");
-                createCheckbox(key, "filterNames", value, true);
-            }
-            // now update our copy of checkbox
-            checkbox = document.getElementById(key);
-        }
-        // if we get here and we STILL dont have a checkbox, there must be something wrong with this param.
-        // try to handle bad params
-        try {
-            // console.log("try checkbox.checked");
-            checkbox.checked = (value === 'true');
-        } catch (error) {
-            console.error(`Error setting checked property of checkbox for ${key}=${value}: ${error}`);
-            // remove the bad query parameter from the URL
-            // searchParams.delete(key);
-            // url.search = searchParams.toString();
-            // history.pushState(null, null, url);
-            // console.log(`Removed bad query parameter from URL: ${url.href}`);
-        } // end catch
-
-        // if(checkbox) {
-          // This is likely done to ensure that each checkbox element is only checked once, even if the same key appears multiple times in the search parameters.
-          if (!checked.has(key)) {
-              // console.log("updating checkbox.checked to value: " + (value === 'true'));
-              checkbox.checked = (value === 'true');
-              checked.add(key);
+  window.addEventListener('load', function() {
+      // code to execute when the page has finished loading
+      // Get the current URL
+      const url = new URL(window.location);
+      // Get the search params
+      const searchParams = new URLSearchParams(url.search);
+      var checked = new Set();
+      for (const [key, value] of searchParams.entries()) {
+          // console.log("addEvent: ", key, value);
+          var checkbox = document.getElementById(key);
+          // checkbox doesnt exist because it wasn't injected
+          // it must be custom
+          if (!checkbox) {
+              console.log("adding custom checkbox from params: " + key + " " + value)
+              if(key.startsWith("./")){
+                  // console.log("path");
+                  // force the BOOL of value instead of the string from the param
+                  createCheckbox(key, "filterPaths", value, true);
+              } else {
+                  // console.log("name");
+                  createCheckbox(key, "filterNames", value, true);
+              }
+              // now update our copy of checkbox
+              checkbox = document.getElementById(key);
           }
-            // console.log(checkbox);
-            // console.log("into handlecheckbox next");
-            handleCheckboxChange(checkbox);
-        // }
+          // if we get here and we STILL dont have a checkbox, there must be something wrong with this param.
+          // try to handle bad params
+          try {
+              // console.log("try checkbox.checked");
+              checkbox.checked = (value === 'true');
+          } catch (error) {
+              console.error(`Error setting checked property of checkbox for ${key}=${value}: ${error}`);
+              // remove the bad query parameter from the URL
+              // searchParams.delete(key);
+              // url.search = searchParams.toString();
+              // history.pushState(null, null, url);
+              // console.log(`Removed bad query parameter from URL: ${url.href}`);
+          } // end catch
+
+          // if(checkbox) {
+            // This is likely done to ensure that each checkbox element is only checked once, even if the same key appears multiple times in the search parameters.
+            if (!checked.has(key)) {
+                // console.log("updating checkbox.checked to value: " + (value === 'true'));
+                checkbox.checked = (value === 'true');
+                checked.add(key);
+            }
+              // console.log(checkbox);
+              // console.log("into handlecheckbox next");
+              handleCheckboxChange(checkbox);
+          // }
+      }
+  }); // end window.addEventListener('load' for checkboxes
+
+  // Create checkboxes for ignoredPaths
+  for (var path in ignoredPaths) {
+    if (ignoredPaths.hasOwnProperty(path)) {
+      createCheckbox(path, "filterPaths", ignoredPaths[path]);
     }
-});
-
-
-// Create checkboxes for ignoredPaths
-for (var path in ignoredPaths) {
-  if (ignoredPaths.hasOwnProperty(path)) {
-    createCheckbox(path, "filterPaths", ignoredPaths[path]);
   }
-}
 
-// Create checkboxes for ignoredNames
-for (var name in ignoredNames) {
-  if (ignoredNames.hasOwnProperty(name)) {
-    createCheckbox(name, "filterNames", ignoredNames[name]);
+  // Create checkboxes for ignoredNames
+  for (var name in ignoredNames) {
+    if (ignoredNames.hasOwnProperty(name)) {
+      createCheckbox(name, "filterNames", ignoredNames[name]);
+    }
   }
-}
 
-function createHeader(headerId, containerId, headerText, instructionText) {
-  var header = document.createElement("h3");
-  header.innerHTML = headerText;
-  document.getElementById(headerId).prepend(header);
+  function createCheckboxHeader(headerId, containerId, headerText, instructionText) {
+    var header = document.createElement("h3");
+    header.innerHTML = headerText;
+    document.getElementById(headerId).prepend(header);
 
-  var container = document.getElementById(containerId);
-  var instruction = document.createElement("p");
-  instruction.innerHTML = instructionText;
-  container.appendChild(instruction);
-}
+    var container = document.getElementById(containerId);
+    var instruction = document.createElement("p");
+    instruction.innerHTML = instructionText;
+    container.appendChild(instruction);
+  }
 
-var headerDescription = "These elements are normally excluded. Deselect them to include them explicity (add a custom path and deselect if you want to override a less specific path that's excluded)."
-createHeader("filterPathsHeader", "filterPathsDescription", "Filter Paths", headerDescription);
-createHeader("filterNamesHeader", "filterNamesDescription", "Filter Names", headerDescription);
-
-
+  var headerDescription = "These elements are normally excluded. Deselect them to include them explicity (add a custom path and deselect if you want to override a less specific path that's excluded)."
+  createCheckboxHeader("filterPathsHeader", "filterPathsDescription", "Filter Paths", headerDescription);
+  createCheckboxHeader("filterNamesHeader", "filterNamesDescription", "Filter Names", headerDescription);
 
 </script>
 
-
-    </div>
-      <div class="main-container main-container-flex">
-        <div class="page-header"></div>
-        <div class="grid-container"></div>
-        <div class="page-footer"></div>
-      </div>
   </body>
 </html>
 

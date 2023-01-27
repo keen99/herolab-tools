@@ -1,9 +1,12 @@
 
-    var selectedOptions = [];
+    processedFileName = "";
 
+    // Create the pdfDoc variable outside of any function
+    let pdfDoc = false;
+    let pdfVisible = false;
 
     // include .//  so it's easily available for flipping
-    var ignoredPaths = {
+    ignoredPaths = {
       ".//": false,
       ".//personal": true,
       ".//journals/journal": true,
@@ -12,9 +15,9 @@
       ".//skills": true,
       ".//minions/": true,
     };
-    let origIgnoredPaths = {...ignoredPaths}; // make a copy
+    const origIgnoredPaths = {...ignoredPaths}; // make a copy
 
-    var ignoredNames = {
+    ignoredNames = {
       "Additional Traits": true,
       "Unarmed Strike": true,
       "Spell component pouch": true,
@@ -32,7 +35,7 @@
       "Tower Shield Proficiency": true,
       "Item of Renown": true,
     };
-    let origIgnoredNames = {...ignoredNames}; // make a copy
+    const origIgnoredNames = {...ignoredNames}; // make a copy
 
 
 
