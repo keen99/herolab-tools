@@ -45,6 +45,8 @@
       "Item of Renown": true,
       "Masterwork Studded Leather": true,
     };
+    ignoredNames = Object.fromEntries(Object.entries(ignoredNames).sort());
+
     const origIgnoredNames = {...ignoredNames}; // make a copy
 
 
