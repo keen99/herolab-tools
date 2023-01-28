@@ -113,11 +113,14 @@ function createPdf(extractedData, headerAndFooter, columns, download = false) {
     // populate the iframe anyway so we can toggle the show
     // inject the iframe into the pdf-container div
     const pdfContainer = document.querySelector('.pdf-container');
-    const pdfFrame = document.createElement('iframe');
-    pdfFrame.id = 'pdf-frame';
-    pdfFrame.classList.add('pdf-frame');
-    pdfFrame.src = stream.toBlobURL('application/pdf');
-    pdfContainer.appendChild(pdfFrame);
+    const pdfFrame = document.getElementById('pdf-frame');
+    if (!pdfFrame) {
+        const pdfFrame = document.createElement('iframe');
+        pdfFrame.id = 'pdf-frame';
+        pdfFrame.classList.add('pdf-frame');
+        pdfFrame.src = stream.toBlobURL('application/pdf');
+        pdfContainer.appendChild(pdfFrame);
+    }
     // now populate the iframe with the pdf
     var iframe = document.getElementById("pdf-frame");
     iframe.src = stream.toBlobURL('application/pdf');
