@@ -19,12 +19,21 @@
 
     ignoredNames = {
       "Additional Traits": true,
+      "Arrows": true,
+      "Saddle": true,
+      "Silvered Arrows": true,
+      "Spike, Iron": true,
+      "Dagger": true,
+      "Hammer": true,
+      "Twine, Roll": true,
+      "Rope, hempen": true,
       "Unarmed Strike": true,
       "Spell component pouch": true,
       "Aura (Ex)": true,
       "Subtype - Human": true,
       "Subtype - Dwarf": true,
       "Subtype - Elf": true,
+      "Type - Animal": true,
       "Type - Humanoid": true,
       "Bolts, Crossbow": true,
       "Darkvision ": true,
@@ -34,6 +43,7 @@
       "Simple Weapon Proficiency - All": true,
       "Tower Shield Proficiency": true,
       "Item of Renown": true,
+      "Masterwork Studded Leather": true,
     };
     const origIgnoredNames = {...ignoredNames}; // make a copy
 

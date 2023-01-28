@@ -83,6 +83,7 @@ function processParsedXml(parsedXml) {
       // skip based on ignoredNames
       let name = item.getAttribute("name");
       // this return as false-able if we should skip this.
+      // console.log("name filter for name:", name);
       if ( !filterIgnoredNames(name, ignoredNames, elementsIgnored)) {
         // console.log("    skipping, next.");
         item = items.iterateNext();
@@ -93,6 +94,7 @@ function processParsedXml(parsedXml) {
       // if this returns a falseable, we dont push this item to the container
       // that could be empty or duplicate.
       if (handleDescriptionsResult.shouldCreateContainer) {
+        // console.log("container creation for name:", name);
         extractedData.push({
           container: createDescriptionElement(handleDescriptionsResult.name, handleDescriptionsResult.element, handleDescriptionsResult.description),
           name: handleDescriptionsResult.name

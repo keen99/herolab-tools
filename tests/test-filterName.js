@@ -23,7 +23,19 @@ class FilterIgnoredNamesTestCase {
 
   run() {
     var elementsIgnored = new Set();
-    var output = filterIgnoredNames(this.name, this.ignoredNames, elementsIgnored);
+    if (Array.isArray(this.name)) {
+      var output = "";
+      for (let i = 0; i < this.name.length; i++) {
+        var result = filterIgnoredNames(this.name[i], this.ignoredNames, elementsIgnored);
+        if (typeof result === 'string') {
+          output += result;
+        } else {
+          output = result;
+        }
+      }
+    } else {
+      output = filterIgnoredNames(this.name, this.ignoredNames, elementsIgnored);
+    }
 
     // convert the set to an array
     var elementsIgnored = [...elementsIgnored];
@@ -115,9 +127,19 @@ const test19 = new FilterIgnoredNamesTestCase("Additional Traits", {
 console.log(test19.run());
 
 
-// this doesnt work right yet.
 console.log("Test 20 - test a false-able output")
 const test20 = new FilterIgnoredNamesTestCase("Additional Traits", {
 "Additional Traits": true
 }, false, []);
 console.log(test20.run());
+
+
+
+console.log("Test 21 - test duplicate inputs that should be filtered out")
+const test21 = new FilterIgnoredNamesTestCase(["Armor Proficiency (Heavy)", "Armor Proficiency (Heavy)"], {
+  "Armor Proficiency": true,
+}, undefined, ["Armor Proficiency (Heavy)"]);
+console.log(test21.run());
+
+
+

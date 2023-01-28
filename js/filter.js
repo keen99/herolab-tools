@@ -51,7 +51,7 @@ function removeElements(elements, ignoredPaths, elementsIgnored = new Set()) {
 
 function filterIgnoredNames(name, ignoredNames, elementsIgnored) {
   // console.log("filterIgnoredNames: name: ", name);
-  // console.log("filterIgnoredNames: ignoredNames: ", ignoredNames);
+  // console.log("filterIgnoredNames: ignoredNames: ", JSON.stringify(ignoredNames,null,2));
   // we may enter into a section with a description but no name. that's a valid case.
   if (name === null) {
     // console.log("  got a null name, this is ok");
@@ -64,9 +64,12 @@ function filterIgnoredNames(name, ignoredNames, elementsIgnored) {
     // does it match the filter?  enter the filter.
     if (ignoredNames.hasOwnProperty(ignoredName) && ignoredNames[ignoredName] && name.startsWith(ignoredName)) {
       // console.log("past logic");
+      // console.log("    Skipping ignoredNames: " + name);
       if (!elementsIgnored.has(name)) {
         elementsIgnored.add(name);
-        console.log("    Skipping ignoredNames: " + name);
+        // console.log("    elementsIgnored: ", JSON.stringify([...elementsIgnored],null,2));
+        return undefined;
+      } else {
         return undefined;
       } // if ! ignored name
     } // if........name matchin
